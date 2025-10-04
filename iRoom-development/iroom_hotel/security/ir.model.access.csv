@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+hotel_reservation_rating,hotel.reservation.rating,model_hotel_reservation_rating,base.group_user,1,1,1,1
+
+hotel_room_image,hotel.room.image,model_hotel_room_image,base.group_user,1,1,1,1
+hotel_room_image_public,hotel.room.image.public,model_hotel_room_image,base.group_public,1,1,1,1
+
+sale_shop_public,sale.shop.public,model_sale_shop,base.group_public,1,0,0,0
+sale_shop_activity_line,sale.shop.activity.line,model_sale_shop_activity_line,base.group_user,1,1,1,1
+sale_shop_image,sale.shop.image,model_sale_shop_image,base.group_user,1,1,1,1
+sale_shop_image_public,sale.shop.image,model_sale_shop_image,base.group_public,1,0,0,0
+sale_shop_option,sale.shop.option,model_sale_shop_option,base.group_user,1,1,1,1
+sale_shop_tag,sale.shop.tag,model_sale_shop_tag,base.group_user,1,1,1,1

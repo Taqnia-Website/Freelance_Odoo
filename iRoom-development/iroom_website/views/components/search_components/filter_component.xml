@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="iroom_website.search_filter_component">
+		<section class="grey-blue-bg small-padding custom-search-section section-float pt-5" id="search-filter">
+			<div class="container">
+				<div class="row">
+					<!-- listing -->
+					<div class="col-md-12">
+						<div class="mobile-list-controls fl-wrap mar-bot-cont">
+							<div class="mlc show-list-wrap-search fl-wrap"><i class="fal fa-filter"/> فلتر</div>
+						</div>
+						<form action="/search_hotels/" type="post">
+							<!-- list-wrap-search -->
+							<div class="list-wrap-search lisfw fl-wrap lws_mobile mt-4">
+								<div class="container">
+									<div class="row">
+										<!-- col-list-search-input-item -->
+										<div class="col-md-4">
+											<div class="col-list-search-input-item in-loc-dec fl-wrap not-vis-arrow">
+												<label>الفندق</label>
+												<div class="listsearch-input-item">
+													<select id="hotel_select" name="hotel_select" data-placeholder="الفندق">
+                                                        <option value="0"/>
+                                                        <t t-foreach="all_hotels" t-as="hotel">
+                                                            <option t-if="inputs['hotel_select'] == str(hotel['id'])" t-att-value="hotel['id']" t-esc="hotel['name']" selected="selected"/>
+                                                            <option t-else="" t-att-value="hotel['id']" t-esc="hotel['name']"/>
+                                                        </t>
+													</select>
+													<i class="fal fa-caret-down select-i"/>
+												</div>
+											</div>
+										</div>
+										<!-- col-list-search-input-item end -->
+										<!-- col-list-search-input-item -->
+										<div class="col-md-5">
+											<div class="col-list-search-input-item fl-wrap location autocomplete-container">
+												<label>الوجهة</label>
+												<span class="header-search-input-item-icon">
+													<i class="fal fa-map-marker-alt"/>
+												</span>
+												<input type="text" name="location" placeholder="الوجهة" class="autocomplete-input" id="autocompleteid3" t-att-value="inputs['location'] if inputs.get('location') else ''" />
+												<a href="#"><i class="fal fa-dot-circle"/></a>
+											</div>
+										</div>
+										<!-- col-list-search-input-item end -->
+										<!-- col-list-search-input-item -->
+										<div class="col-md-3">
+											<div class="col-list-search-input-item in-loc-dec date-container  fl-wrap">
+												<label>فترة الحجز</label>
+												<span class="header-search-input-item-icon">
+													<i class="fal fa-calendar-check"/>
+												</span>
+												<input type="text" placeholder="فترة الحجز" name="main-input-search_slider" t-att-value="inputs['main-input-search_slider']" />
+												<input type="hidden" name="from_date" id="from_date" class="input-field" t-att-value="inputs['from_date']" />
+												<input type="hidden" name="to_date" id="to_date" class="input-field" t-att-value="inputs['to_date']" />
+												<i class="fal fa-caret-down select-i"/>
+											</div>
+										</div>
+										<!-- col-list-search-input-item end -->
+									</div>
+									<div class="search-opt-wrap fl-wrap">
+										<div class="search-opt-wrap-container">
+											<!-- col-list-search-input-item -->
+											<div class="search-input-item midd-input">
+												<div class="col-list-search-input-item fl-wrap">
+													<div class="quantity-item">
+														<label>الغرف</label>
+														<div class="quantity">
+															<input type="number" name="number_of_rooms" min="1" max="3" step="1" value="1" />
+														</div>
+													</div>
+													<div class="quantity-item">
+														<label>كبار</label>
+														<div class="quantity">
+															<input type="number" name="number_of_adults" t-att-value="inputs['number_of_adults']" min="1" max="30" step="1" value="1" />
+														</div>
+													</div>
+													<div class="quantity-item">
+														<label>أطفال</label>
+														<div class="quantity">
+															<input type="number" name="number_of_children" t-att-value="inputs['number_of_children']" min="0" max="30" step="1" value="0" />
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- col-list-search-input-item end -->
+											<!-- col-list-search-input-item -->
+											<div class="search-input-item">
+												<div class="range-slider-title">النطاق السعري</div>
+												<div class="range-slider-wrap fl-wrap">
+													<input class="range-slider" name="price"
+														   t-att-data-from="inputs['price_from'] if inputs.get('price_from') else '300'"
+														   t-att-data-to="inputs['price_to'] if inputs.get('price_to') else '1200'"
+														   data-step="50" data-min="50" data-max="2000" data-prefix="SAR" />
+												</div>
+											</div>
+											<!-- col-list-search-input-item end -->
+											<!-- col-list-search-input-item -->
+											<div class="search-input-item small-input ">
+												<div class="col-list-search-input-item fl-wrap">
+													<button class="header-search-button" type="submit" value="Check">بحث<i class="fal fa-search"/></button>
+												</div>
+											</div>
+											<!-- col-list-search-input-item end -->
+											<!-- hidden-listing-filter -->
+											<div class="hidden-listing-filter fl-wrap">
+												<div class="row">
+													<div class="col-md-4">
+														<!-- col-list-search-input-item -->
+														<div class="col-list-search-input-item fl-wrap">
+															<h4>التقييم</h4>
+															<div class="search-opt-container fl-wrap">
+																<!-- Checkboxes -->
+																<ul class="fl-wrap filter-tags">
+																	<li class="five-star-rating">
+																		<input t-if="inputs.get('stars_5') and inputs['stars_5'] == 'on'" id="check-aa2" type="checkbox" name="stars_5" checked="checked"/>
+																		<input t-else="" id="check-aa2" type="checkbox" name="stars_5"/>
+																		<label for="check-aa2">
+																			<span class="listing-rating card-popup-rainingvis" data-starrating2="5">
+																				<span>5 نجوم</span>
+																			</span>
+																		</label>
+																	</li>
+																	<li class="four-star-rating">
+																		<input t-if="inputs.get('stars_4') and inputs['stars_4'] == 'on'" id="check-aa3" type="checkbox" name="stars_4" checked="checked"/>
+																		<input t-else="" id="check-aa3" type="checkbox" name="stars_4"/>
+																		<label for="check-aa3">
+																			<span class="listing-rating card-popup-rainingvis" data-starrating2="5">
+																				<span>4 نجوم</span>
+																			</span>
+																		</label>
+																	</li>
+																	<li class="three-star-rating">
+																		<input t-if="inputs.get('stars_3') and inputs['stars_3'] == 'on'" id="check-aa4" type="checkbox" name="stars_3" checked="checked"/>
+																		<input t-else="" id="check-aa4" type="checkbox" name="stars_3"/>
+																		<label for="check-aa4">
+																			<span class="listing-rating card-popup-rainingvis" data-starrating2="5">
+																				<span>3 نجوم</span>
+																			</span>
+																		</label>
+																	</li>
+																</ul>
+																<!-- Checkboxes end -->
+															</div>
+														</div>
+														<!-- col-list-search-input-item end -->
+													</div>
+													<div class="col-md-8">
+														<!-- col-list-search-input-item -->
+														<div class="col-list-search-input-item fl-wrap">
+															<h4>المرافق</h4>
+															<div class="search-opt-container fl-wrap">
+																<!-- Checkboxes -->
+                                                                <ul class="fl-wrap filter-tags half-tags">
+                                                                    <t t-foreach="all_amenities_1" t-as="amenity">
+                                                                        <li>
+                                                                            <input t-if="'amenity_' + amenity['name'] in inputs" checked="checked"
+																				   t-att-id="'amenity-' + str(amenity['id'])" type="checkbox" t-att-name="'amenity_' + amenity['name']"/>
+                                                                            <input t-else="" t-att-id="'amenity-' + str(amenity['id'])" type="checkbox" t-att-name="'amenity_' + amenity['name']"/>
+                                                                            <label t-att-for="'amenity-' + str(amenity['id'])" t-esc="amenity['name']"/>
+                                                                        </li>
+                                                                    </t>
+                                                                </ul>
+                                                                <ul t-if="all_amenities_2" class="fl-wrap filter-tags half-tags">
+                                                                    <t t-foreach="all_amenities_2" t-as="amenity">
+                                                                        <li>
+                                                                            <input t-if="'amenity_' + amenity['name'] in inputs" checked="checked"
+																				   t-att-id="'amenity-' + str(amenity['id'])" type="checkbox" t-att-name="'amenity_' + amenity['name']"/>
+                                                                            <input t-else="" t-att-id="'amenity-' + str(amenity['id'])" type="checkbox" t-att-name="'amenity_' + amenity['name']"/>
+                                                                            <label t-att-for="'amenity-' + str(amenity['id'])" t-esc="amenity['name']"/>
+                                                                        </li>
+                                                                    </t>
+                                                                </ul>
+															</div>
+														</div>
+														<!-- col-list-search-input-item end -->
+													</div>
+												</div>
+											</div>
+											<!-- hidden-listing-filter end -->
+										</div>
+										<div class="show-more-filters act-hiddenpanel color3-bg">
+											<i class="fal fa-plus">
+											</i>
+											<span>
+												المزيد من الخيارات
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- list-wrap-search end -->
+						</form>
+						<!-- col-list-wrap -->
+						<div class="col-list-wrap fw-col-list-wrap">
+							<!-- list-main-wrap -->
+							<div class="list-main-wrap fl-wrap card-listing">
+								<!-- list-main-wrap-opt -->
+								<div class="list-main-wrap-opt fl-wrap">
+									<!-- price-opt -->
+									<div class="price-opt">
+										<span class="price-opt-title">
+											فرز النتائج حسب:
+										</span>
+										<div class="listsearch-input-item">
+											<select data-placeholder="Popularity" class="chosen-select no-search-select" name="order_by">
+												<option t-if="inputs.get('order_by') and inputs['order_by'] == 'popularity'"
+														value="popularity" selected="selected">الشعبية</option>
+												<option t-else="" value="popularity">الشعبية</option>
+
+												<option t-if="inputs.get('order_by') and inputs['order_by'] == 'rating_average'"
+														value="rating_average" selected="selected">متوسط ​​التقييم</option>
+												<option t-else="" value="rating_average">متوسط ​​التقييم</option>
+
+												<option t-if="inputs.get('order_by') and inputs['order_by'] == 'price_down'"
+														value="price_down" selected="selected">السعر: من الأقل إلى الأعلى</option>
+												<option t-else="" value="price_down">السعر: من الأقل إلى الأعلى</option>
+
+												<option t-if="inputs.get('order_by') and inputs['order_by'] == 'price_up'"
+														value="price_up" selected="selected">السعر: من الأقل إلى الأعلى</option>
+												<option t-else="" value="price_up">السعر: من الأعلى إلى الأقل</option>
+											</select>
+										</div>
+									</div>
+									<!-- price-opt end -->
+									<!-- price-opt -->
+									<div class="grid-opt">
+										<ul>
+											<li>
+												<span class="two-col-grid act-grid-opt">
+													<i class="fas fa-th-large">
+													</i>
+												</span>
+											</li>
+											<li>
+												<span class="one-col-grid">
+													<i class="fas fa-bars">
+													</i>
+												</span>
+											</li>
+										</ul>
+									</div>
+									<!-- price-opt end -->
+								</div>
+								<!-- list-main-wrap-opt end -->
+								<!-- listing-item-container -->
+								<div t-if="rooms" class="listing-item-container init-grid-items fl-wrap three-columns-grid">
+									<t t-foreach="rooms" t-as="room">
+										<div class="listing-item">
+											<article class="geodir-category-listing fl-wrap">
+												<div class="geodir-category-img">
+													<img t-att-src="room['image_url']" alt="" />
+													<div class="sale-window big-sale">
+														Sale 50%
+													</div>
+													<div class="geodir-category-opt">
+														<div class="listing-rating card-popup-rainingvis" t-att-data-starrating2="int(room['rating'])"/>
+														<div class="rate-class-name">
+															<div class="score">
+																<strong t-if="room['rating'] == 5" t-esc="'جيد جدا'"/>
+																<strong t-elif="room['rating'] > 4" t-esc="'جيد'"/>
+																<strong>جيد جدا</strong>
+																<t t-esc="room['number_of_ratings']"/> تقييم
+															</div>
+															<span t-esc="room['rating']"/>
+														</div>
+													</div>
+												</div>
+												<div class="geodir-category-content fl-wrap title-sin_item">
+													<div class="geodir-category-content-title fl-wrap">
+														<div class="geodir-category-content-title-item">
+															<h3 class="title-sin_map">
+																<a t-att-href="room['hotel_url']">
+																	<t t-esc="room['name'] + ' - ' + room['hotel_name']"/>
+																</a>
+															</h3>
+															<div class="geodir-category-location fl-wrap">
+																<a t-att-href="room['location']" target="_blank" class="map-item">
+																	<i class="fas fa-map-marker-alt"/> <span t-esc="room['address']"/>
+																</a>
+															</div>
+														</div>
+													</div>
+													<p t-raw="room['description']" />
+													<!--
+													<ul class="facilities-list fl-wrap">
+													<t t-foreach="td_product1['services']" t-as="service">
+													<li>
+													<t t-if="service.image_1920">
+													<img class="tiny-square-image" t-att-src="'data:image/png;base64,' + service.image_1920.decode('utf-8')" />
+													</t>
+													<span t-esc="service.name" />
+													</li>
+													<br />
+													</t>
+													<t t-foreach="td_product1['amenities']" t-as="amenity">
+													<li>
+													<i class="fa fa-circle-o" />
+													<span t-esc="amenity" />
+													</li>
+													</t>
+													</ul>
+													-->
+													<div class="geodir-category-footer fl-wrap">
+														<div class="geodir-category-price">السعر/ليلة <span t-esc="room['unit_price']" /></div>
+														<div class="geodir-opt-list">
+															<a href="#" class="single-map-item" data-newlatitude="40.72956781" data-newlongitude="-73.99726866">
+																<i class="fal fa-map-marker-alt"/>
+																<span class="geodir-opt-tooltip">على الخريطة</span>
+															</a>
+															<a href="#" class="geodir-js-favorite">
+																<i class="fal fa-heart"/>
+																<span class="geodir-opt-tooltip">حفظ</span>
+															</a>
+															<a href="#" class="geodir-js-booking">
+																<i class="fal fa-exchange"/>
+																<span class="geodir-opt-tooltip">البحث عن الاتجاه google map</span>
+															</a>
+														</div>
+													</div>
+												</div>
+											</article>
+										</div>
+									</t>
+								</div>
+								<div t-else="" class="container custom-acs mb32 mt48 d-flex align-items-center">
+									<div class="acs-content w-100">
+										<h1 class="mt32">
+											لم يتم العثور على غرفة لهذا الفترة الزمني ...!
+										</h1>
+									</div>
+								</div>
+								<t t-if="rooms">
+									<div class="pagination">
+										<a t-if="page > 1" t-att-href="request.httprequest.url + '&amp;page=' + str(page - 1)" class="prevposts-link">
+											<i class="fa fa-caret-right"/>
+										</a>
+										<a t-else="" t-att-href="request.httprequest.url + '&amp;page=' + str(page)" class="prevposts-link">
+											<i class="fa fa-caret-right"/>
+										</a>
+
+										<t t-foreach="range(1, number_of_pages + 1)" t-as="page_number">
+											<a t-att-href="request.httprequest.url + '&amp;page=' + str(page_number)" t-attf-class="#{'current-page' if page_number == page else ''}" t-esc="page_number"/>
+										</t>
+
+										<a t-if="page &lt; number_of_pages" t-att-href="request.httprequest.url + '&amp;page=' + str(page + 1)" class="prevposts-link">
+											<i class="fa fa-caret-left"/>
+										</a>
+										<a t-else="" t-att-href="request.httprequest.url + '&amp;page=' + str(page)" class="prevposts-link">
+											<i class="fa fa-caret-left"/>
+										</a>
+									</div>
+								</t>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+    </template>
+</odoo>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_hotel_reservation_form1_agent" model="ir.ui.view">
+            <field name="name">view_hotel_reservation_form1_agent</field>
+            <field name="model">hotel.reservation</field>
+            <field name="inherit_id" ref="hotel_management.view_hotel_reservation_form1"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="before">
+                    <field name="category_id" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="context">
+                        {
+                         'default_category_id': [(6, 0, category_id)],
+                         'default_company_id': company_id,
+                        }
+                    </attribute>
+                    <attribute name="domain">
+                        [
+                            '|',
+                            ('category_id', 'in', category_id),
+                            ('agent', '=', True)
+                        ]
+                    </attribute>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="iroom_custom_view_hotel_reservation_form1" model="ir.ui.view">
+            <field name="name">iroom_custom_view_hotel_reservation_form1</field>
+            <field name="model">hotel.reservation</field>
+            <field name="inherit_id" ref="hotel_management.view_hotel_reservation_form1"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_id']" position="attributes">
+                    <attribute name="invisible">not order_id</attribute>
+                </xpath>
+                <xpath expr="//field[@name='adults']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='childs']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='reservation_line']/tree" position="inside">
+                    <field name="company_id"/>
+                    <field name="adults"/>
+                    <field name="children"/>
+                </xpath>
+                <xpath expr="//field[@name='reservation_line'][2]/tree" position="inside">
+                    <field name="company_id"/>
+                    <field name="adults"/>
+                    <field name="children"/>
+                </xpath>
+                <xpath expr="//notebook/page[last()]" position="before">
+                        <page string="Other Services">
+							<field name="other_items_ids" colspan="4" nolabel="1">
+                            <form string="Other Item List">
+                            	<group colspan="4" col="4">
+	                                <field name="product_id" domain="[('shop_id','in',[parent.shop_id,False])]" />
+									<field name="name" />
+									<field name="product_uom_qty" />
+                                    <field name="price_unit"/>
+	                                <field name="price_subtotal"/>
+	                                <field name="discount"/>
+	                                <newline/>
+	                                <field name="tax_id" widget="many2many_tags" colspan="4"/>
+	                            </group>
+                            </form>
+                            <tree string="Order List" editable="bottom">
+                                <field name="product_id"/>
+								<field name="name" />
+                                <field name="product_uom_qty"/>
+                                <field name="product_uom" optional="hide"/>
+                                <field name="price_unit"/>
+                                <field name="price_subtotal"/>
+								<field name="tax_id" widget="many2many_tags"/>
+                            </tree>
+                            </field>
+                        </page>
+                </xpath>
+            </field>
+        </record>
+        <record id="iroom_custom_view_hotel_reservation_line_from" model="ir.ui.view">
+            <field name="name">iroom_custom_view_hotel_reservation_line_from</field>
+            <field name="model">hotel.reservation.line</field>
+            <field name="inherit_id" ref="hotel_management.view_hotel_reservation_line_from"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='room_number']" position="after">
+                    <field name="can_change_room_price" invisible="1"/>
+                    <field name="adults"/>
+                    <field name="children"/>
+                </xpath>
+                <xpath expr="//field[@name='price']" position="attributes">
+                    <attribute name="readonly">not can_change_room_price</attribute>
+                    <attribute name="force_save">1</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="custom_view_hotel_reservation_line_tree" model="ir.ui.view">
+            <field name="name">custom_view_hotel_reservation_line_tree</field>
+            <field name="model">hotel.reservation.line</field>
+            <field name="inherit_id" ref="hotel_management.view_hotel_reservation_line_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="inside">
+                    <field name="company_id"/>
+                    <field name="adults"/>
+                    <field name="children"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

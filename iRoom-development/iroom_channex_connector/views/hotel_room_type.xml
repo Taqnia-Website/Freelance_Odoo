@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="channex_view_hotel_room_type_form" model="ir.ui.view">
+            <field name="name">channex_view_hotel_room_type_form</field>
+            <field name="model">hotel.room_type</field>
+            <field name="inherit_id" ref="hotel.view_hotel_room_type_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="before">
+                    <field name="apply_channex"/>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page name="channex" string="Channex" invisible="not apply_channex">
+                        <group>
+                            <group>
+                                <field name="occ_adults"/>
+                                <field name="normal_occupancy"/>
+                            </group>
+                            <group>
+                                <field name="occ_children"/>
+                                <field name="occ_infants"/>
+                            </group>
+                        </group>
+                        <field name="channex_ids" readonly="1" force_save="1">
+                            <tree editable="bottom">
+                                <field name="shop_id"/>
+                                <field name="channex_id"/>
+                            </tree>
+                        </field>
+                        <group>
+                            <field name="channex_notes"/>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <button name="button_create_channex_room_type" type="object" string="Channex Sync" class="oe_highlight" invisible="not apply_channex"/>
+                    </header>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

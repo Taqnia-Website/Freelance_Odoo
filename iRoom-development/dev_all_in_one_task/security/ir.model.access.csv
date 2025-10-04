@@ -1,0 +1,26 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_task_lead,Createtask,model_task_lead,base.group_user,1,1,1,1
+access_update_project,Update,model_update_project,base.group_user,1,1,1,1
+access_dev_mass_update_users,access.dev.mass.update.users,model_dev_mass_update_users,,1,1,1,1
+access_task_user_assignment,access_task_user_assignment,model_task_user_assignment,base.group_user,1,1,1,1
+
+access_task_custom_fields_manager,Task Custom Field,model_task_custom_fields,project.group_project_manager,1,1,1,1
+access_task_custom_field_option_manager,Task Custom Field,model_task_custom_field_option,project.group_project_manager,1,1,1,1
+task_custom_field_values_manager,Task Custom Field,model_task_custom_field_values,project.group_project_manager,1,1,1,1
+
+access_task_custom_fields,Task Custom Field,model_task_custom_fields,project.group_project_user,1,1,1,0
+access_task_custom_field_option,Task Custom Field,model_task_custom_field_option,project.group_project_user,1,1,1,0
+task_custom_field_values,Task Custom Field,model_task_custom_field_values,project.group_project_user,1,1,1,0
+
+access_meeting_from_task,Meeting Create Popup,model_meeting_from_task,base.group_user,1,1,1,1
+
+access_task_quick_edit,task.quick.edit,model_task_quick_edit,,1,1,1,1
+
+access_end_task_wizard,Timer Log Popup,model_end_task_wizard,base.group_user,1,1,1,1
+access_task_import_csv,task.import.csv,model_task_import,,1,1,1,1
+access_task_checklist,Task Checklist,model_task_checklist,base.group_user,1,1,1,1
+
+access_task_template_project_user,Task Template,dev_all_in_one_task.model_task_template,project.group_project_user,1,1,1,1
+access_task_template_employee,Task Template,dev_all_in_one_task.model_task_template,base.group_user,1,0,0,0
+access_task_template_portal,Task Template,dev_all_in_one_task.model_task_template,base.group_portal,1,0,0,0

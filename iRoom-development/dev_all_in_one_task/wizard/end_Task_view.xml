@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle 
+ -->
+<odoo>
+    <record id="end_task_form_view" model="ir.ui.view">
+        <field name="name">end.task.form.view</field>
+        <field name="model">end.task.wizard</field>
+        <field name="arch" type="xml">
+            <form string="End ask">
+                <group>
+                    <group>
+                        <field name="task_start_date" readonly="1"/>
+                        <field name="description"/>
+                    </group>
+                    <group>
+                        <field name="end_date" readonly="1"/>
+                        <field name="duration" readonly="1"/>
+                    </group>
+                </group>
+
+                <footer>
+                    <button name="generate_timesheet" string="End Task" type="object" class="btn-primary"/>
+                    or
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_end_task" model="ir.actions.act_window">
+        <field name="name">End Task Window</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">end.task.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template  id="login_layout_inherit" inherit_id="web.login_layout">
+        <xpath expr="//div[@t-if='not disable_footer']" position="replace">
+            <div class="text-center" t-if="not disable_footer">
+                <t t-if="not disable_database_manager">
+                    <a class="" href="/web/database/manager">Manage Databases</a>
+                </t>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="web_layout_inherit" inherit_id="web.layout">
+        <xpath expr="//title" position="replace">
+            <title t-esc="title or 'iRoom'"/>
+        </xpath>
+
+        <xpath expr="//link[@rel='shortcut icon']" position="replace">
+            <link rel="shortcut icon" t-attf-href="data:image/png;base64,#{request.env['res.config.settings'].get_debrand_settings()['system_favicon']}" type="image/x-icon"/>
+        </xpath>
+    </template>
+    <template id="webclient_bootstrap_inherit" inherit_id="web.webclient_bootstrap" name="webclient bootstrap inherit">
+        <xpath expr="//t[@t-set='head_web']" position="replace">
+            <t t-set="head_web">
+                <t t-set="company" t-value="request.env.company"></t>
+                <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+                <meta name="theme-color" content="#71639e"/>
+                <link rel="manifest" href="/web/manifest.webmanifest" crossorigin="use-credentials"/>
+                <link rel="apple-touch-icon" t-attf-href="/web/image/website/#{company.website_id.id}/favicon"/>
+                <script type="text/javascript">
+                    // Block to avoid leaking variables in the script scope
+                    {
+                        odoo.__session_info__ = <t t-out="json.dumps(session_info)"/>;
+                        const { user_context,  cache_hashes } = odoo.__session_info__;
+                        const lang = new URLSearchParams(document.location.search).get("lang");
+                        let menuURL = `/web/webclient/load_menus/${cache_hashes.load_menus}`;
+                        if (lang) {
+                            user_context.lang = lang;
+                            menuURL += `?lang=${lang}`
+                        }
+                        odoo.reloadMenus = () => fetch(menuURL).then(res => res.json());
+                        odoo.loadMenusPromise = odoo.reloadMenus();
+                        // Prefetch translations to speedup webclient. This is done in JS because link rel="prefetch"
+                        // is not yet supported on safari.
+                        fetch(`/web/webclient/translations/${cache_hashes.translations}?lang=${user_context.lang}`);
+                    }
+                </script>
+                <t t-if="request.httprequest.cookies.get('color_scheme') == 'dark'">
+                    <t t-call-assets="web.assets_web_dark"/>
+                </t>
+                <t t-else="">
+                    <t t-call-assets="web.assets_web"/>
+                </t>
+                <t t-call="web.conditional_assets_tests"/>
+            </t>
+        </xpath>
+    </template>
+</odoo>

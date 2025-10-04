@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="channex_update_rate_view_form" model="ir.ui.view">
+            <field name="name">channex_update_rate_view_form</field>
+            <field name="model">channex.update.rate</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="company_id"/>
+                            <field name="restrict_rate"/>
+                            <field name="restrict_min_stay"/>
+                            <field name="restrict_max_stay"/>
+                            <field name="restrict_stop_sell"/>
+                            <field name="restrict_closed_to_arrival"/>
+                            <field name="restrict_closed_to_departure"/>
+                        </group>
+                        <notebook>
+                            <page name="lines" string="Lines">
+                                <field name="line_ids">
+                                    <tree editable="bottom">
+                                        <field name="room_type_id"/>
+                                        <field name="pricelist_id"/>
+                                        <field name="date_from"/>
+                                        <field name="date_to"/>
+                                        <field name="rate" column_invisible="not parent.restrict_rate"/>
+                                        <field name="min_stay" column_invisible="not parent.restrict_min_stay"/>
+                                        <field name="max_stay" column_invisible="not parent.restrict_max_stay"/>
+                                        <field name="stop_sell" column_invisible="not parent.restrict_stop_sell"/>
+                                        <field name="closed_to_arrival" column_invisible="not parent.restrict_closed_to_arrival"/>
+                                        <field name="closed_to_departure" column_invisible="not parent.restrict_closed_to_departure"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="notes" string="Notes">
+                                <group>
+                                    <field name="channex_notes"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <footer>
+                        <button name="action_update_rate" type="object" string="Update" class="oe_highlight"/>
+                        <button special="cancel" type="object" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="channex_update_rate_action" model="ir.actions.act_window">
+            <field name="name">Update Restrictions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">channex.update.rate</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        <menuitem id="channex_menu" name="Channex" parent="hotel.hotel_management_menu" sequence="99"/>
+        <menuitem id="channex_update_rate_menu" name="Update Restrictions" parent="channex_menu"
+                  action="channex_update_rate_action" sequence="1"/>
+    </data>
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="calendar_view_inherit_form_view" model="ir.ui.view">
+        <field name="name">calendar.view.inherit.form.view</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form_quick_create"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='set_discuss_videocall_location']" position="replace">
+                <button name="set_discuss_videocall_location" type="object" class="btn btn-link p-0"
+                    invisible="videocall_location" context="{'recurrence_update': recurrence_update}">
+                    <span class="fa fa-plus"></span> <span>iRoom meeting</span>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

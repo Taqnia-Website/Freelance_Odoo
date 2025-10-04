@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="sale_shop_form" model="ir.ui.view">
+        <field name="name">sale.shop.form</field>
+        <field name="model">sale.shop</field>
+        <field name="inherit_id" ref="sale_enhancement.view_shop_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="replace">
+                <form>
+                    <sheet>
+                        <field name="shop_img" widget="image" class="oe_avatar"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1 class="h2"><field name="name"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="warehouse_id"/>
+                                <field name="payment_default_id"/>
+                                <field name="pricelist_id" groups="product.group_sale_pricelist"/>
+                            </group>
+                            <group>
+                                <field name="project_id" groups="analytic.group_analytic_accounting"/>
+                                <field name="company_id" widget="selection" groups="base.group_multi_company"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="contact" string="Contact">
+                                <group>
+                                    <group>
+                                        <field name="address"/>
+                                        <field name="email" widget="email"/>
+                                        <field name="mobile" widget="phone"/>
+                                        <field name="website"/>
+                                    </group>
+                                    <group>
+                                        <field name="location"/>
+                                        <field name="location_iframe"/>
+                                        <field name="x_coordinate"/>
+                                        <field name="y_coordinate"/>
+                                        <field name="distance_from_center"/>
+                                    </group>
+                                    <group string="Social Media">
+                                        <field name="facebook" widget="url"/>
+                                        <field name="twitter" widget="url"/>
+                                        <field name="vk" widget="url"/>
+                                        <field name="instagram" widget="url"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page name="images" string="Images">
+                                <field name="image_ids">
+                                    <kanban>
+                                        <control>
+                                            <create string="Add an Image" />
+                                        </control>
+                                        <templates>
+                                            <t t-name="kanban-box">
+                                                <div class="oe_kanban_global_click row g-0 align-items-center">
+                                                    <div class="d-flex align-items-center gap-1">
+                                                        <field name="image" widget="image"/>
+                                                    </div>
+                                                </div>
+                                            </t>
+                                        </templates>
+                                    </kanban>
+                                </field>
+                            </page>
+                            <page name="activities" string="Activities">
+                                <field name="activity_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="distance"/>
+                                        <field name="image" widget="image" class="oe_avatar"/>
+                                    </tree>
+                                    <form>
+                                        <field name="image" widget="image" class="oe_avatar"/>
+                                        <group>
+                                            <group>
+                                                <field name="name"/>
+                                                <field name="distance"/>
+                                            </group>
+                                        </group>
+                                        <field name="description" placeholder="Description..."/>
+                                    </form>
+                                </field>
+                            </page>
+                            <page name="meals" string="Meals">
+                                <group>
+                                    <group>
+                                        <field name="breakfast"/>
+                                        <field name="lunch"/>
+                                    </group>
+                                    <group>
+                                        <field name="dinner"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page name="options" string="Options">
+                                <field name="option_ids">
+                                    <tree editable="bottom">
+                                        <field name="name" string="Options"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="info" string="Other Info">
+                                <group>
+                                    <group>
+                                        <field name="amenity_ids" widget="many2many_tags"/>
+                                        <field name="tag_ids" widget="many2many_tags"/>
+                                        <field name="similar_hotels_ids" widget="many2many_tags"/>
+                                        <field name="close_to"/>
+                                    </group>
+                                    <group>
+                                        <field name="number_of_restaurants"/>
+                                        <field name="check_in_out_times"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page name="about" string="About Us">
+                                <group>
+                                    <field name="youtube_link"/>
+                                </group>
+                                <group>
+                                    <field name="description"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </xpath>
+        </field>
+    </record>
+</odoo>

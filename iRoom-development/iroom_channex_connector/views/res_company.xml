@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="channex_view_company_form" model="ir.ui.view">
+            <field name="name">channex_view_company_form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <button name="action_get_channex_property" type="object" string="Get Channex Properties" class="oe_highlight" invisible="not apply_channex"/>
+                        <button name="action_get_channex_room_types" type="object" string="Get Channex Room Types" class="oe_highlight" invisible="not apply_channex"/>
+                        <button name="action_get_channex_rate_plans" type="object" string="Get Channex Rate Plans" class="oe_highlight" invisible="not apply_channex"/>
+                    </header>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page name="channex" string="Channex Connector">
+                        <group>
+                            <field name="apply_channex"/>
+                            <field name="channex_key" invisible="not apply_channex" required="apply_channex"/>
+                            <field name="channex_url" invisible="not apply_channex" required="apply_channex"/>
+                            <field name="channex_id" invisible="not apply_channex" readonly="1" force_save="1"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

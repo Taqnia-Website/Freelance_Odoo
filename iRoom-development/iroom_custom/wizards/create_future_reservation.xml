@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="create_future_reservation_view_form" model="ir.ui.view">
+            <field name="name">create_future_reservation_view_form</field>
+            <field name="model">create.future.reservation</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="product_id" readonly="1" force_save="1"/>
+                            <field name="checkin"/>
+                        </group>
+                        <footer>
+                            <button string="Create" name="button_create_future_reservation" type="object" class="btn-primary"/>
+                            <button string="Cancel" class="btn-default" special="cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="search_page_template">
+        <t t-call="website.layout">
+            <t t-call="iroom_website.search_header_component"/>
+            <t t-call="iroom_website.search_filter_component"/>
+            <t t-call="iroom_website.search_component"/>
+        </t>
+    </template>
+</odoo>

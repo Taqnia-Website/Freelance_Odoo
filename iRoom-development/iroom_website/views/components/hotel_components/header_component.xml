@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="iroom_website.hotel_header_component">
+        <section class="list-single-hero" data-scrollax-parent="true">
+			<div class="bg par-elem " t-att-data-bg="image_url" t-att-style="'background-image: url(' + image_url + ');transform: translateZ(0px) translateY(-3.30882%);'" data-scrollax="properties: { translateY: '30%' }"/>
+			<div class="list-single-hero-title fl-wrap">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-7">
+							<div class="listing-rating-wrap">
+								<div class="listing-rating card-popup-rainingvis" data-starrating2="5"/>
+							</div>
+							<h2><span t-esc="name"/></h2>
+							<div class="list-single-header-contacts fl-wrap">
+								<ul>
+									<li class="d-flex">
+										<i class="far fa-phone"/>
+										<a t-att-href="'tel:' + mobile" t-esc="mobile"/>
+									</li>
+									<li>
+										<i class="far fa-map-marker-alt"/>
+										<a t-att-href="location" target="_blank"><bdi><t t-esc="address"/></bdi></a>
+									</li>
+									<li>
+										<i class="far fa-envelope"/>
+										<a t-att-href="email" t-esc="email"/>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-5">
+							<!-- list-single-hero-details -->
+							<div class="list-single-hero-details fl-wrap">
+								<!-- list-single-hero-rating -->
+								<div class="list-single-hero-rating">
+									<div class="rate-class-name">
+										<div class="score">
+											<strong>
+												جيد جدًا
+											</strong>
+											25 تقييم
+										</div>
+										<span>
+											4.5
+										</span>
+									</div>
+									<!-- list-single-hero-rating-list -->
+									<div class="list-single-hero-rating-list">
+										<!-- rate item -->
+										<div class="rate-item fl-wrap">
+											<div class="rate-item-title fl-wrap">
+												<span>
+													نظافة
+												</span>
+											</div>
+											<div class="rate-item-bg" data-percent="100%">
+												<div class="rate-item-line color-bg">
+												</div>
+											</div>
+											<div class="rate-item-percent">
+												5.0
+											</div>
+										</div>
+										<!-- rate item end -->
+										<!-- rate item -->
+										<div class="rate-item fl-wrap">
+											<div class="rate-item-title fl-wrap">
+												<span>
+													راحة
+												</span>
+											</div>
+											<div class="rate-item-bg" data-percent="90%">
+												<div class="rate-item-line color-bg">
+												</div>
+											</div>
+											<div class="rate-item-percent">
+												5.0
+											</div>
+										</div>
+										<!-- rate item end -->
+										<!-- rate item -->
+										<div class="rate-item fl-wrap">
+											<div class="rate-item-title fl-wrap">
+												<span>
+													فريق الفندق
+												</span>
+											</div>
+											<div class="rate-item-bg" data-percent="80%">
+												<div class="rate-item-line color-bg">
+												</div>
+											</div>
+											<div class="rate-item-percent">
+												4.0
+											</div>
+										</div>
+										<!-- rate item end -->
+										<!-- rate item -->
+										<div class="rate-item fl-wrap">
+											<div class="rate-item-title fl-wrap">
+												<span>
+													مرافق
+												</span>
+											</div>
+											<div class="rate-item-bg" data-percent="90%">
+												<div class="rate-item-line color-bg">
+												</div>
+											</div>
+											<div class="rate-item-percent">
+												4.5
+											</div>
+										</div>
+										<!-- rate item end -->
+									</div>
+									<!-- list-single-hero-rating-list end -->
+								</div>
+								<!-- list-single-hero-rating  end -->
+								<div class="clearfix">
+								</div>
+								<!-- list-single-hero-links -->
+								<div class="list-single-hero-links">
+									<a class="lisd-link" href="/booking-process">
+										<i class="fal fa-bookmark">
+										</i>
+										احجز الآن
+									</a>
+									<a class="custom-scroll-link lisd-link" href="#sec6">
+										<i class="fal fa-comment-alt-check">
+										</i>
+										إضافة تقييم
+									</a>
+								</div>
+								<!-- list-single-hero-links end -->
+							</div>
+							<!-- list-single-hero-details  end -->
+						</div>
+					</div>
+					<div class="breadcrumbs-hero-buttom fl-wrap">
+						<div class="breadcrumbs">
+							<a href="#">
+								الصفحة الرئيسية
+							</a>
+							<a href="#">
+								الفنادق
+							</a>
+							<a href="#">
+								مكة المكرمة
+							</a>
+							<span t-esc="name"/>
+						</div>
+						<div class="list-single-hero-price">
+							متوسط/الليلة
+							<span>
+								SAR 320
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+    </template>
+</odoo>

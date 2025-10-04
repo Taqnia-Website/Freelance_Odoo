@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="BurgerUserMenuInherit" t-inherit="web.BurgerUserMenu" t-inherit-mode="extension" owl="1">
+        <xpath expr="//a" position="replace">
+            <t t-if="element.id != 'account'">
+                <a t-if="element.type == 'item'" class="dropdown-item py-3 fs-4" t-att-href="element.href or ''" t-esc="element.description" t-on-click.stop.prevent="() => this._onItemClicked(element.callback)"/>
+            </t>
+        </xpath>
+    </t>
+</templates>

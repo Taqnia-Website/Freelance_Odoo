@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="website_booking_process">
+        <t t-name="website.booking-process">
+            <t t-call="website.layout">
+                <section class="middle-padding grey-white-bg proc-pay">
+                    <div class="container">
+                        <div class="list-main-wrap-title single-main-wrap-title fl-wrap">
+                            <h2>
+                                حجز :
+                                <span>فندق هوليدي</span>
+                            </h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="bookiing-form-wrap">
+                                    <ul id="progressbar">
+                                        <li class="active" id="personal-info-step">
+                                            <span>01.</span>
+                                            المعلومات الشخصية
+                                        </li>
+                                        <li id="address-step">
+                                            <span>02.</span>
+                                            العنوان
+                                        </li>
+                                        <li id="payment-step">
+                                            <span>03.</span>
+                                            طريقة الدفع
+                                        </li>
+                                        <li id="confirmation-step">
+                                            <span>04.</span>
+                                            تأكيد
+                                        </li>
+                                    </ul>
+                                    <div class="list-single-main-item fl-wrap hidden-section tr-sec">
+                                        <div class="profile-edit-container">
+                                            <div class="custom-form">
+                                                <form id="personalInfoForm" method="post">
+                                                    <fieldset class="fl-wrap book_mdf active" id="personal-info">
+                                                        <div class="list-single-main-item-title fl-wrap">
+                                                            <h3>معلوماتك الشخصية</h3>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <label>الإسم
+                                                                    <i class="far fa-user"></i>
+                                                                </label>
+                                                                <input type="text" id="first_name" name="first_name"
+                                                                       placeholder="الإسم" t-att-value="user_name"/>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <label>اللقب
+                                                                    <i class="far fa-user"></i>
+                                                                </label>
+                                                                <input type="text" id="last_name" name="last_name"
+                                                                       placeholder="اللقب" t-att-value="user_lastname"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <label>عنوان البريد الإلكتروني
+                                                                    <i class="far fa-envelope"></i>
+                                                                </label>
+                                                                <input type="text" id="email" name="email"
+                                                                       placeholder="yourmail@domain.com" t-att-value="user_email"/>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <label>رقم الهاتف
+                                                                    <i class="far fa-phone"></i>
+                                                                </label>
+                                                                <input type="text" id="phone" name="phone"
+                                                                       placeholder="87945612233" t-att-value="user_phone"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="log-massage">
+                                                            عميل مسجل ؟
+                                                            <a href="#" class="modal-open">إضغط هنا لتسجيل الدخول</a>
+                                                        </div>
+                                                        <div class="log-separator fl-wrap">
+                                                            <span>أو</span>
+                                                        </div>
+                                                        <div class="soc-log fl-wrap">
+                                                            <p>لتسجيل الدخول أو التسجيل بشكل أسرع.</p>
+                                                            <a href="#" class="facebook-log">
+                                                                <i class="fab fa-facebook-f"></i>
+                                                                تسجيل الدخول عبر الفيسبوك
+                                                            </a>
+                                                        </div>
+                                                        <div class="filter-tags">
+                                                            <input id="check-a" type="checkbox" name="check"/>
+                                                            <label for="check-a">من خلال المتابعة، فإنك توافق على <a
+                                                                    href="#" target="_blank">الشروط والأحكام</a>.
+                                                            </label>
+                                                        </div>
+                                                        <span class="fw-separator"></span>
+                                                        <button type="button"
+                                                                class="text-white action-button btn no-shdow-btn color-bg"
+                                                                onclick="showFieldset('address')">
+                                                            العنوان
+                                                            <i class="fal fa-angle-left"></i>
+                                                        </button>
+                                                    </fieldset>
+                                                    <fieldset class="booking-address fl-wrap book_mdf" id="address">
+                                                        <div class="list-single-main-item-title fl-wrap">
+                                                            <h3>العنوان</h3>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <label>المدينة
+                                                                    <i class="fal fa-globe-asia"></i>
+                                                                </label>
+                                                                <input type="text" id="city" name="city"
+                                                                       placeholder="المدينة" value=""/>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <label>البلد</label>
+                                                                <div class="listsearch-input-item">
+                                                                    <select id="country" name="country"
+                                                                            data-placeholder="البلد"
+                                                                            class="chosen-select no-search-select">
+                                                                        <option>المملكة العربية السعودية</option>
+                                                                        <option>الجزائر</option>
+                                                                        <option>تركيا</option>
+                                                                        <option>مصر</option>
+                                                                        <option>الإمارات العربية المتحدة</option>
+                                                                        <option>عمان</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <label>الحي
+                                                                    <i class="fal fa-road"></i>
+                                                                </label>
+                                                                <input type="text" id="district" name="district"
+                                                                       placeholder="الحي" value=""/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-8">
+                                                                <label>المنطقة
+                                                                    <i class="fal fa-street-view"></i>
+                                                                </label>
+                                                                <input type="text" id="region" name="region"
+                                                                       placeholder="المنطقة" value=""/>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <label>الرمز البريدي
+                                                                    <i class="fal fa-barcode"></i>
+                                                                </label>
+                                                                <input type="text" id="postal_code" name="postal_code"
+                                                                       placeholder="123456" value=""/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="list-single-main-item-title fl-wrap">
+                                                            <h3>ملاحظات إضافية</h3>
+                                                        </div>
+                                                        <textarea id="notes" name="notes" cols="40" rows="3"
+                                                                  placeholder="Notes"></textarea>
+                                                        <span class="fw-separator"></span>
+                                                        <a href="#"
+                                                           class="previous-form action-button back-form text-white color-bg"
+                                                           onclick="showFieldset('personal-info')">
+                                                            <i class="fal fa-angle-right"></i>
+                                                            العودة
+                                                        </a>
+                                                        <a href="#"
+                                                           class="next-form text-white back-form text-white action-button btn no-shdow-btn color-bg"
+                                                           onclick="submitBookingDetails()">
+                                                            طريقة الدفع
+                                                            <i class="fal fa-angle-left"></i>
+                                                        </a>
+                                                    </fieldset>
+                                                    <fieldset class="fl-wrap book_mdf" id="payment">
+                                                        <div class="list-single-main-item-title fl-wrap">
+                                                            <h3>طريقة الدفع</h3>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <label>اسم حامل البطاقة
+                                                                    <i class="far fa-user"></i>
+                                                                </label>
+                                                                <input type="text" placeholder=""
+                                                                       value="Adam Kowalsky"/>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <label>رقم البطاقة
+                                                                    <i class="fal fa-credit-card-front"></i>
+                                                                </label>
+                                                                <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx"
+                                                                       value=""/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-3">
+                                                                <label>شهر انتهاء الصلاحية
+                                                                    <i class="fal fa-calendar"></i>
+                                                                </label>
+                                                                <input type="text" placeholder="MM" value=""/>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <label>سنة انتهاء الصلاحية
+                                                                    <i class="fal fa-calendar"></i>
+                                                                </label>
+                                                                <input type="text" placeholder="YY" value=""/>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label>CVV / CVC *
+                                                                    <i class="fal fa-credit-card"></i>
+                                                                </label>
+                                                                <input type="password" placeholder="***" value=""/>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <p style="padding-top:20px;">*رقم مكون من ثلاثة أرقام
+                                                                    على ظهر بطاقتك
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="log-separator fl-wrap">
+                                                            <span>أو</span>
+                                                        </div>
+                                                        <div class="soc-log fl-wrap">
+                                                            <p>إختر طريقة دفع أخرى</p>
+                                                            <a href="#" class="paypal-log">
+                                                                <i class="fab fa-paypal"></i>
+                                                                ادفع باستخدام باي بال
+                                                            </a>
+                                                        </div>
+                                                        <span class="fw-separator"></span>
+                                                        <a href="#"
+                                                           class="previous-form back-form action-button text-white color-bg"
+                                                           onclick="showFieldset('address')">
+                                                            <i class="fal fa-angle-right"></i>
+                                                            العودة
+                                                        </a>
+                                                        <a href="#"
+                                                           class="next-form text-white action-button btn color2-bg no-shdow-btn"
+                                                           onclick="showFieldset('confirmation')">
+                                                            تأكيد الدفع
+                                                            <i class="fal fa-angle-left"></i>
+                                                        </a>
+                                                    </fieldset>
+                                                    <fieldset class="fl-wrap book_mdf" id="payment">
+                                                        <div class="list-single-main-item-title fl-wrap">
+                                                            <h3>التأكيد</h3>
+                                                        </div>
+                                                        <div class="success-table-container">
+                                                            <div class="success-table-header fl-wrap">
+                                                                <i class="fal fa-check-circle decsth"></i>
+                                                                <h4>شكرًا لك. لقد تم تأكيد الحجز.</h4>
+                                                                <div class="clearfix"></div>
+                                                                <p>تم الدفع بنجاح</p>
+                                                                <br/>
+                                                                <a href="invoice.html" target="_blank" class="color-bg">
+                                                                    الإطلاع على الفاتورة
+                                                                </a>
+                                                            </div>
+                                                            <span class="fw-separator"></span>
+                                                            <a href="#"
+                                                               class="previous-form action-button back-form text-white color-bg"
+                                                               onclick="showFieldset('payment')">
+                                                                <i class="fal fa-angle-right"></i>
+                                                                العودة
+                                                            </a>
+                                                        </div>
+                                                    </fieldset>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="box-widget-item-header">
+                                    <h3>تفاصيل الحجز</h3>
+                                </div>
+                                <div class="cart-details fl-wrap">
+                                    <div class="cart-details_header w-100">
+                                        <a href="#" class="widget-posts-img">
+                                            <img src="https://placehold.co/104x69" class="respimg" alt=""/>
+                                        </a>
+                                        <div class="widget-posts-descr">
+                                            <a href="#" title="">فندق هوليدي</a>
+                                            <div class="listing-rating card-popup-rainingvis" data-starrating2="5"/>
+                                            <div class="geodir-category-location fl-wrap">
+                                                <a href="#">
+                                                    <i class="fas fa-map-marker-alt"/>
+                                                    هوليدي إن - مكة العزيزية
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cart-details_text">
+                                        <ul class="cart_list">
+                                            <li>نوع الغرفة
+                                                <span t-esc="room_title"/>
+                                                <strong>SAR
+                                                    <t t-esc="room_price"/>
+                                                </strong>
+                                            </li>
+                                            <li>من
+                                                <span t-esc="from_date"/>
+                                            </li>
+                                            <li>إلى
+                                                <span t-esc="to_date"/>
+                                            </li>
+                                             <li style="display: none;">عدد الغرف
+                                                <span t-esc="number_of_rooms"/>
+                                            </li>
+                                            <li>الأيام
+                                                <span t-esc="days"/>
+                                            </li>
+                                            <li>كبار
+                                                <span t-esc="adults"/>
+                                            </li>
+                                            <li>أطفال
+                                                <span t-esc="children"/>
+                                            </li>
+                                            <li>الرسوم
+                                                <span>
+                                                    <strong>SAR
+                                                        <t t-esc="fees"/>
+                                                    </strong>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="cart-total">
+                                    <span class="cart-total_item_title">الإجمالي</span>
+                                    <strong>SAR
+                                        <t t-esc="room_price * number_of_rooms * days"/>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <script>
+                    function showFieldset(step) {
+                    document.querySelectorAll(`fieldset`).forEach(fieldset => {
+                    fieldset.style.display = `none`;
+                    });
+                    document.getElementById(step).style.display = `block`;
+
+                    document.querySelectorAll(`#progressbar li`).forEach(li => {
+                    li.classList.remove(`active`);
+                    });
+                    if (step === `personal-info`) {
+                    document.getElementById(`personal-info-step`).classList.add(`active`);
+                    } else if (step === `address`) {
+                    document.getElementById(`address-step`).classList.add(`active`);
+                    } else if (step === `payment`) {
+                    document.getElementById(`payment-step`).classList.add(`active`);
+                    } else if (step === `confirmation`) {
+                    document.getElementById(`confirmation-step`).classList.add(`active`);
+                    }
+                    }
+
+                    function submitBookingDetails() {
+                    // Collect form data
+                    var bookingData = {
+                    first_name: document.getElementById(`first_name`)?.value || ``,
+                    last_name: document.getElementById(`last_name`)?.value || ``,
+                    phone: document.getElementById(`phone`)?.value || ``,
+                    email: document.getElementById(`email`)?.value || ``,
+                    country: document.getElementById(`country`)?.value || ``,
+                    city: document.getElementById(`city`)?.value || ``,
+                    district: document.getElementById(`district`)?.value || ``,
+                    region: document.getElementById(`region`)?.value || ``,
+                    postal_code: document.getElementById(`postal_code`)?.value || ``,
+                    notes: document.getElementById(`notes`)?.value || ``
+                    };
+
+                    // AJAX call to Odoo controller
+                    $.ajax({
+                    url: `/get_booking_details`,
+                    type: `POST`,
+                    data: JSON.stringify(bookingData),
+                    contentType: `application/json`,
+                    headers: {
+                    'X-CSRF-TOKEN': odoo.csrf_token // Ensure CSRF token is included
+                    },
+                    success: function(response) {
+                    var result = response.result || response;
+                    if (result &amp;&amp; typeof result === `object` &amp;&amp; `success` in result) {
+                    if (result.success) {
+                    console.log(`Customer created successfully!`);
+                    } else {
+                    console.error(`Error: ${result.message || `Unknown error`}`);
+                    }
+                    } else {
+                    console.error(`Unexpected response format:`, result);
+                    }
+                    // Always proceed to payment step
+                    showFieldset(`payment`);
+                    },
+                    error: function(xhr, status, error) {
+                    console.error(`AJAX Error:`, status, error, xhr.responseText);
+                    // Fallback to payment step
+                    showFieldset(`payment`);
+                    }
+                    });
+                    }
+                </script>
+            </t>
+        </t>
+    </template>
+</odoo>

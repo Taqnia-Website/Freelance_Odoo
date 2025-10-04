@@ -1,0 +1,6 @@
+<odoo>
+    <template id="totp_portal_hook_inherit" inherit_id="auth_totp_portal.totp_portal_hook" name="TOTP Portal hook">
+        <xpath expr="//section[2]" position="replace">
+        </xpath>
+    </template>
+</odoo>

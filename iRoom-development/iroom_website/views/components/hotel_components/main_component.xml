@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="iroom_website.hotel_main_component">
+        <section class="grey-blue-bg small-padding scroll-nav-container" id="sec2">
+			<!-- scroll-nav-wrapper -->
+			<div class="scroll-nav-wrapper fl-wrap">
+				<div class="hidden-map-container fl-wrap">
+					<div class="map-container">
+						<div id="singleMap">
+							<t t-raw="location_iframe"/>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"/>
+				<div class="container">
+					<nav class="scroll-nav scroll-init">
+						<ul>
+							<li><a href="#sec2">التفاصيل</a></li>
+							<li><a href="#sec3">وسائل الراحة</a></li>
+							<li><a href="#sec4">الغرف</a></li>
+							<li><a href="#sec5">التقييمات</a></li>
+						</ul>
+					</nav>
+					<a href="#" class="show-hidden-map">
+						<span>الخريطة</span>
+						<i class="fal fa-map-marked-alt"/>
+					</a>
+				</div>
+			</div>
+			<!-- scroll-nav-wrapper end -->
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- datails -->
+					<div class="col-md-8">
+						<div class="list-single-main-container ">
+							<!-- fixed-scroll-column -->
+							<div class="fixed-scroll-column">
+								<div class="fixed-scroll-column-item fl-wrap">
+									<div class="showshare sfcs fc-button">
+										<i class="far fa-share-alt"/>
+										<span>مشاركة</span>
+									</div>
+<!--									<div class="share-holder fixed-scroll-column-share-container">-->
+<!--										<div class="share-container  isShare">-->
+<!--										</div>-->
+<!--									</div>-->
+									<a class="fc-button custom-scroll-link" href="#sec6">
+										<i class="far fa-comment-alt-check"/>
+										<span>إضافة تقييم</span>
+									</a>
+									<a class="fc-button" href="#">
+										<i class="far fa-heart"/>
+										<span>مهتم</span>
+									</a>
+									<a class="fc-button" href="/booking-process">
+										<i class="far fa-bookmark"/>
+										<span>احجز الآن</span>
+									</a>
+								</div>
+							</div>
+							<!-- fixed-scroll-column end -->
+							<!-- gallery-items -->
+							<div class="list-single-main-media fl-wrap">
+								<div class="gallery-items grid-small-pad  list-single-gallery three-coulms lightgallery">
+									<t t-set="image_urls_count" t-value="1"/>
+									<t t-foreach="image_urls_1_to_4" t-as="image_url">
+										<div t-attf-class="gallery-item #{'gallery-item-second' if image_urls_count == 3 else ''}">
+											<div class="grid-item-holder">
+												<div class="box-item">
+													<img t-att-src="image_url" class="lazy" alt="" />
+													<a t-att-href="image_url" class="gal-link popup-image">
+														<i class="fa fa-search"/>
+													</a>
+												</div>
+											</div>
+										</div>
+										<t t-set="image_urls_count" t-value="image_urls_count + 1"/>
+									</t>
+									<div class="gallery-item" t-if="image_url_5">
+										<div class="grid-item-holder">
+											<div class="box-item">
+												<img t-att-src="image_url_5" alt="" />
+												<div class="more-photos-button dynamic-gal" t-if="image_urls_rest" t-att-data-dynamicPath="image_urls_rest">
+													صور آخرى
+													<span><t t-esc="len(image_urls_rest)"/> صور</span>
+													<i class="far fa-long-arrow-left"/>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- end gallery items -->
+							<!-- inline-facts -->
+							<div class="list-single-facts fl-wrap">
+								<div class="inline-facts-wrap">
+									<div class="inline-facts">
+										<i class="fal fa-bed"/>
+										<div class="milestone-counter">
+											<div class="stats animaper" t-esc="rooms_count"/>
+										</div>
+										<h6>غرف الفندق</h6>
+									</div>
+								</div>
+								<div class="inline-facts-wrap">
+									<div class="inline-facts">
+										<i class="fal fa-users">
+										</i>
+										<div class="milestone-counter">
+											<div class="stats animaper">
+												2557
+											</div>
+										</div>
+										<h6>
+											العملاء كل عام
+										</h6>
+									</div>
+								</div>
+								<div class="inline-facts-wrap">
+									<div class="inline-facts">
+										<i class="fal fa-taxi"/>
+										<div class="milestone-counter">
+											<div class="stats animaper" t-esc="distance_from_center"/>
+										</div>
+										<h6>المسافة إلى المركز</h6>
+									</div>
+								</div>
+								<div class="inline-facts-wrap">
+									<div class="inline-facts">
+										<i class="fal fa-cocktail"/>
+										<div class="milestone-counter">
+											<div class="stats animaper" t-esc="number_of_restaurants"/>
+										</div>
+										<h6>المطاعم</h6>
+									</div>
+								</div>
+							</div>
+							<!-- inline-facts end -->
+							<!-- list-single-main-item -->
+							<div class="list-single-main-item fl-wrap">
+								<div class="list-single-main-item-title fl-wrap">
+									<h3>عن الفندق</h3>
+								</div>
+								<p t-esc="description"/>
+								<a t-att-href="youtube_link" class="btn btn-hdi flat-btn color-bg big-btn float-btn image-popup">عرض الفيديو<i class="fal fa-play"/></a>
+							</div>
+							<!-- list-single-main-item end -->
+							<!-- list-single-main-item -->
+							<div class="list-single-main-item fl-wrap" id="sec3">
+								<div class="list-single-main-item-title fl-wrap">
+									<h3>المرافق والخدمات في الفندق</h3>
+								</div>
+								<div class="listing-features fl-wrap">
+									<ul>
+										<t t-foreach="amenities" t-as="amenity">
+											<li>
+												<t t-raw="amenity['icon']"/>
+												<t t-esc="amenity['name']"/>
+											</li>
+										</t>
+									</ul>
+								</div>
+								<span class="fw-separator"/>
+								<div class="list-single-main-item-title no-dec-title fl-wrap">
+									<h3>العلامات</h3>
+								</div>
+								<div class="list-single-tags tags-stylwrap">
+									<t t-foreach="tags" t-as="tag">
+										<a href="#" t-esc="tag"/>
+									</t>
+								</div>
+							</div>
+							<!-- list-single-main-item end -->
+							<!-- accordion -->
+							<div class="accordion mar-top">
+								<a class="toggle act-accordion" t-if="activities" href="#">الأنشطة التي يمكن القيام بها<span/></a>
+								<div class="accordion-inner visible" t-if="activities">
+									<p><b>تتوفر الأنشطة والخدمات التالية في <t t-esc="name"/> (قد يتم فرض رسوم):</b></p>
+									<ul>
+										<t t-foreach="activities" t-as="activity">
+											<li><p t-esc="activity['name']"/></li>
+										</t>
+									</ul>
+								</div>
+								<a class="toggle" t-if="breakfast or lunch or dinner" href="#">معلومات حول الوجبات<span/></a>
+								<div class="accordion-inner" t-if="breakfast or lunch or dinner">
+									<p t-if="breakfast"><b>الأفطار:</b></p>
+									<p t-if="breakfast" t-esc="breakfast"/>
+									<p t-if="lunch"><b>الغداء:</b></p>
+									<p t-if="lunch" t-esc="lunch"/>
+									<p t-if="dinner"><b>العشاء:</b></p>
+									<p t-if="dinner" t-esc="dinner"/>
+								</div>
+								<a class="toggle" t-if="check_in_out_times" href="#">أوقات تسجيل الوصول و المغادرة<span/></a>
+								<div t-if="check_in_out_times" class="accordion-inner">
+									<p t-esc="check_in_out_times"/>
+								</div>
+							</div>
+							<!-- accordion end -->
+							<!-- list-single-main-item -->
+							<div class="list-single-main-item fl-wrap" id="sec4">
+								<div class="list-single-main-item-title fl-wrap">
+									<h3>
+										الغرف المتاحة
+									</h3>
+								</div>
+								<!-- rooms-container -->
+								<div class="rooms-container fl-wrap">
+									<!-- rooms-item -->
+									<t t-foreach="available_rooms" t-as="room">
+										<div class="rooms-item fl-wrap">
+											<div class="rooms-media">
+												<img t-if="room.get('image_urls')" t-att-src="room['image_urls'][0]" alt=""/>
+												<img t-else="" src="https://placehold.co/800x530" alt=""/>
+												<div class="dynamic-gal more-photos-button" t-att-data-dynamicPath="[{'src': url} for url in room['image_urls']]">
+													معرض الصور
+													<span>
+														<t t-esc="len(room['image_urls'])"/> صور
+													</span>
+													<i class="far fa-long-arrow-left">
+													</i>
+												</div>
+											</div>
+											<div class="rooms-details">
+												<div class="rooms-details-header fl-wrap">
+													<span class="rooms-price">
+														SAR <t t-esc="room['unit_price']"/>
+														<strong>
+															/ شخص
+														</strong>
+													</span>
+													<h3>
+														<t t-esc="room['name']"/>
+													</h3>
+													<h5>
+														عدد الأسرة:
+														<span>
+															<t t-esc="room['brief']"/>
+														</span>
+													</h5>
+												</div>
+												<p t-esc="room['description']"/>
+												<div class="facilities-list fl-wrap">
+													<ul>
+														<t t-foreach="room['amenities']" t-as="amenity">
+															<li>
+																<t t-raw="amenity['icon']"/>
+																<span t-esc="amenity['name']"/>
+															</li>
+														</t>
+													</ul>
+													<a id="hotel-room-details-btn" t-att-data-id="room['id']" href="javascript:void(0);" class="btn btn-hdi color-bg ajax-link">
+														تفاصيل الغرفة
+														<i class="fas fa-caret-left">
+														</i>
+													</a>
+												</div>
+											</div>
+										</div>
+									</t>
+									<!-- rooms-item end -->
+								</div>
+								<div class="pagination">
+									<a t-if="page > 1" t-att-href="'?page=' + str(page - 1) + '#sec4'" class="prevposts-link">
+										<i class="fa fa-caret-right"/>
+									</a>
+									<a t-else="" t-att-href="'?page=' + str(page) + '#sec4'" class="prevposts-link">
+										<i class="fa fa-caret-right"/>
+									</a>
+	
+									<t t-foreach="range(1, number_of_pages + 1)" t-as="page_number">
+										<a t-att-href="'?page=' + str(page_number) + '#sec4'" t-attf-class="#{'current-page' if page_number == page else ''}" t-esc="page_number"/>
+									</t>
+	
+									<a t-if="page &lt; number_of_pages" t-att-href="'?page=' + str(page + 1) + '#sec4'" class="prevposts-link">
+										<i class="fa fa-caret-left"/>
+									</a>
+									<a t-else="" t-att-href="'?page=' + str(page) + '#sec4'" class="prevposts-link">
+										<i class="fa fa-caret-left"/>
+									</a>
+								</div>
+								<!-- rooms-container end -->
+							</div>
+							<!-- list-single-main-item end -->
+							<!-- list-single-main-item -->
+							<div t-if="cleanliness" class="list-single-main-item fl-wrap" id="sec5">
+								<div class="list-single-main-item-title fl-wrap"><h3>التقييمات</h3></div>
+								<!-- reviews-score-wrap -->
+								<div class="reviews-score-wrap fl-wrap">
+									<div class="review-score-total"><span t-esc="total_rate"/></div>
+									<div class="review-score-detail">
+										<!-- review-score-detail-list -->
+										<div class="review-score-detail-list">
+											<!-- rate item -->
+											<div class="rate-item fl-wrap">
+												<div class="rate-item-title fl-wrap"><span>نظافة</span></div>
+												<div class="rate-item-bg" t-attf-data-percent="#{cleanliness / 5 * 100}%">
+													<div class="rate-item-line color-bg"/>
+												</div>
+												<div class="rate-item-percent"><span t-esc="cleanliness"/></div>
+											</div>
+											<!-- rate item end -->
+											<!-- rate item -->
+											<div class="rate-item fl-wrap">
+												<div class="rate-item-title fl-wrap"><span>راحة</span></div>
+												<div class="rate-item-bg" t-attf-data-percent="#{comfort / 5 * 100}%">
+													<div class="rate-item-line color-bg"/>
+												</div>
+												<div class="rate-item-percent"><span t-esc="comfort"/></div>
+											</div>
+											<!-- rate item end -->
+											<!-- rate item -->
+											<div class="rate-item fl-wrap">
+												<div class="rate-item-title fl-wrap"><span>فريق الفندق</span></div>
+												<div class="rate-item-bg" t-attf-data-percent="#{staff / 5 * 100}%">
+													<div class="rate-item-line color-bg"/>
+												</div>
+												<div class="rate-item-percent"><span t-esc="staff"/></div>
+											</div>
+											<!-- rate item end -->
+											<!-- rate item -->
+											<div class="rate-item fl-wrap">
+												<div class="rate-item-title fl-wrap"><span>المرافق</span></div>
+												<div class="rate-item-bg" t-attf-data-percent="#{facilities_and_services / 5 * 100}%">
+													<div class="rate-item-line color-bg"/>
+												</div>
+												<div class="rate-item-percent"><span t-esc="facilities_and_services"/></div>
+											</div>
+											<!-- rate item end -->
+										</div>
+										<!-- review-score-detail-list end -->
+									</div>
+								</div>
+								<!-- reviews-score-wrap end -->
+								<div class="reviews-comments-wrap">
+									<!-- reviews-comments-item -->
+									<t t-foreach="comments" t-as="comment">
+										<div class="reviews-comments-item">
+											<div class="review-comments-avatar">
+												<img src="https://placehold.co/80x80" alt=""/>
+											</div>
+											<div class="reviews-comments-item-text">
+												<h4 t-esc="comment['partner_name']"/>
+												<div class="review-score-user"><span t-esc="comment['total_rate']"/></div>
+												<div class="clearfix"/>
+												<p t-esc="comment['description']"/>
+												<div class="reviews-comments-item-date">
+													<span><i class="far fa-calendar-check"/> <t t-esc="comment['create_date']"/></span>
+												</div>
+											</div>
+										</div>
+									</t>
+								</div>
+							</div>
+							<!-- list-single-main-item end -->
+							<!-- list-single-main-item -->
+							<div class="list-single-main-item fl-wrap" id="add-rating" t-if="can_rate">
+								<div class="list-single-main-item-title fl-wrap">
+									<h3>إضافة تقييم</h3>
+								</div>
+								<!-- Add Review Box -->
+								<div id="add-review" class="add-review-box">
+									<!-- Review Comment -->
+									<form id="add-comment" class="add-comment  custom-form" name="rangeCalc">
+										<fieldset>
+											<div class="review-score-form fl-wrap">
+												<div class="review-range-container">
+													<!-- review-range-item -->
+													<div class="review-range-item">
+														<div class="range-slider-title">نظافة</div>
+														<div class="range-slider-wrap ">
+															<input type="text" class="rate-range" data-min="0" data-max="5" name="rgcl" data-step="1" value="4" />
+														</div>
+													</div>
+													<!-- review-range-item end -->
+													<!-- review-range-item -->
+													<div class="review-range-item">
+														<div class="range-slider-title">راحة</div>
+														<div class="range-slider-wrap ">
+															<input type="text" class="rate-range" data-min="0" data-max="5" name="rgcl" data-step="1" value="1" />
+														</div>
+													</div>
+													<!-- review-range-item end -->
+													<!-- review-range-item -->
+													<div class="review-range-item">
+														<div class="range-slider-title">فريق الفندق</div>
+														<div class="range-slider-wrap ">
+															<input type="text" class="rate-range" data-min="0" data-max="5" name="rgcl" data-step="1" value="5" />
+														</div>
+													</div>
+													<!-- review-range-item end -->
+													<!-- review-range-item -->
+													<div class="review-range-item">
+														<div class="range-slider-title">المرافق والخدمات في الفندق</div>
+														<div class="range-slider-wrap">
+															<input type="text" class="rate-range" data-min="0" data-max="5" name="rgcl" data-step="1" value="3" />
+														</div>
+													</div>
+													<!-- review-range-item end -->
+												</div>
+												<div class="review-total">
+													<span>
+														<input type="text" name="rg_total" data-form="AVG({rgcl})" value="0" />
+													</span>
+													<strong>التقييم</strong>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-6">
+													<label><i class="fal fa-user"/></label>
+													<input id="rater-name" type="text" placeholder="الإسم *" value="" />
+												</div>
+												<div class="col-md-6">
+													<label><i class="fal fa-envelope"/></label>
+													<input id="rater-email" type="text" placeholder="عنوان البريد الإلكتروني*" value="" />
+												</div>
+											</div>
+											<textarea id="rating-description" cols="40" rows="3" placeholder="مراجعتك:"/>
+										</fieldset>
+										<button class="btn btn-hdi big-btn flat-btn float-btn color2-bg" id="add-comment-btn" style="margin-top:30px">إضافة التقييم <i class="fal fa-paper-plane"/></button>
+									</form>
+								</div>
+								<!-- Add Review Box / End -->
+							</div>
+							<!-- list-single-main-item end -->
+						</div>
+					</div>
+					<!-- datails end -->
+					<!-- sidebar -->
+					<div class="col-md-4">
+						<!-- box-widget-wrap -->
+						<div class="box-widget-wrap">
+							<!-- box-widget-item -->
+							<div class="box-widget-item fl-wrap">
+								<div class="box-widget">
+									<div class="box-widget-content">
+										<div class="box-widget-item-header">
+											<h3>احجز هذا الفندق</h3>
+										</div>
+										<form name="bookFormCalc" class="book-form custom-form">
+											<fieldset>
+												<div class="cal-item">
+													<div class="listsearch-input-item">
+														<label>نوع الغرفة</label>
+														<select id="hotel-reservation-card-room-type" data-placeholder="Room Type" name="repopt" class="chosen-select no-search-select">
+															<option value="0" selected="selected">اختر الغرفة</option>
+															<t t-if="rooms" t-foreach="rooms" t-as="room">
+																<option t-att-value="room['id']" t-att-data-name="room['name']" t-att-data-unitPrice="room['unit_price']">
+																	<t t-esc="room['name'] + ' - ' + str(room['unit_price'])"/> SAR
+																</option>
+															</t>
+														</select>
+														<!-- data-formula -->
+														<input type="text" name="item_total" class="hid-input" value="" data-form="{repopt}" />
+													</div>
+												</div>
+												<div class="cal-item">
+													<div class="bookdate-container  fl-wrap">
+														<label><i class="fal fa-calendar-check"/>فترة الحجز</label>
+														<input id="hotel-reservation-card-date-range" autocomplete="off" type="text" placeholder="تاريخ الدخول والخروج" name="bookdates" value="" />
+														<div class="bookdate-container-dayscounter">
+															<i class="far fa-question-circle"/>
+															<span>الأيام :<strong>0</strong></span>
+														</div>
+													</div>
+												</div>
+												<div class="cal-item">
+													<div class="quantity-item fl-wrap">
+														<label>كبار</label>
+														<div class="quantity">
+															<input type="number" name="qty3" min="0" max="30" step="1" value="0" />
+															<input type="text" name="item_total" class="hid-input" value="0" data-form="{qty3} * {repopt} - {repopt}" />
+														</div>
+													</div>
+													<div class="quantity-item fl-wrap fcit">
+														<label>أطفال</label>
+														<div class="quantity">
+															<input type="number" name="qty2" min="0" max="30" step="1" value="0" />
+<!--															<select name="sale" class="hid-input">-->
+<!--																<option value="1" selected="selected">السعر</option>-->
+<!--															</select>-->
+<!--															<input type="text" name="item_total" class="hid-input" value="0" data-form="({repopt} * {sale})*{qty2}" />-->
+														</div>
+													</div>
+												</div>
+											</fieldset>
+											<input type="number" id="totaldays" name="qty5" class="hid-input" />
+											<div class="total-coast fl-wrap">
+												<strong>التكلفة الإجمالية</strong>
+												<span>
+													<span name="grand_total_currency"/>
+													<input type="text" name="grand_total" value="" readonly="readonly"/>
+												</span>
+											</div>
+											<div class="d-none bg-warning p-1 mt-2 mb-1" id="reservation-warning" style="float:right"/>
+											<button class="btnaplly color2-bg book-btn" id="hotel-reservation-card-submit">احجز الآن<i class="fal fa-paper-plane"/></button>
+										</form>
+									</div>
+								</div>
+							</div>
+							<!-- box-widget-item end -->
+							<!-- box-widget-item -->
+							<div class="box-widget-item fl-wrap">
+								<div class="box-widget counter-widget" data-countDate="09/12/2019">
+									<div class="banner-wdget fl-wrap">
+										<div class="overlay">
+										</div>
+										<div class="bg" data-bg="https://placehold.co/386x333">
+										</div>
+										<div class="banner-wdget-content fl-wrap">
+											<h4>
+												احصل على خصم
+												<span>
+													20%
+												</span>
+												عند طلب غرفة أكثر من ثلاثة
+												أيام.
+											</h4>
+											<div class="countdown fl-wrap">
+												<div class="countdown-item">
+													<span class="days rot">
+														00
+													</span>
+													<p>
+														days
+													</p>
+												</div>
+												<div class="countdown-item">
+													<span class="hours rot">
+														00
+													</span>
+													<p>
+														hours
+													</p>
+												</div>
+												<div class="countdown-item">
+													<span class="minutes rot">
+														00
+													</span>
+													<p>
+														minutes
+													</p>
+												</div>
+												<div class="countdown-item">
+													<span class="seconds rot">
+														00
+													</span>
+													<p>
+														seconds
+													</p>
+												</div>
+											</div>
+											<a href="#">
+												احجز الآن
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- box-widget-item end -->
+							<!-- box-widget-item -->
+							<div class="box-widget-item fl-wrap">
+								<div class="box-widget">
+									<div class="box-widget-content">
+										<div class="box-widget-item-header">
+											<h3>معلومات التواصل</h3>
+										</div>
+										<div class="box-widget-list">
+											<ul>
+												<li>
+													<span><i class="fal fa-map-marker"/>العنوان :</span>
+													<a t-att-href="location" target="_blank"><bdi><t t-esc="address"/></bdi></a>
+												</li>
+												<li>
+													<span><i class="fal fa-phone"/>رقم الهاتف :</span>
+													<a t-att-href="'tel:' + mobile" t-esc="mobile"/>
+												</li>
+												<li>
+													<span><i class="fal fa-envelope"/>عنوان البريد الإلكتروني :</span>
+													<a t-att-href="email" t-esc="email"/>
+												</li>
+												<li>
+													<span><i class="fal fa-browser"/>الموقع الإلكتروني :</span>
+													<a t-att-href="hotel_website" t-esc="hotel_website"/>
+												</li>
+											</ul>
+										</div>
+										<div class="list-widget-social">
+											<ul>
+												<li><a t-att-href="facebook" target="_blank"><i class="fab fa-facebook-f"/></a></li>
+												<li><a t-att-href="twitter" target="_blank"><i class="fab fa-twitter"/></a></li>
+												<li><a t-att-href="vk" target="_blank"><i class="fab fa-vk"/></a></li>
+												<li><a t-att-href="instagram" target="_blank"><i class="fab fa-instagram"/></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- box-widget-item end -->
+							<!-- box-widget-item -->
+							<div class="box-widget-item fl-wrap">
+								<div class="box-widget widget-posts">
+									<div class="box-widget-content">
+										<div class="box-widget-item-header">
+											<h3>
+												الأنشطة الموصى بها
+											</h3>
+										</div>
+										<!-- box-image-widget -->
+										<t t-foreach="activities" t-as="activity">
+											<div class="box-image-widget">
+												<div class="box-image-widget-media">
+													<img t-att-src="activity['image_url']" t-att-alt="activity['name']"/>
+													<a href="#" class="color2-bg" target="_blank">
+														التفاصيل
+													</a>
+												</div>
+												<div class="box-image-widget-details">
+													<h4>
+														<t t-esc="activity['name']"/>
+														<span>
+															<t t-esc="activity['distance']"/> km
+														</span>
+													</h4>
+													<p t-esc="activity['description']"/>
+												</div>
+											</div>
+										</t>
+										<!-- box-image-widget end -->
+									</div>
+								</div>
+							</div>
+							<!-- box-widget-item end -->
+							<!-- box-widget-item -->
+							<div class="box-widget-item fl-wrap">
+								<div class="box-widget">
+									<div class="box-widget-content">
+										<div class="box-widget-item-header">
+											<h3>فنادق مماثلة</h3>
+										</div>
+										<div class="widget-posts fl-wrap">
+											<ul>
+												<t t-foreach="similar_hotels" t-as="similar_hole">
+													<li class="clearfix">
+														<a t-att-href="similar_hole['url']" class="widget-posts-img">
+															<img t-att-src="similar_hole['image_url']" class="respimg" t-att-alt="similar_hole['name']"/>
+														</a>
+														<div class="widget-posts-descr">
+															<a t-att-href="similar_hole['url']" title="similar_hole['name']" t-esc="similar_hole['name']"/>
+															<div class="listing-rating card-popup-rainingvis" data-starrating2="5"/>
+															<div class="geodir-category-location fl-wrap">
+																<a t-att-href="similar_hole['url']"><i class="fas fa-map-marker-alt"/> <t t-esc="similar_hole['close_to']"/></a>
+															</div>
+															<span class="rooms-price">SAR 80<strong> / الليلة</strong></span>
+														</div>
+													</li>
+												</t>
+											</ul>
+											<a class="widget-posts-link" t-att-href="'/similar_hotels/' + name + '/' + str(id)">اظهار جميع النتائج<i class="fal fa-long-arrow-left"/></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- box-widget-item end -->
+						</div>
+						<!-- box-widget-wrap end -->
+					</div>
+					<!-- sidebar end -->
+				</div>
+				<!-- row end -->
+			</div>
+			<!-- container  end -->
+		</section>
+    </template>
+</odoo>

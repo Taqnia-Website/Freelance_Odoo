@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="hotel_folio_form_inherit_hide_folio_add_item">
+            <field name="name">hotel.folio.inherit2.hide.folio.add.item</field>
+            <field name="model">hotel.folio</field>
+            <field name="inherit_id" ref="hotel.view_hotel_folio1_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='room_lines']/tree" position="attributes">
+                    <attribute name="create">0</attribute>
+                    <attribute name="delete">0</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

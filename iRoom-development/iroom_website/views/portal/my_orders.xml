@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="sale_order_portal_template" inherit_id="sale.sale_order_portal_template">
+        <xpath expr="//div[contains(@class, 'o_download_pdf')]" position="after">
+            <div class="flex-grow-1">
+                <a class="btn btn-primary d-block"
+                   t-att-href="request.httprequest.host_url + 'hotel/' + str(sale_order.reservation_id.shop_id.id) + '#add-rating'"
+                   target="_blank">Rate Hotel</a>
+            </div>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="channex_sale_shop_form" model="ir.ui.view">
+            <field name="name">channex_sale_shop_form</field>
+            <field name="model">sale.shop</field>
+            <field name="inherit_id" ref="iroom_hotel.sale_shop_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page name="channex" string="Channex" invisible="not apply_channex">
+                        <group>
+                            <field name="apply_channex"/>
+                            <field name="channex_id"/>
+                        </group>
+                        <group name="general_policy" string="General Policy">
+                            <group>
+                                <field name="channex_policy_id" string="Policy ID"/>
+                                <field name="channex_checkin_time" widget="float_time"/>
+                                <field name="channex_checkin_from_time" widget="float_time"/>
+                                <field name="channex_checkin_to_time" widget="float_time"/>
+                                <field name="channex_max_count_of_guests"/>
+                            </group>
+                            <group>
+                                <field name="channex_is_adults_only"/>
+                                <field name="channex_checkout_time" widget="float_time"/>
+                                <field name="channex_checkout_from_time" widget="float_time"/>
+                                <field name="channex_checkout_to_time" widget="float_time"/>
+                            </group>
+                        </group>
+                        <group name="pets" string="Pets Policy">
+                            <field name="channex_pets_policy"/>
+                            <field name="channex_pets_non_refundable_fee" invisible="channex_pets_policy == 'not_allowed'"/>
+                            <field name="channex_pets_refundable_deposit" invisible="channex_pets_policy == 'not_allowed'"/>
+                        </group>
+                        <group name="smoking" string="Smoking Policy">
+                            <field name="channex_smoking_policy"/>
+                        </group>
+                        <group name="internet" string="Internet Access">
+                            <field name="channex_internet_access_type"/>
+                            <field name="channex_internet_access_coverage" invisible="channex_internet_access_type == 'none'"/>
+                            <field name="channex_internet_access_cost" invisible="channex_internet_access_type == 'none'"/>
+                        </group>
+                        <group name="parking" string="Parking Access">
+                            <field name="channex_parking_type"/>
+                            <field name="channex_parking_reservation" invisible="channex_parking_type == 'none'"/>
+                            <field name="channex_parking_is_private" invisible="channex_parking_type == 'none'"/>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <button name="button_create_channex_property" type="object" string="Channex Sync" class="oe_highlight" invisible="not apply_channex or channex_id"/>
+                        <button name="action_channex_full_sync_availability" type="object" string="Full Sync Availability" class="oe_highlight" invisible="not apply_channex or not channex_id"/>
+                        <button name="action_channex_full_sync_rate" type="object" string="Full Sync Rate" class="oe_highlight" invisible="not apply_channex or not channex_id"/>
+                        <button name="button_sync_channex_policy" type="object" string="Sync Channex Policy" class="oe_highlight" invisible="not apply_channex or not channex_id"/>
+                        <button name="button_create_channex_images" type="object" string="Sync Images" class="oe_highlight" invisible="not apply_channex or not channex_id"/>
+                    </header>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

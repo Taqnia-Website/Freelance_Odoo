@@ -1,0 +1,1613 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="website_single_hotel" name="Single Hotel">
+        <t t-name="website.single-hotel">
+            <t t-call="website.layout">
+                <section class="hero-section" data-scrollax-parent="true">
+                    <div class="hero-parallax">
+                        <div class="bg" data-bg="https://hotels.iroom.ai/web/image/1090"
+                             data-scrollax="properties: { translateY: '200px' }"
+                             style="background-image: url(&quot;https://hotels.iroom.ai/web/image/1090&quot;); transform: translateZ(0px) translateY(-22.4649px);">
+                        </div>
+                        <div class="overlay op7">
+                        </div>
+                    </div>
+                    <div class="hero-section-wrap fl-wrap h-100 d-flex align-items-center">
+                        <div class="container">
+                            <div class="home-intro">
+                                <div class="row w-100 mx-auto">
+                                    <div class="col-md-12">
+                                        <h2>
+                                            فندق هوليدي
+                                        </h2>
+                                        <span class="section-separator">
+                                        </span>
+                                        <div class="section-title mb-1">
+                                            <div class="section-title-stars mb-2">
+                                                <span>
+                                                    <i class="fas fa-star text-warning mx-1">
+                                                    </i>
+                                                    <i class="fas fa-star text-warning mx-1">
+                                                    </i>
+                                                    <i class="fas fa-star text-warning mx-1">
+                                                    </i>
+                                                    <i class="fas fa-star text-warning mx-1">
+                                                    </i>
+                                                    <i class="fas fa-star text-warning mx-1">
+                                                    </i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main-search-input-wrap mt-0">
+                                <div class="main-search-input fl-wrap mt-4">
+                                    <form id="search-booking-form" action="/single-hotel/" type="post">
+                                        <div class="main-search-input-item location w-50" id="autocomplete-container">
+                                            <span class="inpt_dec">
+                                                <i class="fal fa-map-marker">
+                                                </i>
+                                            </span>
+                                            <select id="hotel_select" name="hotel_select" class="form-control">
+                                                <t t-foreach="request.env['sale.shop'].sudo().search([])"
+                                                   t-as="hotel_option">
+                                                    <option t-att-value="hotel_option.id"
+                                                            t-att-selected="hotel and hotel_option.id == hotel.id">
+                                                        <t t-esc="hotel_option.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                            <i class="fal fa-caret-down select-i">
+                                            </i>
+                                        </div>
+                                        <div class="main-search-input-item main-date-parent3 main-search-input-item_small w-50">
+                                            <span class="inpt_dec">
+                                                <i class="fal fa-calendar-check">
+                                                </i>
+                                            </span>
+                                            <input id="main-input-s" type="text" placeholder="فترة الحجز"
+                                                   name="main-input-search_slider" value=""/>
+                                            <input type="hidden" name="from_date" id="from_date" class="input-field"
+                                                   t-att-value="from_date"/>
+                                            <input type="hidden" name="to_date" id="to_date" class="input-field"
+                                                   t-att-value="to_date"/>
+                                            <i class="fal fa-caret-down select-i">
+                                            </i>
+                                        </div>
+                                        <button class="main-search-button color2-bg" type="submit" value="Check">
+                                            بحث
+                                            <i class="fal fa-search">
+                                            </i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="grey-blue-bg small-padding scroll-nav-container">
+                    <div class="scroll-nav-wrapper fl-wrap">
+                        <div class="hidden-map-container fl-wrap">
+                            <div class="map-container">
+                                <div id="singleMap">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3714.3290265538735!2d39.85786271076674!3d21.416308580249716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c205ffc1137cdb%3A0xba8040ebbe12c017!2sMakkah%20al%20Aziziah!5e0!3m2!1sar!2ssa!4v1726083672529!5m2!1sar!2ssa"
+                                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade">
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                        </div>
+                        <div class="container">
+                            <nav class="scroll-nav scroll-init">
+                                <ul>
+                                    <li>
+                                        <a href="#sec2" class="cst-link">
+                                            التفاصيل
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#sec3" class="cst-link">
+                                            وسائل الراحة
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#sec4" class="cst-link">
+                                            الغرف
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#sec5" class="cst-link">
+                                            التقييمات
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <a href="#" class="show-hidden-map">
+                                <span>
+                                    الخريطة
+                                </span>
+                                <i class="fal fa-map-marked-alt">
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="list-single-main-container ">
+                                    <div class="fixed-scroll-column">
+                                        <div class="fixed-scroll-column-item fl-wrap">
+                                            <div class="showshare sfcs fc-button">
+                                                <i class="far fa-share-alt">
+                                                </i>
+                                                <span>
+                                                    مشاركة
+                                                </span>
+                                            </div>
+                                            <div class="share-holder fixed-scroll-column-share-container">
+                                                <div class="share-container  isShare">
+                                                </div>
+                                            </div>
+                                            <a class="fc-button custom-scroll-link" href="#sec6">
+                                                <i class="far fa-comment-alt-check">
+                                                </i>
+                                                <span>
+                                                    إضافة تقييم
+                                                </span>
+                                            </a>
+                                            <a class="fc-button" href="#">
+                                                <i class="far fa-heart">
+                                                </i>
+                                                <span>
+                                                    مهتم
+                                                </span>
+                                            </a>
+                                            <a class="fc-button" href="/booking-process">
+                                                <i class="far fa-bookmark">
+                                                </i>
+                                                <span>
+                                                    احجز الآن
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="list-single-main-media fl-wrap">
+                                        <div id="hotel-gallery"
+                                             class="gallery-items grid-small-pad list-single-gallery three-fl-wrap lightgallery"
+                                             style="position: relative; height: 725.266px;">
+                                            <!-- Fallback static images -->
+                                            <div class="gallery-item" style="position: absolute; left: 0px; top: 0px;">
+                                                <div class="grid-item-holder">
+                                                    <div class="box-item">
+                                                        <img src="/web/static/img/placeholder.png" class="lazy" alt=""
+                                                             loading="lazy"/>
+                                                        <a href="/web/static/img/placeholder.png"
+                                                           class="gal-link popup-image">
+                                                            <i class="fa fa-search"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="gallery-item"
+                                                 style="position: absolute; left: 241px; top: 0px;">
+                                                <div class="grid-item-holder">
+                                                    <div class="box-item">
+                                                        <img src="https://hotels.iroom.ai/web/image/4533" alt=""
+                                                             loading="lazy"/>
+                                                        <a href="https://hotels.iroom.ai/web/image/4533"
+                                                           class="gal-link popup-image">
+                                                            <i class="fa fa-search"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="gallery-item gallery-item-second"
+                                                 style="position: absolute; left: 0px; top: 241px;">
+                                                <div class="grid-item-holder">
+                                                    <div class="box-item">
+                                                        <img src="https://hotels.iroom.ai/web/image/4529" alt=""
+                                                             loading="lazy"/>
+                                                        <a href="https://hotels.iroom.ai/web/image/4529"
+                                                           class="gal-link popup-image">
+                                                            <i class="fa fa-search"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="gallery-item"
+                                                 style="position: absolute; left: 483px; top: 0px;">
+                                                <div class="grid-item-holder">
+                                                    <div class="box-item">
+                                                        <img src="https://hotels.iroom.ai/web/image/4530" alt=""
+                                                             loading="lazy"/>
+                                                        <a href="https://hotels.iroom.ai/web/image/4530"
+                                                           class="gal-link popup-image">
+                                                            <i class="fa fa-search"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="gallery-item"
+                                                 style="position: absolute; left: 483px; top: 241px;">
+                                                <div class="grid-item-holder">
+                                                    <div class="box-item">
+                                                        <img src="https://hotels.iroom.ai/web/image/4531" alt=""
+                                                             loading="lazy"/>
+                                                        <a href="https://hotels.iroom.ai/web/image/4531"
+                                                           class="gal-link popup-image">
+                                                            <i class="fa fa-search"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="gallery-item"
+                                                 style="position: absolute; left: 483px; top: 483px;">
+                                                <div class="grid-item-holder">
+                                                    <div class="box-item">
+                                                        <img src="https://hotels.iroom.ai/web/image/4532" alt=""
+                                                             loading="lazy"/>
+                                                        <div class="more-photos-button dynamic-gal"
+                                                             data-dynamicpath="[{'src': 'https://hotels.iroom.ai/web/image/4529'}, {'src': 'https://hotels.iroom.ai/web/image/4530'},{'src': 'https://hotels.iroom.ai/web/image/4531'},{'src': 'https://hotels.iroom.ai/web/image/4532'},{'src': 'https://hotels.iroom.ai/web/image/4533'},{'src': 'https://hotels.iroom.ai/web/image/4534'},{'src': 'https://hotels.iroom.ai/web/image/4535'},{'src': 'https://hotels.iroom.ai/web/image/4536'}]">
+                                                            صور آخرى
+                                                            <span>4 صور</span>
+                                                            <i class="far fa-long-arrow-left"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-single-facts fl-wrap">
+                                        <div class="inline-facts-wrap" style="height: 103.5px;">
+                                            <div class="inline-facts">
+                                                <i class="fal fa-bed">
+                                                </i>
+                                                <div class="milestone-counter">
+                                                    <div class="stats animaper">
+                                                        45
+                                                    </div>
+                                                </div>
+                                                <h6>
+                                                    غرف الفندق
+                                                </h6>
+                                            </div>
+                                        </div>
+                                        <div class="inline-facts-wrap" style="height: 103.5px;">
+                                            <div class="inline-facts">
+                                                <i class="fal fa-users">
+                                                </i>
+                                                <div class="milestone-counter">
+                                                    <div class="stats animaper">
+                                                        2557
+                                                    </div>
+                                                </div>
+                                                <h6>
+                                                    العملاء كل عام
+                                                </h6>
+                                            </div>
+                                        </div>
+                                         <div class="inline-facts-wrap" style="height: 103.5px;">
+                                             <div class="inline-facts">
+                                                 <i class="fal fa-taxi">
+                                                 </i>
+                                                 <div class="milestone-counter">
+                                                     <div id="distance-to-center" class="stats animaper">4</div>
+                                                 </div>
+                                                 <h6>
+                                                     المسافة إلى المركز
+                                                 </h6>
+                                             </div>
+                                         </div>
+                                         <div class="inline-facts-wrap" style="height: 103.5px;">
+                                             <div class="inline-facts">
+                                                 <i class="fal fa-cocktail">
+                                                 </i>
+                                                 <div class="milestone-counter">
+                                                     <div id="restaurant-count" class="stats animaper">4</div>
+                                                 </div>
+                                                 <h6>
+                                                     المطاعم
+                                                 </h6>
+                                             </div>
+                                         </div>
+                                     </div>
+                                    <div class="list-single-main-item fl-wrap">
+                                        <div class="list-single-main-item-title fl-wrap">
+                                            <h3>
+                                                عن الفندق
+                                            </h3>
+                                        </div>
+                                        <div id="hotel-details" class="fl-wrap">
+
+                                        </div>
+                                    </div>
+                                    <div class="list-single-main-item fl-wrap" id="sec3">
+                                        <div class="list-single-main-item-title fl-wrap">
+                                            <h3>
+                                                المرافق والخدمات في الفندق
+                                            </h3>
+                                        </div>
+                                        <div class="listing-features fl-wrap">
+                                            <ul>
+                                                <li>
+                                                    <i class="fal fa-wifi">
+                                                    </i>
+                                                    خدمة الواي فاي المجانية في جميع أنحاء الفندق
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-plug">
+                                                    </i>
+                                                    اتصال عالي السرعة بالإنترنت
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-clock">
+                                                    </i>
+                                                    تسجيل سريع للوصول والمغادرة
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-suitcase">
+                                                    </i>
+                                                    تخزين الأمتعة
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-exchange-alt">
+                                                    </i>
+                                                    خدمة تحويل العملات
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-utensils">
+                                                    </i>
+                                                    مطعم يقدم الأطباق المحلية والدولية
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-concierge-bell">
+                                                    </i>
+                                                    خدمة الغرف
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-coffee">
+                                                    </i>
+                                                    إفطار يومي
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-list-alt">
+                                                    </i>
+                                                    قوائم غذائية خاصة (عند الطلب)
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-swimming-pool">
+                                                    </i>
+                                                    مسبح داخلي/خارجي
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-dumbbell">
+                                                    </i>
+                                                    مركز لياقة بدنية
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-spa">
+                                                    </i>
+                                                    سبا وعلاجات تجميلية
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-hot-tub">
+                                                    </i>
+                                                    جاكوزي
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-hot-tub">
+                                                    </i>
+                                                    ساونا
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-elevator">
+                                                    </i>
+                                                    مصعد
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-parking">
+                                                    </i>
+                                                    موقف سيارات مجاني
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-ban-smoking">
+                                                    </i>
+                                                    غرف لغير المدخنين
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-wheelchair">
+                                                    </i>
+                                                    مرافق ذوي الاحتياجات الخاصة
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-baby">
+                                                    </i>
+                                                    خدمة مجالسة الأطفال
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-child">
+                                                    </i>
+                                                    منطقة لعب للأطفال
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-bed">
+                                                    </i>
+                                                    أسرة أطفال مجانية (عند الطلب)
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-briefcase">
+                                                    </i>
+                                                    قاعة اجتماعات
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-building">
+                                                    </i>
+                                                    مركز أعمال
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-fax">
+                                                    </i>
+                                                    فاكس وتصوير مستندات
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-shuttle-van">
+                                                    </i>
+                                                    خدمة نقل من وإلى المطار
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-tshirt">
+                                                    </i>
+                                                    خدمة التنظيف الجاف
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-iron">
+                                                    </i>
+                                                    خدمة كيّ الملابس
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-car">
+                                                    </i>
+                                                    خدمات تأجير السيارات
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <span class="fw-separator">
+                                        </span>
+                                        <div class="list-single-main-item-title no-dec-title fl-wrap">
+                                            <h3>
+                                                العلامات
+                                            </h3>
+                                        </div>
+                                        <div class="list-single-tags tags-stylwrap">
+                                            <a href="#">
+                                                فنادق
+                                            </a>
+                                            <a href="#">
+                                                نزل
+                                            </a>
+                                            <a href="#">
+                                                غرف
+                                            </a>
+                                            <a href="#">
+                                                سبا
+                                            </a>
+                                            <a href="#">
+                                                مطاعم
+                                            </a>
+                                            <a href="#">
+                                                موقف سيارات
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="accordion mar-top">
+                                        <a class="toggle act-accordion" href="#">
+                                            الأنشطة التي يمكن القيام بها
+                                            <span>
+                                            </span>
+                                        </a>
+                                        <div class="accordion-inner visible">
+                                            <p>
+                                                تتوفر الأنشطة والخدمات التالية في هوليداي العزيزية (قد يتم فرض رسوم):
+                                            </p>
+                                            <p>
+                                                مركز للياقة البدنية
+                                            </p>
+                                            <p>
+                                                مسبح
+                                            </p>
+                                            <p>
+                                                حمام الينابيع الساخنة
+                                            </p>
+                                            <p>
+                                                اللياقة البدنية
+                                            </p>
+                                        </div>
+                                        <a class="toggle" href="#">
+                                            معلومات حول الإفطار
+                                            <span>
+                                            </span>
+                                        </a>
+                                        <div class="accordion-inner">
+                                            <p>
+                                                سيستمتع الضيوف الذين يقيمون في هوليداي العزيزية بوجبة إفطار حاصلة على
+                                                نقاط تقييم عالية خلال إقامتهم (نقاط تقييم الضيوف: 6.5).
+                                            </p>
+                                            <p>
+                                                خيار (خيارات) الإفطار المشمولة هي:
+                                            </p>
+                                            <p>
+                                                كونتيننتال
+                                            </p>
+                                            <p>
+                                                بوفيه
+                                            </p>
+                                        </div>
+                                        <a class="toggle" href="#">
+                                            أوقات تسجيل الوصول و المغادرة
+                                            <span>
+                                            </span>
+                                        </a>
+                                        <div class="accordion-inner">
+                                            <p>
+                                                يبدأ تسجيل الوصول في هوليداي العزيزية من الساعة 4:00 مساءً، وآخر موعد
+                                                لتسجيل المغادرة هو 12:00 مساءً.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-single-main-item fl-wrap" id="sec5">
+                                        <div class="list-single-main-item-title fl-wrap">
+                                            <h3>التقييمات
+                                                <span>2</span>
+                                            </h3>
+                                        </div>
+                                        <!--reviews-score-wrap-->
+                                        <div class="reviews-score-wrap fl-wrap">
+                                            <div class="review-score-total">
+                                                <span>
+                                                    4.5
+                                                    <strong>جيد جدا</strong>
+                                                </span>
+
+                                            </div>
+                                            <div class="review-score-detail">
+                                                <!-- review-score-detail-list-->
+                                                <div class="review-score-detail-list">
+                                                    <!-- rate item-->
+                                                    <div class="rate-item fl-wrap">
+                                                        <div class="rate-item-title fl-wrap">
+                                                            <span>نظافة</span>
+                                                        </div>
+                                                        <div class="rate-item-bg" data-percent="100%">
+                                                            <div class="rate-item-line color-bg" style="width: 100%;"/>
+                                                        </div>
+                                                        <div class="rate-item-percent">5.0</div>
+                                                    </div>
+                                                    <!-- rate item end-->
+                                                    <!-- rate item-->
+                                                    <div class="rate-item fl-wrap">
+                                                        <div class="rate-item-title fl-wrap">
+                                                            <span>راحة</span>
+                                                        </div>
+                                                        <div class="rate-item-bg" data-percent="90%">
+                                                            <div class="rate-item-line color-bg" style="width: 90%;"/>
+                                                        </div>
+                                                        <div class="rate-item-percent">5.0</div>
+                                                    </div>
+                                                    <!-- rate item end-->
+                                                    <!-- rate item-->
+                                                    <div class="rate-item fl-wrap">
+                                                        <div class="rate-item-title fl-wrap">
+                                                            <span>الخدمة</span>
+                                                        </div>
+                                                        <div class="rate-item-bg" data-percent="80%">
+                                                            <div class="rate-item-line color-bg" style="width: 80%;"/>
+                                                        </div>
+                                                        <div class="rate-item-percent">4.0</div>
+                                                    </div>
+                                                    <!-- rate item end-->
+                                                    <!-- rate item-->
+                                                    <div class="rate-item fl-wrap">
+                                                        <div class="rate-item-title fl-wrap">
+                                                            <span>المرافق</span>
+                                                        </div>
+                                                        <div class="rate-item-bg" data-percent="90%">
+                                                            <div class="rate-item-line color-bg" style="width: 90%;"/>
+                                                        </div>
+                                                        <div class="rate-item-percent">4.5</div>
+                                                    </div>
+                                                    <!-- rate item end-->
+                                                </div>
+                                                <!-- review-score-detail-list end-->
+                                            </div>
+                                        </div>
+                                        <!-- reviews-score-wrap end -->
+                                        <div class="reviews-comments-wrap">
+                                            <!-- reviews-comments-item -->
+                                            <div class="reviews-comments-item">
+                                                <div class="review-comments-avatar">
+                                                    <img src="https://placehold.co/80x80" alt=""/>
+                                                </div>
+                                                <div class="reviews-comments-item-text">
+                                                    <h4>
+                                                        <a href="#">الاسم</a>
+                                                    </h4>
+                                                    <div class="review-score-user">
+                                                        <span>4.4</span>
+                                                        <strong>جيد</strong>
+                                                    </div>
+                                                    <div class="clearfix"/>
+                                                    <p>لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت
+                                                        دو أيوسمود تيمبور
+
+                                                    </p>
+                                                    <div class="reviews-comments-item-date">
+                                                        <span><i class="far fa-calendar-check"/>12 ابريل 2025
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--reviews-comments-item end-->
+                                            <!-- reviews-comments-item -->
+                                            <div class="reviews-comments-item">
+                                                <div class="review-comments-avatar">
+                                                    <img src="https://placehold.co/80x80" alt=""/>
+                                                </div>
+                                                <div class="reviews-comments-item-text">
+                                                    <h4>
+                                                        <a href="#">الاسم</a>
+                                                    </h4>
+                                                    <div class="review-score-user">
+                                                        <span>4.4</span>
+                                                        <strong>جيد</strong>
+                                                    </div>
+                                                    <div class="clearfix"/>
+                                                    <p>لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت
+                                                        دو أيوسمود تيمبور
+
+                                                    </p>
+                                                    <div class="reviews-comments-item-date">
+                                                        <span><i class="far fa-calendar-check"/>12 ابريل 2025
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--reviews-comments-item end-->
+                                        </div>
+                                    </div>
+                                    <div class="list-single-main-item fl-wrap" id="sec4">
+                                        <div class="list-single-main-item-title fl-wrap">
+                                            <h3>الغرف المتاحة</h3>
+                                        </div>
+                                        <div t-if="len(hotel_available_rooms) == 0" class="rooms-container fl-wrap">
+                                            <t t-set="from_date" t-value="request.httprequest.form.get('from_date')"/>
+                                            <t t-set="to_date" t-value="request.httprequest.form.get('to_date')"/>
+                                            <t t-set="hotel_id"
+                                               t-value="request.httprequest.form.get('hotel_select', request.httprequest.args.get('hotel_select', hotel.id if hotel else False))"/>
+                                            <!-- Step 1: Get all vacant rooms -->
+                                            <t t-set="vacant_rooms"
+                                               t-value="request.env['hotel.room'].sudo().search([('room_state', '=', 'vacant'), ('shop_id', '=', hotel_id)] if hotel_id else [])"/>
+                                            <!-- Step 2: Group rooms by room type and ensure unique category names, limited to 14 -->
+                                            <t t-set="room_categories"
+                                               t-value="list({category.name: category for category in vacant_rooms.mapped('categ_id')}.values())[:14]"/>
+                                            <!-- Step 3: Pagination variables, fixed to 7 categories per page -->
+                                            <t t-set="categories_per_page" t-value="7"/>
+                                            <t t-set="current_page"
+                                               t-value="int(request.httprequest.args.get('page', '1'))"/>
+                                            <t t-set="total_pages"
+                                               t-value="max(1, (len(room_categories) + 6) // 7)"/>
+                                            <t t-set="start_index" t-value="(current_page - 1) * categories_per_page"/>
+                                            <t t-set="end_index"
+                                               t-value="min(start_index + categories_per_page, len(room_categories))"/>
+                                            <!-- Step 4: Loop through paginated room types, excluding 'All' -->
+                                            <t t-foreach="room_categories[start_index:end_index]" t-as="category">
+                                                <t t-if="category.name != 'All'">
+                                                    <!-- Step 5: Filter available rooms in this room type -->
+                                                    <t t-set="category_rooms"
+                                                       t-value="vacant_rooms.filtered(lambda r: r.categ_id == category)"/>
+                                                    <!-- Step 6: Check availability for each room and select the lowest-priced one -->
+                                                    <t t-set="available_rooms" t-value="[]"/>
+                                                    <t t-foreach="category_rooms" t-as="room">
+                                                        <t t-set="bookings" t-value="request.env['hotel.room.booking.history'].sudo().search([
+                    ('history_id', '=', room.id),
+                    '|',
+                    '&amp;', ('check_in', '&gt;=', to_date), ('check_out', '&gt;=', from_date),
+                    '&amp;', ('check_in', '&lt;=', from_date), ('check_in', '&lt;=', to_date)
+                ])"/>
+                                                        <t t-if="not bookings">
+                                                            <t t-set="available_rooms" t-value="available_rooms + [room]"/>
+                                                        </t>
+                                                    </t>
+                                                    <!-- Step 7: Select the room with the lowest price -->
+                                                    <t t-set="lowest_price_room"
+                                                       t-value="min(available_rooms, key=lambda r: r.list_price) if available_rooms else None"/>
+                                                    <!-- Search for room type description in hotel.room_type model -->
+                                                    <t t-set="room_type"
+                                                       t-value="request.env['hotel.room_type'].sudo().search([('name', '=', lowest_price_room.categ_id.name)], limit=1)"/>
+                                                    <!-- Step 8: Display the lowest-priced room only if it exists -->
+                                                    <t t-if="lowest_price_room and available_rooms">
+                                                        <div class="rooms-item fl-wrap">
+                                                            <div class="rooms-media">
+                                                                <!-- Set the main image source -->
+                                                                <t t-set="image_src"
+                                                                   t-value="'/web/image/hotel.room.images/%s/img' % room_type.img_ids[0].id if room_type.img_ids and room_type.img_ids[0].img else '/web/static/img/placeholder.png'"/>
+                                                                <img t-att-src="image_src" alt="Room Image"
+                                                                     loading="lazy" style="height: 250px;"/>
+                                                                <!-- Preprocess the gallery image list -->
+                                                                <t t-set="gallery_images" t-value="[]"/>
+                                                                <t t-foreach="room_type.img_ids" t-as="img">
+                                                                    <t t-if="img.img">
+                                                                        <t t-set="gallery_images"
+                                                                           t-value="gallery_images + [{'src': '/web/image/hotel.room.images/%s/img' % img.id}]"/>
+                                                                    </t>
+                                                                </t>
+                                                                <t t-set="gallery_images"
+                                                                   t-value="gallery_images if gallery_images else [{'src': '/web/static/img/placeholder.png'}]"/>
+                                                                <!-- Set the gallery photo count -->
+                                                                <t t-set="photo_count" t-value="len(gallery_images)"/>
+                                                                <!-- Render the gallery button -->
+                                                                <div class="dynamic-gal more-photos-button"
+                                                                     t-att-data-dynamicpath="gallery_images">
+                                                                    معرض الصور
+                                                                    <span t-esc="photo_count"/>
+                                                                    صور
+                                                                    <i class="far fa-long-arrow-left"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="rooms-details">
+                                                                <div class="rooms-details-header fl-wrap">
+                                                                    <span class="rooms-price">SAR
+                                                                        <t t-esc="lowest_price_room.list_price"/>
+                                                                        <strong>/ شخص</strong>
+                                                                    </span>
+                                                                    <h3>
+                                                                        <t t-esc="lowest_price_room.categ_id.name or 'غير محدد'"/>
+                                                                    </h3>
+                                                                    <h5>عدد الأسرة:</h5>
+                                                                </div>
+                                                                <p>
+                                                                    <t t-esc="room_type.description or 'لا يوجد وصف متاح لهذه الغرفة.'"/>
+                                                                </p>
+                                                                <div class="facilities-list fl-wrap">
+                                                                    <ul>
+                                                                        <t t-foreach="room_type.room_type_amenities"
+                                                                           t-as="amenity">
+                                                                            <li>
+                                                                                <i t-att-class="'fal fa-' + (amenity.icon_code or 'info')"/>
+                                                                                <span>
+                                                                                    <t t-esc="amenity.name"/>
+                                                                                </span>
+                                                                            </li>
+                                                                        </t>
+                                                                        <li>
+                                                                            <i class="fas fa-concierge-bell"></i>
+                                                                            <span>إفطار</span>
+                                                                        </li>
+                                                                    </ul>
+                                                                    <a href="javascript:void(0);"
+                                                                       class="btn btn-hdi color-bg ajax-link"
+                                                                       t-att-data-room-category="lowest_price_room.categ_id.name or 'غير محدد'"
+                                                                       t-att-data-room-description="room_type.description or 'لا يوجد وصف متاح'"
+                                                                       t-att-data-room-amenities="','.join([amenity.name for amenity in room_type.room_type_amenities]) or 'لا توجد وسائل راحة'"
+                                                                       t-att-data-room-adults="lowest_price_room.max_adult or 2"
+                                                                       t-att-data-room-children="lowest_price_room.max_child or 0"
+                                                                       t-att-data-room-price="lowest_price_room.list_price or 0"
+                                                                       t-att-data-room-image="image_src"
+                                                                       t-att-data-hotel-id="hotel_id or ''">
+                                                                        احجز الآن
+                                                                        <i class="fas fa-caret-left"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </t>
+                                                </t>
+                                            </t>
+                                        </div>
+                                        <div t-else="" class="rooms-container fl-wrap">
+                                            <t t-set="categories_per_page" t-value="7"/>
+                                            <t t-set="current_page"
+                                               t-value="int(request.httprequest.args.get('page', '1'))"/>
+                                            <t t-set="total_pages"
+                                               t-value="max(1, (len(hotel_available_rooms.keys()) + 6) // 7)"/>
+                                            <t t-set="start_index" t-value="(current_page - 1) * categories_per_page"/>
+                                            <t t-set="end_index"
+                                               t-value="min(start_index + categories_per_page, len(hotel_available_rooms.keys()))"/>
+                                            <t t-set="available_rooms" t-value="[]"/>
+
+                                            <t t-foreach="hotel_available_rooms.items()" t-as="categories">
+                                                <t t-set="category" t-value="categories[0]"/>
+                                                <t t-set="rooms" t-value="categories[1]"/>
+                                                <t t-set="available_rooms" t-value="available_rooms + [rooms]"/>
+                                                <t t-set="lowest_price_room" t-value="min(rooms, key=lambda r: r.list_price) if rooms else None"/>
+                                                <t t-set="room_type" t-value="request.env['hotel.room_type'].sudo().search([('name', '=', lowest_price_room.categ_id.name)], limit=1)"/>
+
+                                                <t t-if="lowest_price_room and category.name != 'All'">
+                                                        <div class="rooms-item fl-wrap">
+                                                            <div class="rooms-media">
+                                                                <t t-set="image_src"
+                                                                   t-value="'/web/image/hotel.room.images/%s/img' % room_type.img_ids[0].id if room_type.img_ids and room_type.img_ids[0].img else '/web/static/img/placeholder.png'"/>
+                                                                <img t-att-src="image_src" alt="Room Image"
+                                                                     loading="lazy" style="height: 250px;"/>
+                                                                <!-- Preprocess the gallery image list -->
+                                                                <t t-set="gallery_images" t-value="[]"/>
+                                                                <t t-foreach="room_type.img_ids" t-as="img">
+                                                                    <t t-if="img.img">
+                                                                        <t t-set="gallery_images"
+                                                                           t-value="gallery_images + [{'src': '/web/image/hotel.room.images/%s/img' % img.id}]"/>
+                                                                    </t>
+                                                                </t>
+                                                                <t t-set="gallery_images"
+                                                                   t-value="gallery_images if gallery_images else [{'src': '/web/static/img/placeholder.png'}]"/>
+                                                                <!-- Set the gallery photo count -->
+                                                                <t t-set="photo_count" t-value="len(gallery_images)"/>
+                                                                <!-- Render the gallery button -->
+                                                                <div class="dynamic-gal more-photos-button"
+                                                                     t-att-data-dynamicpath="gallery_images">
+                                                                    معرض الصور
+                                                                    <span t-esc="photo_count"/>
+                                                                    صور
+                                                                    <i class="far fa-long-arrow-left"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div class="rooms-details">
+                                                                <div class="rooms-details-header fl-wrap">
+                                                                    <span class="rooms-price">SAR
+                                                                        <t t-esc="lowest_price_room.list_price"/>
+                                                                        <strong>/ شخص</strong>
+                                                                    </span>
+                                                                    <h3>
+                                                                        <t t-esc="lowest_price_room.categ_id.name or 'غير محدد'"/>
+                                                                    </h3>
+                                                                    <h5>عدد الأسرة:</h5>
+                                                                </div>
+                                                                <p>
+                                                                    <t t-esc="room_type.description or 'لا يوجد وصف متاح لهذه الغرفة.'"/>
+                                                                </p>
+                                                                <div class="facilities-list fl-wrap">
+                                                                    <ul>
+                                                                        <t t-foreach="room_type.room_type_amenities"
+                                                                           t-as="amenity">
+                                                                            <li>
+                                                                                <i t-att-class="'fal fa-' + (amenity.icon_code or 'info')"/>
+                                                                                <span>
+                                                                                    <t t-esc="amenity.name"/>
+                                                                                </span>
+                                                                            </li>
+                                                                        </t>
+                                                                        <li>
+                                                                            <i class="fas fa-concierge-bell"></i>
+                                                                            <span>إفطار</span>
+                                                                        </li>
+                                                                    </ul>
+                                                                    <a href="javascript:void(0);"
+                                                                       class="btn btn-hdi color-bg ajax-link"
+                                                                       t-att-data-room-category="lowest_price_room.categ_id.name or 'غير محدد'"
+                                                                       t-att-data-room-description="room_type.description or 'لا يوجد وصف متاح'"
+                                                                       t-att-data-room-amenities="','.join([amenity.name for amenity in room_type.room_type_amenities]) or 'لا توجد وسائل راحة'"
+                                                                       t-att-data-room-adults="lowest_price_room.max_adult or 2"
+                                                                       t-att-data-room-children="lowest_price_room.max_child or 0"
+                                                                       t-att-data-room-price="lowest_price_room.list_price or 0"
+                                                                       t-att-data-room-image="image_src"
+                                                                       t-att-data-hotel-id="hotel_id or ''">
+                                                                        احجز الآن
+                                                                        <i class="fas fa-caret-left"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </t>
+                                            </t>
+                                        </div>
+                                    </div>
+                                    <div class="pagination">
+                                        <t t-if="current_page > 1">
+                                            <a t-att-href="'?page=' + str(current_page - 1)" class="prevposts-link">
+                                                <i class="fa fa-caret-left"/>
+                                            </a>
+                                        </t>
+                                        <t t-foreach="range(1, total_pages + 1)" t-as="page_num">
+                                            <a t-att-href="'?page=' + str(page_num)"
+                                               t-att-class="'current-page' if page_num == current_page else ''">
+                                                <t t-esc="page_num"/>
+                                            </a>
+                                        </t>
+                                        <t t-if="current_page &lt; total_pages">
+                                            <a t-att-href="'?page=' + str(current_page + 1)" class="nextposts-link">
+                                                <i class="fa fa-caret-right"/>
+                                            </a>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="box-widget-wrap">
+                                    <div class="box-widget-item fl-wrap">
+                                        <div class="box-widget counter-widget" data-countdate="09/12/2019">
+                                            <div class="banner-wdget fl-wrap">
+                                                <div class="overlay">
+                                                </div>
+                                                <div class="bg" data-bg="https://placehold.co/386x333"
+                                                     style="background-image: url(&quot;https://placehold.co/386x333&quot;);">
+                                                </div>
+                                                <div class="banner-wdget-content fl-wrap">
+                                                    <h4>
+                                                        احصل على خصم
+                                                        <span>
+                                                            20%
+                                                        </span>
+                                                        عند طلب غرفة أكثر من ثلاثة
+                                                        أيام.
+                                                    </h4>
+                                                    <div class="countdown fl-wrap">
+                                                        <div class="countdown-item">
+                                                            <span class="days rot">
+                                                                00
+                                                            </span>
+                                                            <p>
+                                                                days
+                                                            </p>
+                                                        </div>
+                                                        <div class="countdown-item">
+                                                            <span class="hours rot">
+                                                                00
+                                                            </span>
+                                                            <p>
+                                                                hours
+                                                            </p>
+                                                        </div>
+                                                        <div class="countdown-item">
+                                                            <span class="minutes rot">
+                                                                00
+                                                            </span>
+                                                            <p>
+                                                                minutes
+                                                            </p>
+                                                        </div>
+                                                        <div class="countdown-item">
+                                                            <span class="seconds rot">
+                                                                00
+                                                            </span>
+                                                            <p>
+                                                                seconds
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <a href="#">
+                                                        احجز الآن
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-widget-item fl-wrap">
+                                        <div class="box-widget">
+                                            <div class="box-widget-content">
+                                                <div class="box-widget-item-header">
+                                                    <h3>
+                                                        عن الفندق
+                                                    </h3>
+                                                </div>
+                                                <div class="box-widget-list">
+                                                    <ul>
+                                                        <li>
+                                                            <span>
+                                                                <i class="fal fa-map-marker">
+                                                                </i>
+                                                                العنوان :
+                                                            </span>
+                                                            <a href="#">
+                                                                العزيزية - مكة المكرمة
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <span>
+                                                                <i class="fal fa-phone">
+                                                                </i>
+                                                                رقم الهاتف :
+                                                            </span>
+                                                            <a href="#">
+                                                                +(966) 55 666 8619
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <span>
+                                                                <i class="fal fa-envelope">
+                                                                </i>
+                                                                عنوان البريد الإلكتروني :
+                                                            </span>
+                                                            <a href="#">
+                                                                info@iroom.ai
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <span>
+                                                                <i class="fal fa-browser">
+                                                                </i>
+                                                                الموقع الإلكتروني :
+                                                            </span>
+                                                            <a href="#">
+                                                                iroom.ai
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="list-widget-social">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="#" target="_blank">
+                                                                <i class="fab fa-facebook-f">
+                                                                </i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" target="_blank">
+                                                                <i class="fab fa-twitter">
+                                                                </i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" target="_blank">
+                                                                <i class="fab fa-vk">
+                                                                </i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" target="_blank">
+                                                                <i class="fab fa-instagram">
+                                                                </i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="ajax-modal-overlay d-none">
+                </div>
+                <!-- Updated ajax-modal-container section -->
+                <div class="ajax-modal-container d-none" style="right: 0px; opacity: 1;">
+                    <div id="ajax-modal" class="fl-wrap">
+                        <div class="ajax-modal-wrap fl-wrap">
+                            <div class="ajax-modal-close">
+                                <i class="fal fa-times"></i>
+                            </div>
+                            <div class="ajax-modal-item fl-wrap">
+                                <div class="ajax-modal-media fl-wrap">
+                                    <img id="modal-room-image" src="https://placehold.co/800x530"
+                                         alt="room category image"
+                                         style="height: 250px;"
+                                         loading="lazy"/>
+                                    <div class="ajax-modal-title">
+                                        <div class="section-title-separator">
+                                        </div>
+                                        <span id="modal-room-title">غرفة ديلوكس توأم</span>
+                                    </div>
+                                    <div class="ajax-modal-photos-btn dynamic-gal" id="modal-photos-btn"
+                                         data-dynamicpath="[{'src': 'images/gal/slider/1.jpg'}, {'src': 'images/gal/slider/4.jpg'}, {'src': 'images/gal/slider/5.jpg'}]">
+                                        صور (<span id="modal-photos-count">3</span>)
+                                    </div>
+                                </div>
+                                 <div class="ajax-modal-list fl-wrap">
+                                     <ul>
+                                         <li>
+                                             <i class="fal fa-user-alt"></i>
+                                             <h5>
+                                                 <span id="modal-room-adults">3</span>
+                                                 أشخاص
+                                             </h5>
+                                         </li>
+                                         <li>
+                                             <i class="fal fa-chalkboard"></i>
+                                             <h5>
+                                                 <span>52</span>
+                                                 Ft²
+                                             </h5>
+                                         </li>
+                                         <li>
+                                             <i class="fal fa-bath"></i>
+                                             <h5>
+                                                 <span>1</span>
+                                                 Bathroom
+                                             </h5>
+                                         </li>
+                                         <li>
+                                             <i class="fal fa-hand-holding-usd"></i>
+                                             <h5>
+                                                 <span id="modal-room-price">80 SAR</span>
+                                                 / لليلة الواحدة
+                                             </h5>
+                                         </li>
+                                     </ul>
+                                 </div>
+                                <div class="ajax-modal-details fl-wrap">
+                                    <div class="ajax-modal-details-box">
+                                        <h3>تفاصيل الغرفة</h3>
+                                        <p id="modal-room-description">جاري تحميل الوصف...</p>
+                                    </div>
+                                    <div class="ajax-modal-details-box">
+                                        <h3>وسائل الراحة</h3>
+                                        <div class="listing-features fl-wrap">
+                                            <ul id="modal-room-amenities">
+                                                <li>
+                                                    <i class="fal fa-wifi"></i>
+                                                    واي فاي مجاني
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-snowflake"></i>
+                                                    مكيف الهواء
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-tv"></i>
+                                                    <span>تلفزيون</span>
+                                                </li>
+                                                <li>
+                                                    <i class="fal fa-concierge-bell"></i>
+                                                    إفطار
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="box-widget-wrap">
+                                        <div class="box-widget-item fl-wrap">
+                                            <div class="box-widget">
+                                                <div class="box-widget-content">
+                                                    <form name="bookFormCalc" class="book-form custom-form">
+                                                        <fieldset>
+                                                            <div class="cal-item">
+                                                                <div class="listsearch-input-item">
+                                                                    <label>عدد الغرف</label>
+                                                                    <select name="repopt"
+                                                                            class="chosen-select no-search-select"
+                                                                            t-att-data-available-rooms="len(available_rooms)">
+                                                                        <t t-foreach="range(1, min(len(available_rooms) + 1, 6))"
+                                                                           t-as="num">
+                                                                            <option t-att-value="num"
+                                                                                    t-att-selected="num == 1">
+                                                                                <t t-esc="num"/>
+                                                                            </option>
+                                                                        </t>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cal-item">
+                                                                <div class="quantity-item fl-wrap">
+                                                                    <label>كبار</label>
+                                                                    <input type="number" name="qty3" id="adults-input"
+                                                                           readonly="readonly" style="width: 50%;"/>
+                                                                </div>
+                                                                <div class="quantity-item fl-wrap fcit">
+                                                                    <label>أطفال</label>
+                                                                    <input type="number" name="qty2" id="children-input"
+                                                                           readonly="readonly" style="width: 50%;"/>
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                        <input type="number" id="totaldays" name="qty5"
+                                                               class="hid-input"/>
+                                                        <div class="total-coast fl-wrap">
+                                                            <strong>التكلفة الإجمالية</strong>
+                                                            <span>SAR
+                                                                <input type="text" name="grand_total" value=""
+                                                                       readonly="readonly" id="grand-total"/>
+                                                            </span>
+                                                        </div>
+                                                        <button class="btnaplly color2-bg book-btn"
+                                                                data-room-title="غرفة ديلوكس توأم"
+                                                                data-room-price="80"
+                                                                data-adults="2"
+                                                                data-children="0"
+                                                                data-from-date="2025-05-20"
+                                                                data-to-date="2025-05-21"
+                                                                data-number-of-rooms="1"
+                                                                data-hotel-id=""
+                                                                onclick="window.location.href='/booking-process?room_title=' + encodeURIComponent(this.getAttribute('data-room-title')) + '&amp;adults=' + this.getAttribute('data-adults') + '&amp;children=' + this.getAttribute('data-children') + '&amp;from_date=' + this.getAttribute('data-from-date') + '&amp;to_date=' + this.getAttribute('data-to-date') + '&amp;room_price=' + encodeURIComponent(this.getAttribute('data-room-price')) + '&amp;number_of_rooms=' + encodeURIComponent(document.querySelector('select[name=repopt]').value) + '&amp;hotel_id=' + encodeURIComponent(this.getAttribute('data-hotel-id'))">
+                                                            احجز الآن
+                                                            <i class="fal fa-paper-plane"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+            <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded', function () {
+                console.log('asf');
+                const hotelSelect = document.getElementById('hotel_select');
+                const hotelDetails = document.getElementById('hotel-details');
+                const singleMap = document.getElementById('singleMap');
+                const restaurantCount = document.getElementById('restaurant-count');
+                const distanceToCenter = document.getElementById('distance-to-center');
+                const amenitiesList = document.querySelector('#sec3 .listing-features ul');
+                const hotelGallery = document.getElementById('hotel-gallery');
+                const boxWidgetList = document.querySelector('.box-widget-list ul');
+                const dateInput = document.getElementById('main-input-s');
+                const fromDateInput = document.getElementById('from_date');
+                const toDateInput = document.getElementById('to_date');
+
+                // Check if required DOM elements exist
+                if (!hotelSelect || !hotelDetails || !singleMap || !restaurantCount || !distanceToCenter ||
+                !amenitiesList || !hotelGallery || !boxWidgetList || !dateInput || !fromDateInput || !toDateInput) {
+                console.error('Required DOM elements not found: ', {
+                hotelSelect: !!hotelSelect,
+                hotelDetails: !!hotelDetails,
+                singleMap: !!singleMap,
+                restaurantCount: !!restaurantCount,
+                distanceToCenter: !!distanceToCenter,
+                amenitiesList: !!amenitiesList,
+                hotelGallery: !!hotelGallery,
+                boxWidgetList: !!boxWidgetList,
+                dateInput: !!dateInput,
+                fromDateInput: !!fromDateInput,
+                toDateInput: !!toDateInput
+                });
+                return;
+                }
+
+                // Initialize Flatpickr for date range selection
+                if (typeof flatpickr !== 'undefined') {
+                flatpickr(dateInput, {
+                mode: 'range',
+                dateFormat: 'Y-m-d',
+                defaultDate: [fromDateInput.value, toDateInput.value],
+                onChange: function (selectedDates) {
+                if (selectedDates.length === 2) {
+                fromDateInput.value = flatpickr.formatDate(selectedDates[0], 'Y-m-d');
+                toDateInput.value = flatpickr.formatDate(selectedDates[1], 'Y-m-d');
+                updateTotalCost();
+                }
+                }
+                });
+                } else {
+                console.warn('Flatpickr library not loaded. Please include it.');
+                }
+
+                // Function to calculate and update total cost
+                function updateTotalCost() {
+                const roomPriceElement = document.querySelector('#modal-room-price');
+                const repoptSelect = document.querySelector('select[name="repopt"]');
+                const totalDaysInput = document.querySelector('#totaldays');
+                const grandTotalInput = document.querySelector('#grand-total');
+                const fromDateInput = document.querySelector('#from_date');
+                const toDateInput = document.querySelector('#to_date');
+                const bookButton = document.querySelector('.book-btn');
+
+                if (roomPriceElement &amp;&amp; repoptSelect &amp;&amp; totalDaysInput &amp;&amp; grandTotalInput &amp;&amp;
+                fromDateInput &amp;&amp;
+                toDateInput &amp;&amp; bookButton) {
+                const roomPriceText = roomPriceElement.textContent.replace(/[^0-9.]/g, '');
+                const roomPrice = parseFloat(roomPriceText) || 0;
+                const numberOfRooms = parseInt(repoptSelect.value) || 1;
+
+                // Update data-number-of-rooms on book button
+                bookButton.setAttribute('data-number-of-rooms', numberOfRooms);
+
+                const fromDate = new Date(fromDateInput.value);
+                const toDate = new Date(toDateInput.value);
+                const timeDiff = toDate - fromDate;
+                const totalDays = Math.max(1, Math.ceil(timeDiff / (1000 * 60 * 60 * 24)));
+
+                totalDaysInput.value = totalDays;
+                const totalCost = roomPrice * numberOfRooms * totalDays;
+                grandTotalInput.value = totalCost.toFixed(2);
+                }
+                }
+
+                // Fetch hotel data function
+                function fetchHotelData(hotelId) {
+                if (hotelId) {
+                fetch('/get_hotel_data', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ params: { hotel_id: parseInt(hotelId) } })
+                })
+                .then(response => {
+                if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
+                }
+                return response.json();
+                })
+                .then(data => {
+                if (data.error) {
+                    console.error('API Error:', data.error);
+                    hotelDetails.innerHTML = `<p>خطأ: ${data.error}</p>`;
+                    singleMap.innerHTML = `<p>خطأ: ${data.error}</p>`;
+                    amenitiesList.innerHTML = `<li>خطأ: ${data.error}</li>`;
+                    restaurantCount.textContent = '0';
+                    distanceToCenter.textContent = '0';
+                    hotelGallery.innerHTML = `<p>خطأ: ${data.error}</p>`;
+                    boxWidgetList.innerHTML = `<li>خطأ: ${data.error}</li>`;
+                    return;
+                }
+
+                const hotelData = data.result || data;
+
+                hotelDetails.innerHTML = `<p>${hotelData.description || 'لا يوجد وصف متاح'}</p>`;
+                singleMap.innerHTML = hotelData.location_iframe || `<p>لا توجد خريطة متاحة</p>`;
+
+                if (hotelData.amenities &amp;&amp; Array.isArray(hotelData.amenities) &amp;&amp;
+                hotelData.amenities.length > 0) {
+                amenitiesList.innerHTML = hotelData.amenities.map(amenity => `
+                <li>
+                    <i class="${amenity.icon_code}"></i>
+                    ${amenity.name || 'غير محدد'}
+                </li>
+                `).join('');
+                } else {
+                amenitiesList.innerHTML = `<li>لا توجد وسائل راحة متاحة</li>`;
+                }
+
+                restaurantCount.textContent = hotelData.number_of_restaurants || '0';
+                distanceToCenter.textContent = hotelData.distance_from_center || '0';
+
+                boxWidgetList.innerHTML = `
+                <li>
+                    <span>
+                        <i class="fal fa-map-marker"></i>
+                        العنوان :
+                    </span>
+                    <a href="#">${hotelData.address || 'العزيزية - مكة المكرمة'}</a>
+                </li>
+                <li>
+                    <span>
+                        <i class="fal fa-phone"></i>
+                        رقم الهاتف :
+                    </span>
+                    <a href="#">${hotelData.mobile || '+(966) 55 666 8619'}</a>
+                </li>
+                <li>
+                    <span>
+                        <i class="fal fa-envelope"></i>
+                        عنوان البريد الإلكتروني :
+                    </span>
+                    <a href="#">${hotelData.email || 'info@iroom.ai'}</a>
+                </li>
+                <li>
+                    <span>
+                        <i class="fal fa-browser"></i>
+                        الموقع الإلكتروني :
+                    </span>
+                    <a href="#">${hotelData.website || 'iroom.ai'}</a>
+                </li>
+                `;
+
+                if (hotelData.image_ids &amp;&amp; Array.isArray(hotelData.image_ids) &amp;&amp;
+                hotelData.image_ids.length > 0) {
+                const validImages = hotelData.image_ids.filter(image => image &amp;&amp; image.url);
+                if (validImages.length === 0) {
+                console.warn('No valid images found in image_ids');
+                hotelGallery.innerHTML = `<p>لا توجد صور متاحة</p>`;
+                return;
+                }
+
+                hotelGallery.innerHTML = validImages.map((image, index) => {
+                const col = index % 3;
+                const row = Math.floor(index / 3);
+                const leftPos = col * 241;
+                const topPos = row * 241;
+                const imageSrc = image.url || '/web/static/img/placeholder.png';
+                return `
+                <div class="gallery-item" style="position: absolute; left: ${leftPos}px; top: ${topPos}px;">
+                    <div class="grid-item-holder">
+                        <div class="box-item">
+                            <img src="${imageSrc}" alt="Hotel Image" loading="lazy"/>
+                            <a href="${imageSrc}" class="gal-link popup-image">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                `;
+                }).join('');
+
+                const rowCount = Math.ceil(validImages.length / 3);
+                hotelGallery.style.height = `${rowCount * 241}px`;
+
+                const morePhotosButton = document.querySelector('.more-photos-button.dynamic-gal');
+                if (morePhotosButton &amp;&amp; validImages.length > 5) {
+                morePhotosButton.setAttribute('data-dynamicpath', JSON.stringify(
+                validImages.map(img => ({ src: img.url }))
+                ));
+                morePhotosButton.querySelector('span').textContent = `${validImages.length} صور`;
+                }
+
+                if (typeof LazyLoad !== 'undefined') {
+                new LazyLoad().update();
+                } else if ('loading' in HTMLImageElement.prototype) {
+                document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                img.src = img.src;
+                });
+                }
+                } else {
+                console.warn('No images provided in hotelData.image_ids');
+                hotelGallery.innerHTML = `<p>لا توجد صور متاحة</p>`;
+                }
+                })
+                .catch(error => {
+                console.error('Error fetching hotel data:', error.message);
+                hotelDetails.innerHTML = `<p>حدث خطأ أثناء جلب البيانات</p>`;
+                singleMap.innerHTML = `<p>حدث خطأ أثناء جلب البيانات</p>`;
+                amenitiesList.innerHTML = `<li>حدث خطأ أثناء جلب البيانات</li>`;
+                restaurantCount.textContent = '0';
+                distanceToCenter.textContent = '0';
+                hotelGallery.innerHTML = `<p>حدث خطأ أثناء جلب البيانات</p>`;
+                boxWidgetList.innerHTML = `<li>حدث خطأ أثناء جلب البيانات</li>`;
+                });
+                } else {
+                console.warn('No hotel ID provided');
+                hotelDetails.innerHTML = `<p>يرجى اختيار فندق</p>`;
+                singleMap.innerHTML = `<p>يرجى اختيار فندق</p>`;
+                amenitiesList.innerHTML = `<li>يرجى اختيار فندق</li>`;
+                restaurantCount.textContent = '0';
+                distanceToCenter.textContent = '0';
+                hotelGallery.innerHTML = `<p>يرجى اختيار فندق</p>`;
+                boxWidgetList.innerHTML = `<li>يرجى اختيار فندق</li>`;
+                }
+                }
+
+                // Fetch hotel data if a hotel is pre-selected
+                if (hotelSelect.value) {
+                fetchHotelData(hotelSelect.value);
+                }
+
+                // Handle hotel selection change
+                hotelSelect.addEventListener('change', function () {
+                fetchHotelData(this.value);
+                });
+
+                // Handle room booking modal
+                document.querySelectorAll('.ajax-link').forEach(button => {
+                button.addEventListener('click', function () {
+                const roomCategory = this.getAttribute('data-room-category') || 'غير محدد';
+                const roomDescription = this.getAttribute('data-room-description') || 'لا يوجد وصف متاح';
+                const roomAmenities = this.getAttribute('data-room-amenities') || 'لا توجد وسائل راحة';
+                const roomAdults = this.getAttribute('data-room-adults') || '2';
+                const roomChildren = this.getAttribute('data-room-children') || '0';
+                const roomPrice = this.getAttribute('data-room-price') || '0';
+                const roomImage = this.getAttribute('data-room-image') || 'https://placehold.co/800x530';
+                const hotelId = this.getAttribute('data-hotel-id') || hotelSelect.value || '';
+
+                const modal = document.querySelector('#ajax-modal');
+                if (modal) {
+                const modalTitle = modal.querySelector('#modal-room-title');
+                if (modalTitle) modalTitle.textContent = roomCategory;
+
+                const modalDescription = modal.querySelector('#modal-room-description');
+                if (modalDescription) modalDescription.textContent = stripHTML(roomDescription);
+
+                const modalAmenities = modal.querySelector('#modal-room-amenities');
+                if (modalAmenities) {
+                const amenitiesArray = roomAmenities.split(',').filter(a => a.trim() !== '');
+                modalAmenities.innerHTML = amenitiesArray.length > 0
+                ? amenitiesArray.map(amenity => `
+                <li>
+                    <i class="fal fa-check"></i>
+                    <span>${amenity.trim()}</span>
+                </li>
+                `).join('')
+                : `<li>لا توجد وسائل راحة متاحة</li>`;
+                }
+
+                const modalAdults = modal.querySelector('#modal-room-adults');
+                if (modalAdults) modalAdults.textContent = roomAdults;
+
+                const modalPrice = modal.querySelector('#modal-room-price');
+                if (modalPrice) modalPrice.textContent = `${roomPrice} SAR`;
+
+                const adultsInput = modal.querySelector('#adults-input');
+                if (adultsInput) adultsInput.value = roomAdults;
+
+                const childrenInput = document.querySelector('#children-input');
+                if (childrenInput) childrenInput.value = roomChildren;
+
+                const modalImage = modal.querySelector('#modal-room-image');
+                const modalPhotosBtn = modal.querySelector('#modal-photos-btn');
+                const modalPhotosCount = modal.querySelector('#modal-photos-count');
+                if (modalImage &amp;&amp; modalPhotosBtn &amp;&amp; modalPhotosCount) {
+                const imagesArray = roomImage.split(',').filter(img => img.trim() !== '');
+                if (imagesArray.length > 0) {
+                modalImage.src = imagesArray[0];
+                modalPhotosBtn.setAttribute('data-dynamicpath', JSON.stringify(
+                imagesArray.map(img => ({ src: img.trim() }))
+                ));
+                modalPhotosCount.textContent = imagesArray.length;
+                } else {
+                modalImage.src = 'https://placehold.co/800x530';
+                modalPhotosBtn.setAttribute('data-dynamicpath', '[]');
+                modalPhotosCount.textContent = '0';
+                }
+                }
+
+                const bookButton = modal.querySelector('.book-btn');
+                const repoptSelect = modal.querySelector('select[name="repopt"]');
+                if (bookButton &amp;&amp; repoptSelect) {
+                bookButton.setAttribute('data-room-title', roomCategory);
+                bookButton.setAttribute('data-room-price', roomPrice);
+                bookButton.setAttribute('data-adults', adultsInput ? adultsInput.value : roomAdults);
+                bookButton.setAttribute('data-children', childrenInput ? childrenInput.value : roomChildren);
+                bookButton.setAttribute('data-from-date', fromDateInput.value || '2025-05-20');
+                bookButton.setAttribute('data-to-date', toDateInput.value || '2025-05-21');
+                bookButton.setAttribute('data-hotel-id', hotelId);
+                bookButton.setAttribute('data-number-of-rooms', repoptSelect.value || '1');
+                }
+
+                const fromDate = new Date(fromDateInput.value);
+                const toDate = new Date(toDateInput.value);
+                const timeDiff = toDate - fromDate;
+                const totalDays = Math.max(1, Math.ceil(timeDiff / (1000 * 60 * 60 * 24)));
+                const totalDaysInput = document.querySelector('#totaldays');
+                if (totalDaysInput) {
+                totalDaysInput.value = totalDays;
+                }
+
+                updateTotalCost();
+                const modalContainer = document.querySelector('.ajax-modal-container');
+                if (modalContainer) modalContainer.classList.remove('d-none');
+                }
+                });
+                });
+
+                // Update book button attributes when inputs change
+                const adultsInput = document.querySelector('#adults-input');
+                const childrenInput = document.querySelector('#children-input');
+                const bookButton = document.querySelector('.book-btn');
+                const repoptSelect = document.querySelector('select[name="repopt"]');
+
+                if (adultsInput &amp;&amp; bookButton) {
+                adultsInput.addEventListener('change', function () {
+                bookButton.setAttribute('data-adults', this.value);
+                updateTotalCost();
+                });
+                }
+
+                if (childrenInput &amp;&amp; bookButton) {
+                childrenInput.addEventListener('change', function () {
+                bookButton.setAttribute('data-children', this.value);
+                updateTotalCost();
+                });
+                }
+
+                if (repoptSelect &amp;&amp; bookButton) {
+                repoptSelect.addEventListener('change', function () {
+                bookButton.setAttribute('data-number-of-rooms', this.value);
+                updateTotalCost();
+                });
+                }
+
+                if (fromDateInput &amp;&amp; toDateInput &amp;&amp; bookButton) {
+                fromDateInput.addEventListener('change', function () {
+                bookButton.setAttribute('data-from-date', this.value);
+                updateTotalCost();
+                });
+                toDateInput.addEventListener('change', function () {
+                bookButton.setAttribute('data-to-date', this.value);
+                updateTotalCost();
+                });
+                }
+
+                function stripHTML(html) {
+                const div = document.createElement('div');
+                div.innerHTML = html;
+                return div.textContent || div.innerText || '';
+                }
+                });
+            </script>
+        </t>
+    </template>
+</odoo>

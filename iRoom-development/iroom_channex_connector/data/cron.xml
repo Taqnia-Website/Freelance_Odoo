@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record forcecreate="True" id="cron_pl_mail" model="ir.cron">
+            <field name="name">Get Booking Revision List</field>
+            <field name="model_id" ref="model_hotel_reservation"/>
+            <field name="state">code</field>
+            <field name="code">model.get_channex_booking_revisions()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field eval="False" name="active"/>
+        </record>
+        <record forcecreate="True" id="cron_channex_full_sync" model="ir.cron">
+            <field name="name">Channex Full Sync</field>
+            <field name="model_id" ref="model_sale_shop"/>
+            <field name="state">code</field>
+            <field name="code">model.cron_channex_full_sync()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field eval="False" name="active"/>
+        </record>
+        <record forcecreate="True" id="cron_channex_reviews" model="ir.cron">
+            <field name="name">Get Channex Reviews</field>
+            <field name="model_id" ref="model_channex_review"/>
+            <field name="state">code</field>
+            <field name="code">model.get_channex_reviews()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field eval="False" name="active"/>
+        </record>
+    </data>
+</odoo>

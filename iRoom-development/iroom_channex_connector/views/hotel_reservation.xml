@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="channex_view_hotel_reservation_form1" model="ir.ui.view">
+            <field name="name">channex_view_hotel_reservation_form1</field>
+            <field name="model">hotel.reservation</field>
+            <field name="inherit_id" ref="hotel_management.view_hotel_reservation_form1"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page name="channex" string="Channex">
+                        <group>
+                            <group>
+                                <field name="apply_channex"/>
+                                <field name="channex_id"/>
+                                <field name="channex_transaction_id"/>
+                                <field name="channex_channel_id"/>
+                                <field name="channex_acknowledge_status"/>
+                                <field name="channex_ota_name"/>
+                                <field name="channex_ota_commission"/>
+                                <field name="channex_ota_reservation_code"/>
+                            </group>
+                            <group>
+                                <field name="channex_payment_type"/>
+                                <field name="channex_agent"/>
+                                <field name="channex_card_number"/>
+                                <field name="channex_card_type"/>
+                                <field name="channex_cardholder_name"/>
+                                <field name="channex_card_expiration_date"/>
+                                <field name="channex_card_is_virtual"/>
+                                <field name="channex_unique_id"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

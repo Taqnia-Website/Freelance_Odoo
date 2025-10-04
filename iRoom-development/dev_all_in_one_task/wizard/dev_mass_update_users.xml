@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle
+ -->
+<odoo>
+    <record id="dev_mass_update_users_view" model="ir.ui.view">
+        <field name="name">Dev Mass Update Users</field>
+        <field name="model">dev.mass.update.users</field>
+        <field name="arch" type="xml">
+            <form string="Mass Update Users">
+                <group>
+                    <field name="user_ids" widget="many2many_tags"/>
+                </group>
+                <footer>
+                    <button name="update_user" string="Update" class="oe_highlight" type="object"/>
+                    Or
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_dev_mass_update_users" model="ir.actions.act_window">
+        <field name="name">Mass Update Users</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">dev.mass.update.users</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="project.model_project_task"/>
+        <field name="binding_view_types">form,list</field>
+    </record>
+</odoo>

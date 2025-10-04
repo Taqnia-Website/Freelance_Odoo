@@ -1,0 +1,133 @@
+<t t-name="website.rooms-1">
+	<t t-call="website.layout">
+		<!-- ajax-modal-wrap -->
+		<div class="ajax-modal-wrap fl-wrap">
+			<div class="ajax-modal-close">
+				<i class="fal fa-times">
+				</i>
+			</div>
+			<!-- ajax-modal-item -->
+			<div class="ajax-modal-item fl-wrap">
+				<div class="ajax-modal-media fl-wrap">
+					<img src="https://hotels.iroom.ai/web/image/4538" alt="" />
+					<div class="ajax-modal-title">
+						<div class="section-title-separator">
+							<span>
+							</span>
+						</div>
+						غرفة ديلوكس توأم
+					</div>
+					<div class="ajax-modal-photos-btn dynamic-gal" data-dynamicPath="[{'src': 'https://hotels.iroom.ai/web/image/4533'}, {'src': 'https://hotels.iroom.ai/web/image/4530'},{'src': 'https://hotels.iroom.ai/web/image/4532'}]">
+						صور (
+						<span>
+							3
+						</span>
+						)
+					</div>
+				</div>
+				<div class="ajax-modal-list fl-wrap">
+					<ul>
+						<li>
+							<i class="fal fa-user-alt">
+							</i>
+							<h5>
+								<span>
+									3
+								</span>
+								اشخاص
+							</h5>
+						</li>
+						<li>
+							<i class="fal fa-chalkboard">
+							</i>
+							<h5>
+								<span>
+									52
+								</span>
+								m²
+							</h5>
+						</li>
+						<li>
+							<i class="fal fa-bath">
+							</i>
+							<h5>
+								<span>
+									1
+								</span>
+								حمام
+							</h5>
+						</li>
+						<li>
+							<i class="fal fa-hand-holding-usd">
+							</i>
+							<h5>
+								<span>
+									204 SAR
+								</span>
+								/ الليلة
+							</h5>
+						</li>
+					</ul>
+				</div>
+				<div class="ajax-modal-details fl-wrap">
+					<!-- ajax-modal-details-box -->
+					<div class="ajax-modal-details-box">
+						<h3>
+							تفاصيل الغرفة
+						</h3>
+						<p>
+							لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت
+							لابوري ات دولار
+							ماجنا أليكيوا .
+							لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت
+							لابوري ات دولار
+							ماجنا أليكيوا .
+						</p>
+					</div>
+					<!-- ajax-modal-details-box end -->
+					<!-- ajax-modal-details-box -->
+					<div class="ajax-modal-details-box">
+						<h3>
+							وسائل الراحة في الغرفة
+						</h3>
+						<div class="listing-features fl-wrap">
+							<ul>
+								<li>
+									<i class="fal fa-wifi">
+									</i>
+									مجاني WiFi
+								</li>
+								<li>
+									<i class="fal fa-snowflake">
+									</i>
+									التكييف
+								</li>
+								<li>
+									<i class="fal fa-tv">
+									</i>
+									<span>
+										تلفزة داخلية
+									</span>
+									<li>
+										<i class="fal fa-concierge-bell">
+										</i>
+										إفطار
+									</li>
+								</li>
+							</ul>
+						</div>
+						<!-- ajax-modal-details-box end -->
+						<a href="https://hotels.iroom.ai/booking-process" class="btn float-btn color2-bg">
+							احجز الآن
+							<i class="fas fa-caret-right">
+							</i>
+						</a>
+					</div>
+				</div>
+				<!-- ajax-modal-item -->
+			</div>
+			<!-- ajax-modal-wrap end -->
+		</div>
+		<!-- ajax-modal-container end -->
+	</t>
+</t>

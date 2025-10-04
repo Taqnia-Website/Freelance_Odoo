@@ -1,0 +1,159 @@
+#myDoughnutChart {
+        display: block;
+        box-sizing: border-box;
+        height: 200px;
+        width: 200px;
+
+}
+
+.scroll-container-main {
+    max-height: 99%; /* Adjust height as needed */
+    overflow-y: auto;  /* Enable vertical scrolling */
+    border: 2px solid #ccc; /* Optional: add a border for better visibility */
+    padding: 10px; /* Optional: add some padding */
+    margin-bottom: 20px; /* Space between containers */
+    background: rgba(184, 184, 184, 0.3);
+}
+
+.scroll-container {
+    max-height: 250px; /* Adjust height as needed */
+    overflow-y: auto;  /* Enable vertical scrolling */
+    border: 1px solid #ccc; /* Optional: add a border for better visibility */
+    padding: 10px; /* Optional: add some padding */
+    margin-bottom: 20px; /* Space between containers */
+}
+
+.scroll-container ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding from the list */
+}
+
+.booking-item {
+    background-color: #f9f9f9; /* Light background */
+    border: 1px solid #ddd; /* Border around each booking */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px;
+    margin-bottom: 10px; /* Space between bookings */
+    transition: background-color 0.3s; /* Smooth hover effect */
+}
+
+.booking-item:hover {
+    background-color: #f1f1f1; /* Darker background on hover */
+}
+
+.booking-info {
+    font-family: Arial, sans-serif; /* Font for the booking info */
+    color: #333; /* Text color */
+}
+
+.booking-info strong {
+    font-size: 1.2em; /* Larger font for partner name */
+}
+
+.select_wrap {
+    width: 100%;  /* Make sure it is less than the select width */
+    overflow: hidden;  /* Hide default arrow */
+    border: 2px solid #515151;
+    border-radius: 5px;
+}
+
+select {
+    width: 100%;  /* Make sure it is less than the select width */
+    padding: 5px;
+    border: 0;
+    text-align: center;
+    text-align-last: center;
+    background: #f5f5f5; /* Fall back */
+    background-repeat: no-repeat;
+    background-size: 30px 30px, auto auto;
+    background-position: 150px 0, center center;
+}
+
+.select-wrapper:before{
+    content: "Hotel";
+    position:absolute;
+    right: 5px;
+    top:8px;
+    border-width: 5px 5px 5px 5px;
+    border-style: solid;
+    border-color: #666666 transparent  transparent  transparent ;
+    z-index:3;
+    pointer-events:none; /* <-- */
+}
+.select-wrapper:after {
+    content:"";
+    display:block;
+    position:absolute;
+    top:0px;
+    bottom:0px;
+    width:20px;
+    right:0px;
+    border-left:1px solid #bababa;
+    background-color:#ededed;
+    -webkit-border-top-right-radius:5px;
+    -moz-border-top-right-radius:5px;
+    border-top-right-radius:5px;
+    -webkit-border-bottom-right-radius:5px;
+    -moz-border-bottom-right-radius:5px;
+    border-bottom-right-radius:5px;
+    pointer-events:none; /* <-- */
+}
+
+/*Styles for ProgressBar*/
+.tt-0 {
+  color: #1580d2 !important;
+}
+.pr-0 {
+  background-color: #1580d2 !important;
+}
+
+.tt-1 {
+  color: #46afff !important;
+}
+.pr-1 {
+  background-color: #46afff !important;
+}
+
+.tt-2 {
+  color: #56d8ee !important;
+}
+.pr-2 {
+  background-color: #56d8ee !important;
+}
+
+.tt-3 {
+  color: #ff952e !important;
+}
+.pr-3 {
+  background-color: #ff952e !important;
+}
+
+.tt-4 {
+  color: #ee4200 !important;
+}
+.pr-4 {
+  background-color: #ee4200 !important;
+}
+
+.tt-4 {
+  color: #f1b766 !important;
+}
+.pr-4 {
+  background-color: #f1b766 !important;
+}
+
+i{
+    margin-right:5px;
+}
+
+.font-large-1 {
+  font-size: 2rem !important;
+}
+
+.text-bold-700 {
+  font-weight: 700;
+}
+
+.occupy_table th{
+    font-size:12px;
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle
+ -->
+<odoo>
+	<record id="cron_task_timesheet_reminder_dev" model="ir.cron">
+        <field name="name">Task : Pending Work Reminder</field>
+        <field name="model_id" ref="model_project_task"/>
+        <field name="state">code</field>
+        <field name="code">model.send_timesheet_reminder()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+    </record>
+</odoo>

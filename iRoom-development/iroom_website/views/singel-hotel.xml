@@ -1,0 +1,2041 @@
+<t t-name="website.single-hotel">
+	<t t-call="website.layout">
+		<section class="list-single-hero" data-scrollax-parent="true">
+			<div class="bg par-elem " data-bg="https://hotels.iroom.ai/web/image/4529" data-scrollax="properties: { translateY: '30%' }">
+			</div>
+			<div class="list-single-hero-title fl-wrap">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-7">
+							<div class="listing-rating-wrap">
+								<div class="listing-rating card-popup-rainingvis" data-starrating2="5">
+								</div>
+							</div>
+							<h2>
+								<span>
+									فندق هوليدي إن العزيزية
+								</span>
+							</h2>
+							<div class="list-single-header-contacts fl-wrap">
+								<ul>
+									<li class="d-flex">
+										<i class="far fa-phone">
+										</i>
+										<a href="tel:+96655668619">
+											+(966) 55 666 8619
+										</a>
+									</li>
+									<li>
+										<i class="far fa-map-marker-alt">
+										</i>
+										<a href="https://maps.app.goo.gl/HsNU9Gj8Wd3CM5o28">
+											هوليدي إن - مكة العزيزية
+										</a>
+									</li>
+									<li>
+										<i class="far fa-envelope">
+										</i>
+										<a href="mailto:resv.qcamh@ihg.com">
+											resv.qcamh@ihg.com
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-5">
+							<!-- list-single-hero-details -->
+							<div class="list-single-hero-details fl-wrap">
+								<!-- list-single-hero-rating -->
+								<div class="list-single-hero-rating">
+									<div class="rate-class-name">
+										<div class="score">
+											<strong>
+												جيد جدًا
+											</strong>
+											25 تقييم
+										</div>
+										<span>
+											4.5
+										</span>
+									</div>
+									<!-- list-single-hero-rating-list -->
+									<div class="list-single-hero-rating-list">
+										<!-- rate item -->
+										<div class="rate-item fl-wrap">
+											<div class="rate-item-title fl-wrap">
+												<span>
+													نظافة
+												</span>
+											</div>
+											<div class="rate-item-bg" data-percent="100%">
+												<div class="rate-item-line color-bg">
+												</div>
+											</div>
+											<div class="rate-item-percent">
+												5.0
+											</div>
+										</div>
+										<!-- rate item end -->
+										<!-- rate item -->
+										<div class="rate-item fl-wrap">
+											<div class="rate-item-title fl-wrap">
+												<span>
+													راحة
+												</span>
+											</div>
+											<div class="rate-item-bg" data-percent="90%">
+												<div class="rate-item-line color-bg">
+												</div>
+											</div>
+											<div class="rate-item-percent">
+												5.0
+											</div>
+										</div>
+										<!-- rate item end -->
+										<!-- rate item -->
+										<div class="rate-item fl-wrap">
+											<div class="rate-item-title fl-wrap">
+												<span>
+													فريق الفندق
+												</span>
+											</div>
+											<div class="rate-item-bg" data-percent="80%">
+												<div class="rate-item-line color-bg">
+												</div>
+											</div>
+											<div class="rate-item-percent">
+												4.0
+											</div>
+										</div>
+										<!-- rate item end -->
+										<!-- rate item -->
+										<div class="rate-item fl-wrap">
+											<div class="rate-item-title fl-wrap">
+												<span>
+													مرافق
+												</span>
+											</div>
+											<div class="rate-item-bg" data-percent="90%">
+												<div class="rate-item-line color-bg">
+												</div>
+											</div>
+											<div class="rate-item-percent">
+												4.5
+											</div>
+										</div>
+										<!-- rate item end -->
+									</div>
+									<!-- list-single-hero-rating-list end -->
+								</div>
+								<!-- list-single-hero-rating  end -->
+								<div class="clearfix">
+								</div>
+								<!-- list-single-hero-links -->
+								<div class="list-single-hero-links">
+									<a class="lisd-link" href="/booking-process">
+										<i class="fal fa-bookmark">
+										</i>
+										احجز الآن
+									</a>
+									<a class="custom-scroll-link lisd-link" href="#sec6">
+										<i class="fal fa-comment-alt-check">
+										</i>
+										إضافة تقييم
+									</a>
+								</div>
+								<!-- list-single-hero-links end -->
+							</div>
+							<!-- list-single-hero-details  end -->
+						</div>
+					</div>
+					<div class="breadcrumbs-hero-buttom fl-wrap">
+						<div class="breadcrumbs">
+							<a href="#">
+								الصفحة الرئيسية
+							</a>
+							<a href="#">
+								الفنادق
+							</a>
+							<a href="#">
+								مكة المكرمة
+							</a>
+							<span>
+								فندق هوليدي إن العزيزية
+							</span>
+						</div>
+						<div class="list-single-hero-price">
+							متوسط/الليلة
+							<span>
+								SAR 320
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- section  end -->
+		<!-- section -->
+		<section class="grey-blue-bg small-padding scroll-nav-container" id="sec2">
+			<!-- scroll-nav-wrapper -->
+			<div class="scroll-nav-wrapper fl-wrap">
+				<div class="hidden-map-container fl-wrap">
+					<div class="map-container">
+						<div id="singleMap">
+							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3714.3290265538735!2d39.85786271076674!3d21.416308580249716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c205ffc1137cdb%3A0xba8040ebbe12c017!2sMakkah%20al%20Aziziah!5e0!3m2!1sar!2ssa!4v1726083672529!5m2!1sar!2ssa" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" />
+						</div>
+					</div>
+				</div>
+				<div class="clearfix">
+				</div>
+				<div class="container">
+					<nav class="scroll-nav scroll-init">
+						<ul>
+							<li>
+								<a href="#sec2">
+									التفاصيل
+								</a>
+							</li>
+							<li>
+								<a href="#sec3">
+									وسائل الراحة
+								</a>
+							</li>
+							<li>
+								<a href="#sec4">
+									الغرف
+								</a>
+							</li>
+							<li>
+								<a href="#sec5">
+									التقييمات
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<a href="#" class="show-hidden-map">
+						<span>
+							الخريطة
+						</span>
+						<i class="fal fa-map-marked-alt">
+						</i>
+					</a>
+				</div>
+			</div>
+			<!-- scroll-nav-wrapper end -->
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- datails -->
+					<div class="col-md-8">
+						<div class="list-single-main-container ">
+							<!-- fixed-scroll-column -->
+							<div class="fixed-scroll-column">
+								<div class="fixed-scroll-column-item fl-wrap">
+									<div class="showshare sfcs fc-button">
+										<i class="far fa-share-alt">
+										</i>
+										<span>
+											مشاركة
+										</span>
+									</div>
+									<div class="share-holder fixed-scroll-column-share-container">
+										<div class="share-container  isShare">
+										</div>
+									</div>
+									<a class="fc-button custom-scroll-link" href="#sec6">
+										<i class="far fa-comment-alt-check">
+										</i>
+										<span>
+											إضافة تقييم
+										</span>
+									</a>
+									<a class="fc-button" href="#">
+										<i class="far fa-heart">
+										</i>
+										<span>
+											مهتم
+										</span>
+									</a>
+									<a class="fc-button" href="/booking-process">
+										<i class="far fa-bookmark">
+										</i>
+										<span>
+											احجز الآن
+										</span>
+									</a>
+								</div>
+							</div>
+							<!-- fixed-scroll-column end -->
+							<div class="list-single-main-media fl-wrap">
+								<!-- gallery-items -->
+								<div class="gallery-items grid-small-pad  list-single-gallery three-coulms lightgallery">
+									<!-- 1 -->
+									<div class="gallery-item ">
+										<div class="grid-item-holder">
+											<div class="box-item">
+												<img src="https://hotels.iroom.ai/web/image/4535" class="lazy" alt="" />
+												<a href="https://hotels.iroom.ai/web/image/4535" class="gal-link popup-image">
+													<i class="fa fa-search">
+													</i>
+												</a>
+											</div>
+										</div>
+									</div>
+									<!-- 1 end -->
+									<!-- 2 -->
+									<div class="gallery-item">
+										<div class="grid-item-holder">
+											<div class="box-item">
+												<img src="https://hotels.iroom.ai/web/image/4533" alt="" />
+												<a href="https://hotels.iroom.ai/web/image/4533" class="gal-link popup-image">
+													<i class="fa fa-search">
+													</i>
+												</a>
+											</div>
+										</div>
+									</div>
+									<!-- 2 end -->
+									<!-- 3 -->
+									<div class="gallery-item gallery-item-second">
+										<div class="grid-item-holder">
+											<div class="box-item">
+												<img src="https://hotels.iroom.ai/web/image/4529" alt="" />
+												<a href="https://hotels.iroom.ai/web/image/4529" class="gal-link popup-image">
+													<i class="fa fa-search">
+													</i>
+												</a>
+											</div>
+										</div>
+									</div>
+									<!-- 3 end -->
+									<!-- 4 -->
+									<div class="gallery-item">
+										<div class="grid-item-holder">
+											<div class="box-item">
+												<img src="https://hotels.iroom.ai/web/image/4530" alt="" />
+												<a href="https://hotels.iroom.ai/web/image/4530" class="gal-link popup-image">
+													<i class="fa fa-search">
+													</i>
+												</a>
+											</div>
+										</div>
+									</div>
+									<!-- 4 end -->
+									<!-- 5 -->
+									<div class="gallery-item">
+										<div class="grid-item-holder">
+											<div class="box-item">
+												<img src="https://hotels.iroom.ai/web/image/4531" alt="" />
+												<a href="https://hotels.iroom.ai/web/image/4531" class="gal-link popup-image">
+													<i class="fa fa-search">
+													</i>
+												</a>
+											</div>
+										</div>
+									</div>
+									<!-- 5 end -->
+									<!-- 7 -->
+									<div class="gallery-item">
+										<div class="grid-item-holder">
+											<div class="box-item">
+												<img src="https://hotels.iroom.ai/web/image/4532" alt="" />
+												<div class="more-photos-button dynamic-gal" data-dynamicPath="[{'src': 'https://hotels.iroom.ai/web/image/4529'}, {'src': 'https://hotels.iroom.ai/web/image/4530'},{'src': 'https://hotels.iroom.ai/web/image/4531'},{'src': 'https://hotels.iroom.ai/web/image/4532'},{'src': 'https://hotels.iroom.ai/web/image/4533'},{'src': 'https://hotels.iroom.ai/web/image/4534'},{'src': 'https://hotels.iroom.ai/web/image/4535'},{'src': 'https://hotels.iroom.ai/web/image/4536'}]">
+													صور آخرى
+													<span>
+														4 صور
+													</span>
+													<i class="far fa-long-arrow-left">
+													</i>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- 7 end -->
+								</div>
+								<!-- end gallery items -->
+							</div>
+							<!-- list-single-header end -->
+							<div class="list-single-facts fl-wrap">
+								<!-- inline-facts -->
+								<div class="inline-facts-wrap">
+									<div class="inline-facts">
+										<i class="fal fa-bed">
+										</i>
+										<div class="milestone-counter">
+											<div class="stats animaper">
+												45
+											</div>
+										</div>
+										<h6>
+											غرف الفندق
+										</h6>
+									</div>
+								</div>
+								<!-- inline-facts end -->
+								<!-- inline-facts -->
+								<div class="inline-facts-wrap">
+									<div class="inline-facts">
+										<i class="fal fa-users">
+										</i>
+										<div class="milestone-counter">
+											<div class="stats animaper">
+												2557
+											</div>
+										</div>
+										<h6>
+											العملاء كل عام
+										</h6>
+									</div>
+								</div>
+								<!-- inline-facts end -->
+								<!-- inline-facts -->
+								<div class="inline-facts-wrap">
+									<div class="inline-facts">
+										<i class="fal fa-taxi">
+										</i>
+										<div class="milestone-counter">
+											<div class="stats animaper">
+												15
+											</div>
+										</div>
+										<h6>
+											المسافة إلى المركز
+										</h6>
+									</div>
+								</div>
+								<!-- inline-facts end -->
+								<!-- inline-facts -->
+								<div class="inline-facts-wrap">
+									<div class="inline-facts">
+										<i class="fal fa-cocktail">
+										</i>
+										<div class="milestone-counter">
+											<div class="stats animaper">
+												4
+											</div>
+										</div>
+										<h6>
+											المطاعم
+										</h6>
+									</div>
+								</div>
+								<!-- inline-facts end -->
+							</div>
+							<!-- list-single-main-item -->
+							<div class="list-single-main-item fl-wrap">
+								<div class="list-single-main-item-title fl-wrap">
+									<h3>
+										عن الفندق
+									</h3>
+								</div>
+								<p>
+									يقع هوليداي العزيزية في مكة المكرمة، وعلى بعد 5 كم من أبراج البيت، ويضم مطعم ومواقف خاصة مجانية للسيارات، كما يوفر مكان الإقامة هذا غرف عائلية وتراس، بالإضافة إلى مكتب استقبال يعمل على مدار الساعة وخدمة الغرف وخدمة الواي فاي مجاناً.
+								</p>
+								<p>
+									يتم تقديم بوفيه إفطار كل صباح في هذا الفندق.
+								</p>
+								<p>
+									تحتوي منطقة العافية المتوفرة في هوليداي العزيزية على حوض استحمام بالمياه الحارة وساونا.
+								</p>
+								<p>
+									يقع مكان الإقامة هذا على بعد 5 كم من كل من المسجد الحرام ومكة مول، كما يعتبر مطار الملك عبد العزيز المطار الأقرب لهوليداي العزيزية، حيث يقع على بعد 102 كم.
+								</p>
+								<a href="https://www.youtube.com/watch?v=9J1cHDLCVg8" class="btn btn-hdi flat-btn color-bg big-btn float-btn image-popup">
+									عرض الفيديو
+									<i class="fal fa-play">
+									</i>
+								</a>
+							</div>
+							<!-- list-single-main-item end -->
+							<!-- list-single-main-item -->
+							<div class="list-single-main-item fl-wrap" id="sec3">
+								<div class="list-single-main-item-title fl-wrap">
+									<h3>
+										المرافق والخدمات في الفندق
+									</h3>
+								</div>
+								<div class="listing-features fl-wrap">
+									<ul>
+										<li>
+											<i class="fal fa-wifi">
+											</i>
+											خدمة الواي فاي المجانية في جميع أنحاء الفندق
+										</li>
+										<li>
+											<i class="fal fa-plug">
+											</i>
+											اتصال عالي السرعة بالإنترنت
+										</li>
+										<li>
+											<i class="fal fa-clock">
+											</i>
+											تسجيل سريع للوصول والمغادرة
+										</li>
+										<li>
+											<i class="fal fa-suitcase">
+											</i>
+											تخزين الأمتعة
+										</li>
+										<li>
+											<i class="fal fa-exchange-alt">
+											</i>
+											خدمة تحويل العملات
+										</li>
+										<li>
+											<i class="fal fa-utensils">
+											</i>
+											مطعم يقدم الأطباق المحلية والدولية
+										</li>
+										<li>
+											<i class="fal fa-concierge-bell">
+											</i>
+											خدمة الغرف
+										</li>
+										<li>
+											<i class="fal fa-coffee">
+											</i>
+											إفطار يومي
+										</li>
+										<li>
+											<i class="fal fa-list-alt">
+											</i>
+											قوائم غذائية خاصة (عند الطلب)
+										</li>
+										<li>
+											<i class="fal fa-swimming-pool">
+											</i>
+											مسبح داخلي/خارجي
+										</li>
+										<li>
+											<i class="fal fa-dumbbell">
+											</i>
+											مركز لياقة بدنية
+										</li>
+										<li>
+											<i class="fal fa-spa">
+											</i>
+											سبا وعلاجات تجميلية
+										</li>
+										<li>
+											<i class="fal fa-hot-tub">
+											</i>
+											جاكوزي
+										</li>
+										<li>
+											<i class="fal fa-hot-tub">
+											</i>
+											ساونا
+										</li>
+										<li>
+											<i class="fal fa-elevator">
+											</i>
+											مصعد
+										</li>
+										<li>
+											<i class="fal fa-parking">
+											</i>
+											موقف سيارات مجاني
+										</li>
+										<li>
+											<i class="fal fa-ban-smoking">
+											</i>
+											غرف لغير المدخنين
+										</li>
+										<li>
+											<i class="fal fa-wheelchair">
+											</i>
+											مرافق ذوي الاحتياجات الخاصة
+										</li>
+										<li>
+											<i class="fal fa-baby">
+											</i>
+											خدمة مجالسة الأطفال
+										</li>
+										<li>
+											<i class="fal fa-child">
+											</i>
+											منطقة لعب للأطفال
+										</li>
+										<li>
+											<i class="fal fa-bed">
+											</i>
+											أسرة أطفال مجانية (عند الطلب)
+										</li>
+										<li>
+											<i class="fal fa-briefcase">
+											</i>
+											قاعة اجتماعات
+										</li>
+										<li>
+											<i class="fal fa-building">
+											</i>
+											مركز أعمال
+										</li>
+										<li>
+											<i class="fal fa-fax">
+											</i>
+											فاكس وتصوير مستندات
+										</li>
+										<li>
+											<i class="fal fa-shuttle-van">
+											</i>
+											خدمة نقل من وإلى المطار
+										</li>
+										<li>
+											<i class="fal fa-tshirt">
+											</i>
+											خدمة التنظيف الجاف
+										</li>
+										<li>
+											<i class="fal fa-iron">
+											</i>
+											خدمة كيّ الملابس
+										</li>
+										<li>
+											<i class="fal fa-car">
+											</i>
+											خدمات تأجير السيارات
+										</li>
+									</ul>
+								</div>
+								<span class="fw-separator">
+								</span>
+								<div class="list-single-main-item-title no-dec-title fl-wrap">
+									<h3>
+										العلامات
+									</h3>
+								</div>
+								<div class="list-single-tags tags-stylwrap">
+									<a href="#">
+										فنادق
+									</a>
+									<a href="#">
+										نزل
+									</a>
+									<a href="#">
+										غرف
+									</a>
+									<a href="#">
+										سبا
+									</a>
+									<a href="#">
+										مطاعم
+									</a>
+									<a href="#">
+										موقف سيارات
+									</a>
+								</div>
+							</div>
+							<!-- list-single-main-item end -->
+							<!-- accordion -->
+							<div class="accordion mar-top">
+								<a class="toggle act-accordion" href="#">
+									الأنشطة التي يمكن القيام بها
+									<span>
+									</span>
+								</a>
+								<div class="accordion-inner visible">
+									<p>
+										تتوفر الأنشطة والخدمات التالية في هوليداي العزيزية (قد يتم فرض رسوم):
+									</p>
+									<p>
+										مركز للياقة البدنية
+									</p>
+									<p>
+										مسبح
+									</p>
+									<p>
+										حمام الينابيع الساخنة
+									</p>
+									<p>
+										اللياقة البدنية
+									</p>
+								</div>
+								<a class="toggle" href="#">
+									معلومات حول الإفطار
+									<span>
+									</span>
+								</a>
+								<div class="accordion-inner">
+									<p>
+										سيستمتع الضيوف الذين يقيمون في هوليداي العزيزية بوجبة إفطار حاصلة على نقاط تقييم عالية خلال إقامتهم (نقاط تقييم الضيوف: 6.5).
+									</p>
+									<p>
+										خيار (خيارات) الإفطار المشمولة هي:
+									</p>
+									<p>
+										كونتيننتال
+									</p>
+									<p>
+										بوفيه
+									</p>
+								</div>
+								<a class="toggle" href="#">
+									أوقات تسجيل الوصول و المغادرة
+									<span>
+									</span>
+								</a>
+								<div class="accordion-inner">
+									<p>
+										يبدأ تسجيل الوصول في هوليداي العزيزية من الساعة 4:00 مساءً، وآخر موعد لتسجيل المغادرة هو 12:00 مساءً.
+									</p>
+								</div>
+							</div>
+							<!-- accordion end -->
+							<!-- list-single-main-item -->
+							<div class="list-single-main-item fl-wrap" id="sec4">
+								<div class="list-single-main-item-title fl-wrap">
+									<h3>
+										الغرف المتاحة
+									</h3>
+								</div>
+								<!-- rooms-container -->
+								<div class="rooms-container fl-wrap">
+									<!-- rooms-item -->
+									<div class="rooms-item fl-wrap">
+										<div class="rooms-media">
+											<img src="https://hotels.iroom.ai/web/image/4538" alt="" />
+											<div class="dynamic-gal more-photos-button" data-dynamicPath="[{'src': 'https://hotels.iroom.ai/web/image/4529'}, {'src': 'https://hotels.iroom.ai/web/image/4532'},{'src': 'https://hotels.iroom.ai/web/image/4534'}]">
+												معرض الصور
+												<span>
+													3 صور
+												</span>
+												<i class="far fa-long-arrow-left">
+												</i>
+											</div>
+										</div>
+										<div class="rooms-details">
+											<div class="rooms-details-header fl-wrap">
+												<span class="rooms-price">
+													SAR 204
+													<strong>
+														/ شخص
+													</strong>
+												</span>
+												<h3>
+													غرفة ديلوكس توأم
+												</h3>
+												<h5>
+													عدد الأسرة:
+													<span>
+														2 سرير فردي
+													</span>
+												</h5>
+											</div>
+											<p>
+												تحتوي هذه الغرفة التوأم على حمّام خاص مزود بدش ومجفف للشعر، بالإضافة إلى أردية استحمام ولوازم استحمام مجاناً، وتضم هذه الغرفة التوأم المكيّفة تلفزيون بشاشة مسطحة مع قنوات فضائية وميني بار وخزانة ملابس وغلاية كهربائية، فيما تحتوي الوحدة على سريرين.
+											</p>
+											<div class="facilities-list fl-wrap">
+												<ul>
+													<li>
+														<i class="fal fa-wifi">
+														</i>
+														<span>
+															واي فاي مجاني
+														</span>
+													</li>
+													<li>
+														<i class="fal fa-bath">
+														</i>
+														<span>
+															حمام
+														</span>
+													</li>
+													<li>
+														<i class="fal fa-snowflake">
+														</i>
+														<span>
+															مكيف هوائي
+														</span>
+													</li>
+													<li>
+														<i class="fal fa-tv">
+														</i>
+														<span>
+															تلفاز
+														</span>
+													</li>
+													<li>
+														<i class="fas fa-concierge-bell">
+														</i>
+														<span>
+															إفطار
+														</span>
+													</li>
+												</ul>
+												<a href="/rooms-1" class="btn btn-hdi color-bg ajax-link">
+													تفاصيل الغرفة
+													<i class="fas fa-caret-left">
+													</i>
+												</a>
+											</div>
+										</div>
+									</div>
+									<!-- rooms-item end -->
+									<!-- rooms-item -->
+									<div class="rooms-item fl-wrap">
+										<div class="rooms-media">
+											<img src="https://hotels.iroom.ai/web/image/4539" alt="" />
+											<div class="dynamic-gal more-photos-button" data-dynamicPath="[{'src': 'https://hotels.iroom.ai/web/image/4529'}, {'src': 'https://hotels.iroom.ai/web/image/4532'},{'src': 'https://hotels.iroom.ai/web/image/4534'}]">
+												معرض الصور
+												<span>
+													3 صور
+												</span>
+												<i class="far fa-long-arrow-left">
+												</i>
+											</div>
+										</div>
+										<div class="rooms-details">
+											<div class="rooms-details-header fl-wrap">
+												<span class="rooms-price">
+													SAR 477
+													<strong>
+														/ شخص
+													</strong>
+												</span>
+												<h3>
+													جناح رجال الأعمال
+												</h3>
+												<h5>
+													عدد الأسرة:
+													<span>
+														غرفة نوم 1: 1 سرير مزدوج
+													</span>
+												</h5>
+											</div>
+											<p>
+												يضم هذا الجناح الفسيح غرفة معيشة واحدة وغرفة نوم منفصلة واحدة وحمّاماً واحداً مزوداً بدش ولوازم استحمام مجاناً، كما يحتوي الجناح المكيّف على أرضيات مغطاة بالسجاد ومنطقة جلوس مجهزة بتلفزيون بشاشة مسطحة مع قنوات فضائية وميني بار، بالإضافة إلى خزانة ملابس، فيما تتميز الوحدة بسريرين.
+											</p>
+											<div class="facilities-list fl-wrap">
+												<ul>
+													<li>
+														<i class="fal fa-wifi">
+														</i>
+														<span>
+															واي فاي مجاني
+														</span>
+													</li>
+													<li>
+														<i class="fal fa-bath">
+														</i>
+														<span>
+															حمام
+														</span>
+													</li>
+													<li>
+														<i class="fal fa-snowflake">
+														</i>
+														<span>
+															مكيف هوائي
+														</span>
+													</li>
+													<li>
+														<i class="fal fa-tv">
+														</i>
+														<span>
+															تلفاز
+														</span>
+													</li>
+													<li>
+														<i class="fas fa-concierge-bell">
+														</i>
+														<span>
+															إفطار
+														</span>
+													</li>
+												</ul>
+												<a href="/rooms-1" class="btn btn-hdi color-bg ajax-link">
+													تفاصيل الغرفة
+													<i class="fas fa-caret-left">
+													</i>
+												</a>
+											</div>
+										</div>
+									</div>
+									<!-- rooms-item end -->
+									<!-- rooms-item -->
+									<div class="rooms-item fl-wrap">
+										<div class="rooms-media">
+											<img src="https://hotels.iroom.ai/web/image/4540" alt="" />
+											<div class="dynamic-gal more-photos-button" data-dynamicPath="[{'src': 'https://hotels.iroom.ai/web/image/4529'}, {'src': 'https://hotels.iroom.ai/web/image/4532'},{'src': 'https://hotels.iroom.ai/web/image/4534'}]">
+												معرض الصور
+												<span>
+													3 صور
+												</span>
+												<i class="far fa-long-arrow-left">
+												</i>
+											</div>
+										</div>
+										<div class="rooms-details">
+											<div class="rooms-details-header fl-wrap">
+												<span class="rooms-price">
+													SAR 477
+													<strong>
+														/ شخص
+													</strong>
+												</span>
+												<h3>
+													جناح أعمال توأم
+												</h3>
+												<h5>
+													عدد الأسرة:
+													<span>
+														غرفة نوم 1: 2 سرير فردي
+													</span>
+												</h5>
+											</div>
+											<p>
+												يحتوي هذا الجناح الفسيح على غرفة معيشة واحدة وغرفة نوم منفصلة واحدة وحمّامين مع دش ولوازم استحمام مجاناً، كما يوفر الجناح المكيّف تلفزيون بشاشة مسطحة مع قنوات فضائية وميني بار ومنطقة جلوس وخزانة ملابس، بالإضافة إلى إطلالات على المسبح، وتضم الوحدة 3 أسرّة.
+											</p>
+											<div class="facilities-list fl-wrap">
+												<ul>
+													<li>
+														<i class="fal fa-wifi">
+														</i>
+														<span>
+															واي فاي مجاني
+														</span>
+													</li>
+													<li>
+														<i class="fal fa-bath">
+														</i>
+														<span>
+															حمام
+														</span>
+													</li>
+													<li>
+														<i class="fal fa-snowflake">
+														</i>
+														<span>
+															مكيف هوائي
+														</span>
+													</li>
+													<li>
+														<i class="fal fa-tv">
+														</i>
+														<span>
+															تلفاز
+														</span>
+													</li>
+													<li>
+														<i class="fas fa-concierge-bell">
+														</i>
+														<span>
+															إفطار
+														</span>
+													</li>
+												</ul>
+												<a href="/rooms-1" class="btn btn-hdi color-bg ajax-link">
+													تفاصيل الغرفة
+													<i class="fas fa-caret-left">
+													</i>
+												</a>
+											</div>
+										</div>
+									</div>
+									<!-- rooms-item end -->
+								</div>
+								<!-- rooms-container end -->
+							</div>
+							<!-- list-single-main-item end -->
+							<!-- list-single-main-item -->
+							<div class="list-single-main-item fl-wrap" id="sec5">
+								<div class="list-single-main-item-title fl-wrap">
+									<h3>
+										التقييمات -
+										<span>
+											2
+										</span>
+									</h3>
+								</div>
+								<!-- reviews-score-wrap -->
+								<div class="reviews-score-wrap fl-wrap">
+									<div class="review-score-total">
+										<span>
+											4.5
+											<strong>
+												جيد جدًا
+											</strong>
+										</span>
+										<a href="#" class="color2-bg">
+											إضافة تقييم
+										</a>
+									</div>
+									<div class="review-score-detail">
+										<!-- review-score-detail-list -->
+										<div class="review-score-detail-list">
+											<!-- rate item -->
+											<div class="rate-item fl-wrap">
+												<div class="rate-item-title fl-wrap">
+													<span>
+														نظافة
+													</span>
+												</div>
+												<div class="rate-item-bg" data-percent="100%">
+													<div class="rate-item-line color-bg">
+													</div>
+												</div>
+												<div class="rate-item-percent">
+													5.0
+												</div>
+											</div>
+											<!-- rate item end -->
+											<!-- rate item -->
+											<div class="rate-item fl-wrap">
+												<div class="rate-item-title fl-wrap">
+													<span>
+														راحة
+													</span>
+												</div>
+												<div class="rate-item-bg" data-percent="90%">
+													<div class="rate-item-line color-bg">
+													</div>
+												</div>
+												<div class="rate-item-percent">
+													5.0
+												</div>
+											</div>
+											<!-- rate item end -->
+											<!-- rate item -->
+											<div class="rate-item fl-wrap">
+												<div class="rate-item-title fl-wrap">
+													<span>
+														فريق الفندق
+													</span>
+												</div>
+												<div class="rate-item-bg" data-percent="80%">
+													<div class="rate-item-line color-bg">
+													</div>
+												</div>
+												<div class="rate-item-percent">
+													4.0
+												</div>
+											</div>
+											<!-- rate item end -->
+											<!-- rate item -->
+											<div class="rate-item fl-wrap">
+												<div class="rate-item-title fl-wrap">
+													<span>
+														المرافق
+													</span>
+												</div>
+												<div class="rate-item-bg" data-percent="90%">
+													<div class="rate-item-line color-bg">
+													</div>
+												</div>
+												<div class="rate-item-percent">
+													4.5
+												</div>
+											</div>
+											<!-- rate item end -->
+										</div>
+										<!-- review-score-detail-list end -->
+									</div>
+								</div>
+								<!-- reviews-score-wrap end -->
+								<div class="reviews-comments-wrap">
+									<!-- reviews-comments-item -->
+									<div class="reviews-comments-item">
+										<div class="review-comments-avatar">
+											<img src="https://placehold.co/80x80" alt="" />
+										</div>
+										<div class="reviews-comments-item-text">
+											<h4>
+												<a href="#">
+													لوريم ايبسوم
+												</a>
+											</h4>
+											<div class="review-score-user">
+												<span>
+													4.4
+												</span>
+												<strong>
+													جيد
+												</strong>
+											</div>
+											<div class="clearfix">
+											</div>
+											<p>
+												" لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
+												
+												أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . "
+											</p>
+											<div class="reviews-comments-item-date">
+												<span>
+													<i class="far fa-calendar-check">
+													</i>
+													12 ابريل 2018
+												</span>
+												<a href="#">
+													<i class="fal fa-reply">
+													</i>
+													رد
+												</a>
+											</div>
+										</div>
+									</div>
+									<!-- reviews-comments-item end -->
+									<!-- reviews-comments-item -->
+									<div class="reviews-comments-item">
+										<div class="review-comments-avatar">
+											<img src="https://placehold.co/80x80" alt="" />
+										</div>
+										<div class="reviews-comments-item-text">
+											<h4>
+												<a href="#">
+													لوريم ايبسوم
+												</a>
+											</h4>
+											<div class="review-score-user">
+												<span>
+													4.7
+												</span>
+												<strong>
+													جيد جدًا
+												</strong>
+											</div>
+											<div class="clearfix">
+											</div>
+											<p>
+												" لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
+												
+												أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . "
+											</p>
+											<div class="reviews-comments-item-date">
+												<span>
+													<i class="far fa-calendar-check">
+													</i>
+													03 ديسمبر
+													2017
+												</span>
+												<a href="#">
+													<i class="fal fa-reply">
+													</i>
+													رد
+												</a>
+											</div>
+										</div>
+									</div>
+									<!-- reviews-comments-item end -->
+								</div>
+							</div>
+							<!-- list-single-main-item end -->
+							<!-- list-single-main-item -->
+							<div class="list-single-main-item fl-wrap" id="sec6">
+								<div class="list-single-main-item-title fl-wrap">
+									<h3>
+										إضافة تقييم
+									</h3>
+								</div>
+								<!-- Add Review Box -->
+								<div id="add-review" class="add-review-box">
+									<!-- Review Comment -->
+									<form id="add-comment" class="add-comment  custom-form" name="rangeCalc">
+										<fieldset>
+											<div class="review-score-form fl-wrap">
+												<div class="review-range-container">
+													<!-- review-range-item -->
+													<div class="review-range-item">
+														<div class="range-slider-title">
+															نظافة
+														</div>
+														<div class="range-slider-wrap ">
+															<input type="text" class="rate-range" data-min="0" data-max="5" name="rgcl" data-step="1" value="4" />
+														</div>
+													</div>
+													<!-- review-range-item end -->
+													<!-- review-range-item -->
+													<div class="review-range-item">
+														<div class="range-slider-title">
+															راحة
+														</div>
+														<div class="range-slider-wrap ">
+															<input type="text" class="rate-range" data-min="0" data-max="5" name="rgcl" data-step="1" value="1" />
+														</div>
+													</div>
+													<!-- review-range-item end -->
+													<!-- review-range-item -->
+													<div class="review-range-item">
+														<div class="range-slider-title">
+															فريق الفندق
+														</div>
+														<div class="range-slider-wrap ">
+															<input type="text" class="rate-range" data-min="0" data-max="5" name="rgcl" data-step="1" value="5" />
+														</div>
+													</div>
+													<!-- review-range-item end -->
+													<!-- review-range-item -->
+													<div class="review-range-item">
+														<div class="range-slider-title">
+															المرافق والخدمات في الفندق
+														</div>
+														<div class="range-slider-wrap">
+															<input type="text" class="rate-range" data-min="0" data-max="5" name="rgcl" data-step="1" value="3" />
+														</div>
+													</div>
+													<!-- review-range-item end -->
+												</div>
+												<div class="review-total">
+													<span>
+														<input type="text" name="rg_total" data-form="AVG({rgcl})" value="0" />
+													</span>
+													<strong>
+														التقييم
+													</strong>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-6">
+													<label>
+														<i class="fal fa-user">
+														</i>
+													</label>
+													<input type="text" placeholder="الإسم *" value="" />
+												</div>
+												<div class="col-md-6">
+													<label>
+														<i class="fal fa-envelope">
+														</i>
+													</label>
+													<input type="text" placeholder="عنوان البريد الإلكتروني*" value="" />
+												</div>
+											</div>
+											<textarea cols="40" rows="3" placeholder="مراجعتك:">
+											</textarea>
+										</fieldset>
+										<button class="btn btn-hdi big-btn flat-btn float-btn color2-bg" style="margin-top:30px">
+											إضافة التقييم
+											<i class="fal fa-paper-plane">
+											</i>
+										</button>
+									</form>
+								</div>
+								<!-- Add Review Box / End -->
+							</div>
+							<!-- list-single-main-item end -->
+						</div>
+					</div>
+					<!-- datails end -->
+					<!-- sidebar -->
+					<div class="col-md-4">
+						<!-- box-widget-wrap -->
+						<div class="box-widget-wrap">
+							<!-- box-widget-item -->
+							<div class="box-widget-item fl-wrap">
+								<div class="box-widget">
+									<div class="box-widget-content">
+										<div class="box-widget-item-header">
+											<h3>
+												احجز هذا الفندق
+											</h3>
+										</div>
+										<form name="bookFormCalc" class="book-form custom-form">
+											<fieldset>
+												<div class="cal-item">
+													<div class="listsearch-input-item">
+														<label>
+															نوع الغرفة
+														</label>
+														<select data-placeholder="Room Type" name="repopt" class="chosen-select no-search-select">
+															<option value="0" selected="selected">
+																اختر الغرفة
+															</option>
+															<option value="204">
+																غرفة ديلوكس توأم - 204 SAR
+															</option>
+															<option value="477">
+																جناح رجال الأعمال - 477 SAR
+															</option>
+															<option value="477">
+																جناح أعمال توأم - 477 SAR
+															</option>
+														</select>
+														<!-- data-formula -->
+														<input type="text" name="item_total" class="hid-input" value="" data-form="{repopt}" />
+													</div>
+												</div>
+												<div class="cal-item">
+													<div class="bookdate-container  fl-wrap">
+														<label>
+															<i class="fal fa-calendar-check">
+															</i>
+															فترة الحجز
+														</label>
+														<input type="text" placeholder="تاريخ الدخول والخروج" name="bookdates" value="" />
+														<div class="bookdate-container-dayscounter">
+															<i class="far fa-question-circle">
+															</i>
+															<span>
+																الأيام :
+																<strong>
+																	0
+																</strong>
+															</span>
+														</div>
+													</div>
+												</div>
+												<div class="cal-item">
+													<div class="quantity-item fl-wrap">
+														<label>
+															كبار
+														</label>
+														<div class="quantity">
+															<input type="number" name="qty3" min="0" max="30" step="1" value="0" />
+															<input type="text" name="item_total" class="hid-input" value="0" data-form="{qty3} * {repopt} - {repopt}" />
+														</div>
+													</div>
+													<div class="quantity-item fl-wrap fcit">
+														<label>
+															أطفال
+														</label>
+														<div class="quantity">
+															<input type="number" name="qty2" min="0" max="30" step="1" value="0" />
+															<select name="sale" class="hid-input">
+																<option value="1" selected="selected">
+																	السعر
+																</option>
+															</select>
+															<input type="text" name="item_total" class="hid-input" value="0" data-form="({repopt} * {sale})*{qty2}" />
+														</div>
+													</div>
+												</div>
+											</fieldset>
+											<input type="number" id="totaldays" name="qty5" class="hid-input" />
+											<div class="total-coast fl-wrap">
+												<strong>
+													التكلفة الإجمالية
+												</strong>
+												<span>
+													SAR
+													<input type="text" name="grand_total" value="" data-form="SUM({item_total}) * {qty5}" />
+												</span>
+											</div>
+											<button class="btnaplly color2-bg book-btn">
+												احجز الآن
+												<i class="fal fa-paper-plane">
+												</i>
+											</button>
+										</form>
+									</div>
+								</div>
+							</div>
+							<!-- box-widget-item end -->
+							<!-- box-widget-item -->
+							<div class="box-widget-item fl-wrap">
+								<div class="box-widget counter-widget" data-countDate="09/12/2019">
+									<div class="banner-wdget fl-wrap">
+										<div class="overlay">
+										</div>
+										<div class="bg" data-bg="https://placehold.co/386x333">
+										</div>
+										<div class="banner-wdget-content fl-wrap">
+											<h4>
+												احصل على خصم
+												<span>
+													20%
+												</span>
+												عند طلب غرفة أكثر من ثلاثة
+												أيام.
+											</h4>
+											<div class="countdown fl-wrap">
+												<div class="countdown-item">
+													<span class="days rot">
+														00
+													</span>
+													<p>
+														days
+													</p>
+												</div>
+												<div class="countdown-item">
+													<span class="hours rot">
+														00
+													</span>
+													<p>
+														hours
+													</p>
+												</div>
+												<div class="countdown-item">
+													<span class="minutes rot">
+														00
+													</span>
+													<p>
+														minutes
+													</p>
+												</div>
+												<div class="countdown-item">
+													<span class="seconds rot">
+														00
+													</span>
+													<p>
+														seconds
+													</p>
+												</div>
+											</div>
+											<a href="#">
+												احجز الآن
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- box-widget-item end -->
+							<!-- box-widget-item -->
+							<div class="box-widget-item fl-wrap">
+								<div class="box-widget">
+									<div class="box-widget-content">
+										<div class="box-widget-item-header">
+											<h3>
+												معلومات التواصل
+											</h3>
+										</div>
+										<div class="box-widget-list">
+											<ul>
+												<li>
+													<span>
+														<i class="fal fa-map-marker">
+														</i>
+														العنوان :
+													</span>
+													<a href="#">
+														العزيزية - مكة المكرمة
+													</a>
+												</li>
+												<li>
+													<span>
+														<i class="fal fa-phone">
+														</i>
+														رقم الهاتف :
+													</span>
+													<a href="#">
+														+(966) 55 666 8619
+													</a>
+												</li>
+												<li>
+													<span>
+														<i class="fal fa-envelope">
+														</i>
+														عنوان البريد الإلكتروني :
+													</span>
+													<a href="#">
+														info@iroom.ai
+													</a>
+												</li>
+												<li>
+													<span>
+														<i class="fal fa-browser">
+														</i>
+														الموقع الإلكتروني :
+													</span>
+													<a href="#">
+														iroom.ai
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="list-widget-social">
+											<ul>
+												<li>
+													<a href="#" target="_blank">
+														<i class="fab fa-facebook-f">
+														</i>
+													</a>
+												</li>
+												<li>
+													<a href="#" target="_blank">
+														<i class="fab fa-twitter">
+														</i>
+													</a>
+												</li>
+												<li>
+													<a href="#" target="_blank">
+														<i class="fab fa-vk">
+														</i>
+													</a>
+												</li>
+												<li>
+													<a href="#" target="_blank">
+														<i class="fab fa-instagram">
+														</i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- box-widget-item end -->
+							<!-- box-widget-item -->
+							<div class="box-widget-item fl-wrap">
+								<div class="box-widget widget-posts">
+									<div class="box-widget-content">
+										<div class="box-widget-item-header">
+											<h3>
+												الأنشطة الموصى بها
+											</h3>
+										</div>
+										<!-- box-image-widget -->
+										<div class="box-image-widget">
+											<div class="box-image-widget-media">
+												<img src="https://hotels.iroom.ai/web/image/4544" alt="" />
+												<a href="#" class="color2-bg" target="_blank">
+													التفاصيل
+												</a>
+											</div>
+											<div class="box-image-widget-details">
+												<h4>
+													لوريم ايبسوم
+													<span>
+														2.3 km
+													</span>
+												</h4>
+												<p>
+													لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
+													
+													أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا .
+												</p>
+											</div>
+										</div>
+										<!-- box-image-widget end -->
+										<!-- box-image-widget -->
+										<div class="box-image-widget">
+											<div class="box-image-widget-media">
+												<img src="https://hotels.iroom.ai/web/image/4545" alt="" />
+												<a href="#" class="color2-bg" target="_blank">
+													التفاصيل
+												</a>
+											</div>
+											<div class="box-image-widget-details">
+												<h4>
+													لوريم ايبسوم
+													<span>
+														2.3 km
+													</span>
+												</h4>
+												<p>
+													لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
+													
+													أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا .
+												</p>
+											</div>
+										</div>
+										<!-- box-image-widget end -->
+										<!-- box-image-widget -->
+										<div class="box-image-widget">
+											<div class="box-image-widget-media">
+												<img src="https://hotels.iroom.ai/web/image/4546" alt="" />
+												<a href="#" class="color2-bg" target="_blank">
+													التفاصيل
+												</a>
+											</div>
+											<div class="box-image-widget-details">
+												<h4>
+													لوريم ايبسوم
+													<span>
+														2.3 km
+													</span>
+												</h4>
+												<p>
+													لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبور
+													
+													أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا .
+												</p>
+											</div>
+										</div>
+										<!-- box-image-widget end -->
+									</div>
+								</div>
+							</div>
+							<!-- box-widget-item end -->
+							<!-- box-widget-item -->
+							<div class="box-widget-item fl-wrap">
+								<div class="box-widget">
+									<div class="box-widget-content">
+										<div class="box-widget-item-header">
+											<h3>
+												فنادق مماثلة
+											</h3>
+										</div>
+										<div class="widget-posts fl-wrap">
+											<ul>
+												<li class="clearfix">
+													<a href="#" class="widget-posts-img">
+														<img src="https://hotels.iroom.ai/web/image/4541" class="respimg" alt="" />
+													</a>
+													<div class="widget-posts-descr">
+														<a href="#" title="">
+															فندق واحة جدة
+														</a>
+														<div class="listing-rating card-popup-rainingvis" data-starrating2="5">
+														</div>
+														<div class="geodir-category-location fl-wrap">
+															<a href="#">
+																<i class="fas fa-map-marker-alt">
+																</i>
+																جدة (بالقرب من Al Firqah)
+															</a>
+														</div>
+														<span class="rooms-price">
+															SAR 80
+															<strong>
+																/
+																الليلة
+															</strong>
+														</span>
+													</div>
+												</li>
+												<li class="clearfix">
+													<a href="#" class="widget-posts-img">
+														<img src="https://hotels.iroom.ai/web/image/4542" class="respimg" alt="" />
+													</a>
+													<div class="widget-posts-descr">
+														<a href="#" title="">
+															روابي جاردن ان
+														</a>
+														<div class="listing-rating card-popup-rainingvis" data-starrating2="3">
+														</div>
+														<div class="geodir-category-location fl-wrap">
+															<a href="#">
+																<i class="fas fa-map-marker-alt">
+																</i>
+																جدة (بالقرب من Al Firqah)
+															</a>
+														</div>
+														<span class="rooms-price">
+															SAR 50
+															<strong>
+																/
+																الليلة
+															</strong>
+														</span>
+													</div>
+												</li>
+												<li class="clearfix">
+													<a href="#" class="widget-posts-img">
+														<img src="https://hotels.iroom.ai/web/image/4543" class="respimg" alt="" />
+													</a>
+													<div class="widget-posts-descr">
+														<a href="#" title="">
+															كوخ الغصن الريفي
+														</a>
+														<div class="listing-rating card-popup-rainingvis" data-starrating2="4">
+														</div>
+														<div class="geodir-category-location fl-wrap">
+															<a href="#">
+																<i class="fas fa-map-marker-alt">
+																</i>
+																جدة (بالقرب من Al Firqah)
+															</a>
+														</div>
+														<span class="rooms-price">
+															SAR 105
+															<strong>
+																/
+																الليلة
+															</strong>
+														</span>
+													</div>
+												</li>
+											</ul>
+											<a class="widget-posts-link" href="#">
+												اظهار جميع النتائج
+												<i class="fal fa-long-arrow-left">
+												</i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- box-widget-item end -->
+						</div>
+						<!-- box-widget-wrap end -->
+					</div>
+					<!-- sidebar end -->
+				</div>
+				<!-- row end -->
+			</div>
+			<!-- container  end -->
+		</section>
+		<!-- booking-modal-wrap -->
+		<div class="booking-modal-wrap">
+			<div class="booking-modal-container">
+				<div class="booking-modal-content fl-wrap">
+					<div class="booking-modal-info">
+						<div class="booking-modal-close color-bg">
+							<i class="fa fa-times" aria-hidden="true">
+							</i>
+						</div>
+						<div class="bg" data-bg="https://hotels.iroom.ai/web/image/4529">
+						</div>
+						<div class="overlay">
+						</div>
+						<div class="booking-modal-info_content fl-wrap">
+							<h4>
+								فندق هوليدي العزيزية
+							</h4>
+							<ul>
+								<li>
+									تاريخ الحجز :
+									<span>
+										05.05.2020
+									</span>
+								</li>
+								<li>
+									عدد الأشخاص :
+									<span>
+										2
+									</span>
+								</li>
+								<li>
+									السعر :
+									<span>
+										$120
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="bookiing-form-wrap">
+						<ul id="progressbar">
+							<li class="active">
+								<span>
+									01.
+								</span>
+								المعلومات الشخصية
+							</li>
+							<li>
+								<span>
+									02.
+								</span>
+								العنوان
+							</li>
+							<li>
+								<span>
+									03.
+								</span>
+								طريقة الدفع
+							</li>
+							<li>
+								<span>
+									04.
+								</span>
+								تأكيد
+							</li>
+						</ul>
+						<!-- list-single-main-item -->
+						<div class="list-single-main-item fl-wrap hidden-section tr-sec">
+							<div class="profile-edit-container">
+								<div class="custom-form">
+									<form>
+										<fieldset class="fl-wrap book_mdf">
+											<div class="list-single-main-item-title fl-wrap">
+												<h3>
+													معلوماتك الشخصية
+												</h3>
+											</div>
+											<div class="row">
+												<div class="col-sm-6">
+													<label>
+														الإسم
+														<i class="far fa-user">
+														</i>
+													</label>
+													<input type="text" placeholder="الإسم" value="" />
+												</div>
+												<div class="col-sm-6">
+													<label>
+														اللقب
+														<i class="far fa-user">
+														</i>
+													</label>
+													<input type="text" placeholder="اللقب" value="" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-6">
+													<label>
+														عنوان البريد الإلكتروني
+														<i class="far fa-envelope">
+														</i>
+													</label>
+													<input type="text" placeholder="yourmail@domain.com" value="" />
+												</div>
+												<div class="col-sm-6">
+													<label>
+														رقم الهاتف
+														<i class="far fa-phone">
+														</i>
+													</label>
+													<input type="text" placeholder="87945612233" value="" />
+												</div>
+											</div>
+											<div class="log-massage">
+												عميل مسجل ؟
+												<a href="#" class="modal-open">
+													إضغط هنا لتسجيل الدخول
+												</a>
+											</div>
+											<div class="log-separator fl-wrap">
+												<span>
+													أو
+												</span>
+											</div>
+											<div class="soc-log fl-wrap">
+												<p>
+													لتسجيل الدخول أو التسجيل بشكل أسرع.
+												</p>
+												<a href="#" class="facebook-log">
+													<i class="fab fa-facebook-f">
+													</i>
+													تسجيل الدخول عبر الفيسبوك
+												</a>
+											</div>
+											<div class="filter-tags">
+												<input id="check-a" type="checkbox" name="check" />
+												<label for="check-a">
+													من خلال المتابعة، فإنك توافق على
+													<a href="#" target="_blank">
+														الشروط والأحكام
+													</a>
+													.
+												</label>
+											</div>
+											<span class="fw-separator">
+											</span>
+											<a href="#" class="next-form text-white action-button btn no-shdow-btn color-bg">
+												العنوان
+												<i class="fal fa-angle-left">
+												</i>
+											</a>
+										</fieldset>
+										<fieldset class="fl-wrap book_mdf">
+											<div class="list-single-main-item-title fl-wrap">
+												<h3>
+													العنوان
+												</h3>
+											</div>
+											<div class="row">
+												<div class="col-sm-6">
+													<label>
+														المدينة
+														<i class="fal fa-globe-asia">
+														</i>
+													</label>
+													<input type="text" placeholder="المدينة" value="" />
+												</div>
+												<div class="col-sm-6">
+													<label>
+														البلد
+													</label>
+													<div class="listsearch-input-item ">
+														<select data-placeholder="البلد" class="chosen-select no-search-select">
+															<option>
+																المملكة العربية السعودية
+															</option>
+															<option>
+																الجزائر
+															</option>
+															<option>
+																تركيا
+															</option>
+															<option>
+																مصر
+															</option>
+															<option>
+																الإمارات العربية المتحدة
+															</option>
+															<option>
+																عمان
+															</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-12">
+													<label>
+														الحي
+														<i class="fal fa-road">
+														</i>
+													</label>
+													<input type="text" placeholder="الحي" value="" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-8">
+													<label>
+														المنطقة
+														<i class="fal fa-street-view">
+														</i>
+													</label>
+													<input type="text" placeholder="المنطقة" value="" />
+												</div>
+												<div class="col-sm-4">
+													<label>
+														الرمز بريدي
+														<i class="fal fa-barcode">
+														</i>
+													</label>
+													<input type="text" placeholder="123456" value="" />
+												</div>
+											</div>
+											<div class="list-single-main-item-title fl-wrap">
+												<h3>
+													ملاحظات إضافية
+												</h3>
+											</div>
+											<textarea cols="40" rows="3" placeholder="Notes">
+											</textarea>
+											<span class="fw-separator">
+											</span>
+											<a href="#" class="previous-form action-button back-form text-white color-bg">
+												<i class="fal fa-angle-right">
+												</i>
+												العودة
+											</a>
+											<a href="#" class="next-form text-white back-form text-white action-button btn no-shdow-btn color-bg">
+												طريقة الدفع
+												<i class="fal fa-angle-left">
+												</i>
+											</a>
+										</fieldset>
+										<fieldset class="fl-wrap book_mdf">
+											<div class="list-single-main-item-title fl-wrap">
+												<h3>
+													طريقة الدفع
+												</h3>
+											</div>
+											<div class="row">
+												<div class="col-sm-6">
+													<label>
+														اسم حامل البطاقة
+														<i class="far fa-user">
+														</i>
+													</label>
+													<input type="text" placeholder="" value="Adam Kowalsky" />
+												</div>
+												<div class="col-sm-6">
+													<label>
+														رقم البطاقة
+														<i class="fal fa-credit-card-front">
+														</i>
+													</label>
+													<input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" value="" />
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-3">
+													<label>
+														شهر انتهاء الصلاحية
+														<i class="fal fa-calendar">
+														</i>
+													</label>
+													<input type="text" placeholder="MM" value="" />
+												</div>
+												<div class="col-sm-3">
+													<label>
+														سنة انتهاء الصلاحية
+														<i class="fal fa-calendar">
+														</i>
+													</label>
+													<input type="text" placeholder="YY" value="" />
+												</div>
+												<div class="col-sm-2">
+													<label>
+														CVV / CVC *
+														<i class="fal fa-credit-card">
+														</i>
+													</label>
+													<input type="password" placeholder="***" value="" />
+												</div>
+												<div class="col-sm-4">
+													<p style="padding-top:20px;">
+														*رقم مكون من ثلاثة أرقام على ظهر
+														بطاقتك
+													</p>
+												</div>
+											</div>
+											<div class="log-separator fl-wrap">
+												<span>
+													أو
+												</span>
+											</div>
+											<div class="soc-log fl-wrap">
+												<p>
+													إختر طريقة دفع اخرى
+												</p>
+												<a href="#" class="paypal-log">
+													<i class="fab fa-paypal">
+													</i>
+													ادفع باستخدام
+													باي بال
+												</a>
+											</div>
+											<span class="fw-separator">
+											</span>
+											<a href="#" class="previous-form  back-form action-button text-white color-bg">
+												<i class="fal fa-angle-right">
+												</i>
+												العودة
+											</a>
+											<a href="#" class="next-form text-white action-button btn color2-bg no-shdow-btn">
+												تأكيد الدفع
+												<i class="fal fa-angle-left">
+												</i>
+											</a>
+										</fieldset>
+										<fieldset class="fl-wrap book_mdf">
+											<div class="list-single-main-item-title fl-wrap">
+												<h3>
+													التأكيد
+												</h3>
+											</div>
+											<div class="success-table-container">
+												<div class="success-table-header fl-wrap">
+													<i class="fal fa-check-circle decsth">
+													</i>
+													<h4>
+														شكرًا لك. لقد تم تأكيد الحجز .
+													</h4>
+													<div class="clearfix">
+													</div>
+													<p>
+														تم الدفع بنجاح
+													</p>
+													<br>
+														<a href="invoice.html" target="_blank" class="color-bg">
+															الإطلاع على الفاتورة
+														</a>
+													</br>
+												</div>
+												<span class="fw-separator">
+												</span>
+												<a href="#" class="previous-form action-button back-form text-white color-bg">
+													<i class="fal fa-angle-right">
+													</i>
+													العودة
+												</a>
+											</div>
+										</fieldset>
+									</form>
+								</div>
+							</div>
+							<!-- list-single-main-item end -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bmw-overlay">
+		</div>
+		<!-- ajax-modal-container -->
+		<div class="ajax-modal-overlay">
+		</div>
+		<div class="ajax-modal-container">
+			<!-- ajax-modal -->
+			<div id="ajax-modal" class="fl-wrap">
+			</div>
+			<!-- ajax-modal-container end -->
+		</div>
+	</t>
+</t>

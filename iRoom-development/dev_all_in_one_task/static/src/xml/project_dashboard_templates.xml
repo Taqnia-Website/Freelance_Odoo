@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Template for the project dashboard -->
+<templates id="template" xml:space="preserve">
+    <t t-name="projectdashboard">
+        <div style="max-height: -webkit-fill-available; height:700px; overflow-y: scroll; background-color:#fff7fd">
+            <div class="mx-5">
+              <div class="row gx-0 mt-3">
+                    <div class="col-12 d-flex justify-content-end">
+                        <button id="downloadBtn" t-on-click="(e) => this.downloadReport(e)" class="btn btn-primary p-2">
+                            <i class="fa fa-file-pdf-o p-1" aria-hidden="true"></i> Print
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="mx-5" id="dashboard" >
+                <t t-call="ProjectFilters"/>
+                <t t-call="ProjectCounters"/>
+                <t t-call="ProjectCharts"/>
+                <t t-call="ProjectTables"/>
+            </div>
+        </div>
+    </t>
+
+    <!-- Filter -->
+
+    <t t-name="ProjectFilters">
+        <div class="card mt-4 filters">
+            <div class="row p-1 m-1 gx-0 gy-2" >
+                <div class="col-lg-1 d-flex my-auto justify-content-center">
+                    <img t-att-src="'data:image/png;base64,' + user_img" class="css-shadow"/>
+                </div>
+                <div class="col-lg-5 pl-1 my-auto">
+                    <h2> <t t-esc="greetings"/>, <t t-esc="user_name"/>.</h2>
+                    <h4>Welcome to your Project Dashboard.</h4>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row gy-2">
+                        <div class="col-lg-3 m-0">
+                             <label for="pruser_selection" class="form-label fw-bolder">Managers</label>
+                            <select class="form-select" id="pruser_selection" t-on-change="(ev) => this._onchangeProjectFilter(ev)">
+                                <option value="all">All Managers</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3 m-0">
+                             <label for="prpartner_selection" class="form-label fw-bolder">Customers</label>
+                            <select class="form-select" id="prpartner_selection" t-on-change="(ev) => this._onchangeProjectFilter(ev)">
+                                <option value="all">All Customer</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3 m-0">
+                             <label for="prproject_selection" class="form-label fw-bolder">Projects</label>
+                            <select class="form-select" id="prproject_selection" t-on-change="(ev) => this._onchangeProjectFilter(ev)">
+                                <option value="all">All Projects</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3 m-0">
+                            <label for="duration_selection" class="form-label fw-bolder">Date</label>
+                            <select class="form-select" id="duration_selection"
+                                    t-on-change="(ev) => this._onchangeProjectFilter(ev)">
+                                <option value="0">Today</option>
+                                <option value="7">Last 7 Days</option>
+                                <option value="28">Last 28 Days</option>
+                                <option value="90">Last 90 Days</option>
+                                <option value="365">Last 365 Days</option>
+                                <option value="all">Lifetime</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </t>
+
+    <!-- Counters -->
+    <t t-name="ProjectCounters">
+        <div class="mt-5 mb-5">
+            <div class="row text-center gy-2">
+                <div class="col-lg-12"> 
+                    <div class="row mt-2">
+                        <div class="col-4">
+                            <div class="card box" id="total_task_data1" t-on-click="(e) => this.action_total_task(e)">
+                                <div class="card-body box-body">
+                                    <h1 id="total_task_data">
+                                        <t t-esc="total_task_data.length" />
+                                    </h1>
+                                    <h5>My Task</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card box" id="total_project_data1" t-on-click="(e) => this.action_total_project(e)">
+                                <div class="card-body box-body">
+                                    <h1 id="total_project_data">
+                                        <t t-esc="total_project_data.length" />
+                                    </h1>
+                                    <h5>Total Projects</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card box" id="active_task_data1" t-on-click="(e) => this.action_total_task(e)">
+                                <div class="card-body box-body">
+                                    <h1 id="active_task_data">
+                                        <t t-esc="active_task_data.length" />
+                                    </h1>
+                                    <h5>Active Task</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-4">
+                            <div class="card box" id="myoverdue_task_data1" t-on-click="(e) => this.action_total_task(e)">
+                                <div class="card-body box-body">
+                                    <h1 id="myoverdue_task_data">
+                                        <t t-esc="myoverdue_task_data.length" />
+                                    </h1>
+                                    <h5>MyOverdue Task</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card box" id="overdue_task_data1" t-on-click="(e) => this.action_total_task(e)">
+                                <div class="card-body box-body">
+                                    <h1 id="overdue_task_data">
+                                        <t t-esc="overdue_task_data.length" />
+                                    </h1>
+                                    <h5>Overdue Task</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card box" id="today_task_data1" t-on-click="(e) => this.action_total_task(e)">
+                                <div class="card-body box-body">
+                                    <h1 id="today_task_data">
+                                        <t t-esc="today_task_data.length" />
+                                    </h1>
+                                    <h5>Today Task</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div> 
+    </t> 
+
+    <!-- Chart -->
+    <t t-name="ProjectCharts">
+        <div class="mt-5">
+            <div class="row gy-2">
+                <div class='col-lg-8 col-md-6 col-12'>
+                    <div class="card table-card">
+                        <div class="card-header table-header">
+                            <span>All Task</span>
+                        </div>
+                        <table id="my_table_new_task_list" class="table table-hover" style="text-center">
+                            <thead>
+                                <tr>
+                                <th>Name</th>
+                                    <th>Project</th>
+                                    <th><center>Deadline-Date</center></th>
+                                    <th><center>Priority</center></th>
+                                    
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                            
+                        </table>
+                        <t t-if ="Math.ceil(this.state.totalrecrows/this.state.rowsPerPage) > 0">
+                            <div class="pagination-controls d-flex align-items-center justify-content-center text-primary m-2">
+                                <i class="fa fa-chevron-circle-left fa-2x" aria-hidden="true" id='prevs_button' t-on-click="(e) => this.prevsPage(e)"> </i>
+                                <span style="font-weight:600; font-size:15px; margin:0px 5px 0px 5px">Page <t t-esc="this.state.currentrecPage"/> of <t t-esc="Math.ceil(this.state.totalrecrows/this.state.rowsPerPage)"/>
+                                </span>
+                                <i class="fa fa-chevron-circle-right fa-2x" id='nextt_button' aria-hidden="true" t-on-click="(e) => this.nexttPage(e)"> </i>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card table-card" style="overflow-x:clip;">
+                        <div class="card-title text-center p-3" style="font-weight:600; font-size:23px;">
+                          <div class="row">
+                            <div class="col-2"></div>
+                             <div class="col-8">Task Deadline</div>
+                                <div class="col-2">
+                                  <i class="fa fa-download" id="task_deadline_chart_data_btn" style="cursor: pointer;" aria-hidden="true" t-on-click="(e) => this._downloadChart(e)"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <canvas id="task_deadline_chart_data" class="bar-chart"/>
+                        </div>
+                    </div>
+                </div>
+                
+            </div> 
+        </div>       
+        <div class="mt-5">
+            <div class="row gy-2"> 
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="card table-card" style="overflow-x:clip;">
+                        <div class="card-title text-center p-3" style="font-weight:600; font-size:23px;">
+                          <div class="row">
+                            <div class="col-2"></div>
+                             <div class="col-8">Task By Stages</div>
+                                <div class="col-2">
+                                  <i class="fa fa-download" id="stages_chart_data_btn" style="cursor: pointer;" aria-hidden="true" t-on-click="(e) => this._downloadChart(e)"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <canvas id="stages_chart_data" class="bar-chart"/>
+                        </div>
+                    </div>
+                </div>   
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="card table-card" style="overflow-x:clip;">
+                        <div class="card-title text-center p-3" style="font-weight:600; font-size:23px;">
+                          <div class="row">
+                            <div class="col-2"></div>
+                             <div class="col-8">Task By Project</div>
+                                <div class="col-2">
+                                  <i class="fa fa-download" id="project_chart_data_btn" style="cursor: pointer;" aria-hidden="true" t-on-click="(e) => this._downloadChart(e)"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <canvas id="project_chart_data" class="bar-chart"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="mt-5">
+            <div class="row gy-2">       
+                <div class="col-lg-12 col-md-6 col-12">
+                    <div class="card table-card" style="overflow-x:clip;">
+                        <div class="card-title text-center p-3" style="font-weight:600; font-size:23px;">
+                          <div class="row">
+                            <div class="col-2"></div>
+                             <div class="col-8">Timesheet Hours</div>
+                                <div class="col-2">
+                                  <i class="fa fa-download" id="timesheet_chart_data_btn" style="cursor: pointer;" aria-hidden="true" t-on-click="(e) => this._downloadChart(e)"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <canvas id="timesheet_chart_data" class="bar1-chart"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <!-- Table -->
+    <t t-name="ProjectTables">
+        <div class="row mt-4 gy-2">
+            <div class='col-lg-6 col-md-6 col-12'>
+                <div class="card table-card">
+                    <div class="card-header table-header">
+                        <span>Activities</span>
+                    </div>
+                    <table id="my_table_activity_task_list" class="table table-hover" style="text-center">
+                        <thead>
+                            <tr>
+                            <th>Task</th>
+                                <th>Activity</th>
+                                <th>Summary</th>
+                                <th>Date</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <t t-if ="Math.ceil(this.state.totaldelrows/this.state.rowsPerPage) > 0">
+                        <div class="pagination-controls d-flex align-items-center justify-content-center text-primary m-2">
+                            <i class="fa fa-chevron-circle-left fa-2x" aria-hidden="true" id='prevs_buttons' t-on-click="(e) => this.prevsPages(e)"> </i>
+                            <span style="font-weight:600; font-size:15px; margin:0px 5px 0px 5px">Page <t t-esc="this.state.currentdelPage"/> of <t t-esc="Math.ceil(this.state.totaldelrows/this.state.rowsPerPage)"/>
+                            </span>
+                            <i class="fa fa-chevron-circle-right fa-2x" id='nextt_buttons' aria-hidden="true" t-on-click="(e) => this.nexttPages(e)"> </i>
+                        </div>
+                    </t>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="card table-card" style="overflow-x:clip;">
+                    <div class="card-title text-center p-3" style="font-weight:600; font-size:23px;">
+                        <div class="row">
+                        <div class="col-2"></div>
+                            <div class="col-8">Priority Wise Chart</div>
+                            <div class="col-2">
+                                <i class="fa fa-download" id="task_priority_chart_data_btn" style="cursor: pointer;" aria-hidden="true" t-on-click="(e) => this._downloadChart(e)"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body text-center">
+                        <canvas id="task_priority_chart_data" class="bar-chart"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+				<div class="col-12" style="margin:20px;">
+				</div>
+			</div>
+        </div>    
+    </t>        
+</templates>    

@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hotel_room_type_channex,hotel_room_type_channex,model_hotel_room_type_channex,base.group_user,1,1,1,1
+access_channex_review,channex_review,model_channex_review,base.group_user,1,1,1,1
+access_channex_score,channex_score,model_channex_score,base.group_user,1,1,1,1
+access_channex_review_category,channex_review_category,model_channex_review_category,base.group_user,1,1,1,1
+access_channex_review_tag,channex_review_tag,model_channex_review_tag,base.group_user,1,1,1,1
+access_channex_update_availability,channex_update_availability,model_channex_update_availability,base.group_user,1,1,1,1
+access_channex_update_availability_line,channex_update_availability_line,model_channex_update_availability_line,base.group_user,1,1,1,1
+access_channex_update_rate,channex_update_rate,model_channex_update_rate,base.group_user,1,1,1,1
+access_channex_update_rate_line,channex_update_rate_line,model_channex_update_rate_line,base.group_user,1,1,1,1

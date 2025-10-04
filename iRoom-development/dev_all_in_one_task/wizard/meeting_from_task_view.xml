@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle
+ -->
+<odoo>
+	<record id="view_create_new_meeting" model="ir.ui.view">
+        <field name="name">view.create.new.meeting</field>
+        <field name="model">meeting.from.task</field>
+        <field name="arch" type="xml">
+         <form string="Meeting from Task">
+             <group>
+                 <field name="starting_datetime"/>
+             </group>
+            <footer>
+        		<button name="create_new_meeting" type="object" class="oe_highlight" string="Create Meeting"/> or
+                <button string="Cancel" class="oe_link" special="cancel" />
+            </footer>
+         </form>
+       </field>
+    </record>
+    
+	<record id="action_create_new_meeting" model="ir.actions.act_window">
+        <field name="name">Create Meeting</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">meeting.from.task</field>
+        <field name="view_id" ref="view_create_new_meeting"/>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

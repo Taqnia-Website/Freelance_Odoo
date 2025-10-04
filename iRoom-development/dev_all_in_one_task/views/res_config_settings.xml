@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle
+ -->
+<odoo>
+    <record id="form_config_dev_subtask_done_alert" model="ir.ui.view">
+        <field name="name">form_config_dev_subtask_done_alert_name</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="project.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='tasks_management']" position="before">
+                <block title="Task Closing Stage" name="task_closing_stage">
+                <div class="row mt16 o_settings_container" name="task_od_reminder">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="task_closing_stage_id"/>
+                            <div class="text-muted">
+                                This stage will be considered as closing of the task
+                            </div>
+                            <field name="task_closing_stage_id"/>
+                        </div>
+                    </div>
+                </div>
+                </block>
+                 <block title = "Task Overdue Reminder">
+                <div class="row mt16 o_settings_container" name="task_od_reminder">
+                    <div class="col-12 col-lg-12 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="od_delay_reminder"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="od_delay_reminder"/>
+                            <div class="text-muted">
+                                Send reminder emails when Task is still incomplete after its Deadline
+                            </div>
+                            <div class="content-group" invisible = "'od_delay_reminder' == False">
+                                <div class="mt16">
+                                    <label for="od_first_reminder_days" string="First Reminder after"/>
+                                    <field name="od_first_reminder_days" style="width: 50px;"/>
+                                    <label style="font-weight: normal;" for="od_first_reminder_days" string="&#160;Days of deadline"/>
+                                </div>
+                                <div class="mt16">
+                                    <label for="od_second_reminder_days"  string="Second Reminder after"/>
+                                    <field name="od_second_reminder_days" style="width: 50px;"/>
+                                    <label style="font-weight: normal;" for="od_second_reminder_days" string="&#160;Days of deadline"/>
+                                </div>
+                            </div>
+                            <div class="text-muted" invisible = "'od_delay_reminder' == False">
+                                If set zero then no reminder emails will be sent
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </block>
+                 <block title="Task Deadline Reminder">
+                <div class="row mt16 o_settings_container" id="task_reminder">
+                    <group>
+                        <group>
+                            <field name="first_reminder"/>
+                        </group>
+                        <group>
+                            <field name="second_reminder"/>
+                        </group>
+                    </group>
+                </div>
+                </block>
+            </xpath>
+             
+        </field>
+    </record>
+</odoo>

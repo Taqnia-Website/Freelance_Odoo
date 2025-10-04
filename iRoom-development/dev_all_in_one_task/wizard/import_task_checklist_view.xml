@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_task_wizard" model="ir.ui.view">
+        <field name="name">view.project.task.wizard</field>
+        <field name="model">task.import</field>
+        <field name="arch" type="xml">
+         <form string="Project Import Checklist" version="7.0">
+			<group>
+				<field name="upload_file" string="File"/>
+	         </group>
+            <footer>
+                <button  name="import_checklist" string="Import Checklist" type="object"  class="oe_highlight"/> or 
+                <button string="Cancel" class="oe_link" special="cancel" />
+            </footer>
+         </form>
+       </field>
+    </record>
+
+    <record id="action_project_task_import" model="ir.actions.act_window">
+        <field name="name">Task Import Checklist</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">task.import</field>
+        <field name="view_id" ref="view_task_wizard"/>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    
+<menuitem  id="menu_project_task"
+           name="Import Task Checklist"
+           
+           parent="project.menu_project_config"
+           action="action_project_task_import"
+           sequence="4"/><!--parent="project.menu_main_pm"-->
+           
+           
+           
+    
+</odoo>

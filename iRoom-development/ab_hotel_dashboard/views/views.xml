@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+
+    <record id="ab_hotel_dashboard_id" model="ir.actions.client">
+        <field name="name">Dashboard</field>
+        <field name="tag">HotelReservationView</field>
+    </record>
+
+    <menuitem name="Reservation"
+              id="ab_menu_hotel_dashboard_id"
+              parent="hotel_dashboard.menu_root"
+              action="ab_hotel_dashboard_id"/>
+
+
+</odoo>

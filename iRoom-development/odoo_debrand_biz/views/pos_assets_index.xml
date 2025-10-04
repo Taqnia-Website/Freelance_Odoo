@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="odoo_debrand_biz.index" inherit_id="point_of_sale.index" name="POS Index Inherit">
+        <xpath expr="//title" position="replace">
+            <title><t t-out="company_id.name"/> POS</title>
+        </xpath>
+    </template>
+</odoo>
