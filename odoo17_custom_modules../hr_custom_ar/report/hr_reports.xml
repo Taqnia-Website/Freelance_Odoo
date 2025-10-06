@@ -1,0 +1,11 @@
+<odoo>
+    <!-- تقرير PDF لكشف الرواتب -->
+    <report
+        id="action_hr_payroll_sheet_pdf"
+        model="hr.payroll.sheet"
+        string="كشف الرواتب (PDF)"
+        report_type="qweb-pdf"
+        name="hr_custom_ar.report_payroll_sheet"
+        print_report_name="'كشف_الرواتب_' + (object.name or '')"
+    />
+</odoo>

@@ -1,0 +1,46 @@
+<odoo>
+    <record id="view_hr_leave_tree" model="ir.ui.view">
+        <field name="name">hr.leave.custom.tree</field>
+        <field name="model">hr.leave.custom</field>
+        <field name="arch" type="xml">
+            <tree string="الإجازات" default_order="date desc">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_hr_leave_form" model="ir.ui.view">
+        <field name="name">hr.leave.custom.form</field>
+        <field name="model">hr.leave.custom</field>
+        <field name="arch" type="xml">
+            <form string="إجازة">
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="date"/>
+                        <field name="employee_id"/>
+                        <field name="department_id" readonly="1"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <field name="reason"/>
+                        <field name="state" readonly="1"/>
+                    </group>
+                    <footer>
+                       <button name="action_approve" type="object" string="اعتماد" class="btn-primary" invisible="state != 'draft'"/>
+                        <button string="إغلاق" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_hr_leave" model="ir.actions.act_window">
+        <field name="name">الإجازات</field>
+        <field name="res_model">hr.leave.custom</field>
+        <field name="view_mode">tree,form,calendar,graph</field>
+    </record>
+</odoo>
