@@ -24,6 +24,7 @@ class MaintenanceRequest(models.Model):
         default=fields.Date.context_today,
         required=True
     )
+    execution_duration = fields.Integer(string='مدة التنفيذ (بالأيام)', default=1)
     vehicle_name = fields.Char(string='اسم المركبة')
     vehicle_type = fields.Char(string='نوع السيارة')
     driver_name = fields.Char(string='اسم السائق')

@@ -6,6 +6,7 @@
           <h2 style="text-align:center">بيان طلب الصيانة</h2>
           <p><strong>بيان الطلب:</strong> <t t-esc="doc.name"/></p>
           <p><strong>المسؤول:</strong> <t t-esc="doc.user_id.name"/></p>
+          <p><strong>مدة التنفيذ:</strong> <t t-esc="doc.execution_duration"/> يوم</p>
           <p><strong>تاريخ الطلب:</strong> <t t-esc="doc.date"/></p>
           <p><strong>اسم المركبة:</strong> <t t-esc="doc.vehicle_name"/></p>
           <p><strong>نوع السيارة:</strong> <t t-esc="doc.vehicle_type"/></p>

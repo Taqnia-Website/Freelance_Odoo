@@ -13,11 +13,12 @@ class MaintExcelExport(http.Controller):
         ws = workbook.add_worksheet('بيان طلب الصيانة')
         ws.write(0,0,'بيان طلب الصيانة')
         ws.write(1,0,'المسؤول'); ws.write(1,1, req.user_id.name or '')
+        ws.write(2,0,'مدة التنفيذ'); ws.write(2,1, str(req.execution_duration) + ' يوم')
         ws.write(2,0,'تاريخ الطلب'); ws.write(2,1, str(req.date))
         ws.write(3,0,'اسم المركبة'); ws.write(3,1, req.vehicle_name or '')
         ws.write(4,0,'نوع السيارة'); ws.write(4,1, req.vehicle_type or '')
         ws.write(5,0,'اسم السائق'); ws.write(5,1, req.driver_name or '')
-        row = 7
+        row = 8
         ws.write(row,0,'القطعة'); ws.write(row,1,'الكمية'); ws.write(row,2,'السعر'); ws.write(row,3,'الإجمالي')
         row += 1
         for line in req.part_line_ids:

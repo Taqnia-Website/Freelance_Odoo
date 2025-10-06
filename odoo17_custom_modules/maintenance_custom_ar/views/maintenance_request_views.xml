@@ -41,6 +41,7 @@
                         <field name="name" readonly="1"/>
                         <field name="user_id"/>
                         <field name="date"/>
+                        <field name="execution_duration"/>
                         <field name="vehicle_name"/>
                         <field name="vehicle_type"/>
                         <field name="driver_name"/>
