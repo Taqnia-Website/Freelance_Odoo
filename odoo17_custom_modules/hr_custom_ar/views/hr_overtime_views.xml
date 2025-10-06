@@ -1,0 +1,47 @@
+<odoo>
+    <record id="view_hr_overtime_tree" model="ir.ui.view">
+        <field name="name">hr.overtime.tree</field>
+        <field name="model">hr.overtime</field>
+        <field name="arch" type="xml">
+            <tree string="الإضافي" default_order="date desc">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="amount"/>
+                <field name="hours"/>
+                <field name="total"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_hr_overtime_form" model="ir.ui.view">
+        <field name="name">hr.overtime.form</field>
+        <field name="model">hr.overtime</field>
+        <field name="arch" type="xml">
+            <form string="إضافي">
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="date"/>
+                        <field name="employee_id"/>
+                        <field name="department_id" readonly="1"/>
+                        <field name="amount"/>
+                        <field name="hours"/>
+                        <field name="total" readonly="1"/>
+                        <field name="state" readonly="1"/>
+                    </group>
+                    <footer>
+                       <button name="action_approve" type="object" string="اعتماد" class="btn-primary" invisible="state != 'draft'"/>
+                        <button string="إغلاق" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_hr_overtime" model="ir.actions.act_window">
+        <field name="name">الإضافي</field>
+        <field name="res_model">hr.overtime</field>
+        <field name="view_mode">tree,form,pivot,graph</field>
+    </record>
+</odoo>

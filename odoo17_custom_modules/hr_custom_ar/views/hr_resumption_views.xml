@@ -1,0 +1,37 @@
+<odoo>
+    <record id="view_hr_resumption_tree" model="ir.ui.view">
+        <field name="name">hr.resumption.tree</field>
+        <field name="model">hr.resumption</field>
+        <field name="arch" type="xml">
+            <tree string="مباشرة العمل" default_order="date desc">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_hr_resumption_form" model="ir.ui.view">
+        <field name="name">hr.resumption.form</field>
+        <field name="model">hr.resumption</field>
+        <field name="arch" type="xml">
+            <form string="مباشرة عمل">
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="date"/>
+                        <field name="employee_id"/>
+                        <field name="department_id" readonly="1"/>
+                        <field name="note"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_hr_resumption" model="ir.actions.act_window">
+        <field name="name">مباشرة العمل</field>
+        <field name="res_model">hr.resumption</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

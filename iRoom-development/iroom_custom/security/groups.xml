@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <data>
-        <record id="group_change_room_price" model="res.groups">
-            <field name="name">Change Room Price</field>
-        </record>
-    </data>
-</odoo>

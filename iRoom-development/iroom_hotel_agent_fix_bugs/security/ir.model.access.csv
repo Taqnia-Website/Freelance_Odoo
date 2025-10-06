@@ -1,7 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hotel_room_agent_ext,hotel.room.ext,hotel.model_hotel_room,hotel_management.group_agent,1,1,0,0
-
-access_hotel_transport_line_agent,hotel_folio_transport.line.agent,hotel_management.model_hotel_folio_transport_line,hotel_management.group_agent,1,0,0,0
-access_hotel_laundry_line_agent,hotel_folio_laundry.line.agent,hotel_management.model_hotel_folio_laundry_line,hotel_management.group_agent,1,0,0,0
-access_hotel_housekeeping_activities_agent,hotel.housekeeping.activities.agent,hotel_housekeeping.model_hotel_housekeeping_activities,hotel_management.group_agent,1,0,0,0
-

@@ -1,0 +1,11 @@
+<odoo>
+    <!-- تقرير PDF لبيان طلب الصيانة -->
+    <report
+        id="action_maintenance_req_pdf"
+        model="maintenance.request.custom"
+        string="بيان طلب الصيانة (PDF)"
+        report_type="qweb-pdf"
+        name="maintenance_custom_ar.report_maintenance_req"
+        print_report_name="'بيان_طلب_صيانة_' + (object.name or '')"
+    />
+</odoo>

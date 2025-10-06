@@ -1,0 +1,37 @@
+<odoo>
+  <template id="report_payroll_sheet">
+    <t t-call="web.html_container">
+      <t t-foreach="docs" t-as="doc">
+        <div class="page">
+          <h2 style="text-align:center">كشف الرواتب</h2>
+          <p><strong>الاسم:</strong> <t t-esc="doc.name"/></p>
+          <p><strong>التاريخ:</strong> <t t-esc="doc.date"/></p>
+          <table class="table table-sm o_main_table">
+            <thead>
+              <tr>
+                <th>الموظف</th>
+                <th>الأساسي</th>
+                <th>السلف</th>
+                <th>الخصومات</th>
+                <th>الإضافي</th>
+                <th>الصافي</th>
+              </tr>
+            </thead>
+            <tbody>
+              <t t-foreach="doc.line_ids" t-as="l">
+                <tr>
+                  <td><t t-esc="l.employee_id.name"/></td>
+                  <td class="text-right"><t t-esc="l.basic_salary"/></td>
+                  <td class="text-right"><t t-esc="l.loan_total"/></td>
+                  <td class="text-right"><t t-esc="l.deduction_total"/></td>
+                  <td class="text-right"><t t-esc="l.overtime_total"/></td>
+                  <td class="text-right"><t t-esc="l.net_salary"/></td>
+                </tr>
+              </t>
+            </tbody>
+          </table>
+        </div>
+      </t>
+    </t>
+  </template>
+</odoo>
