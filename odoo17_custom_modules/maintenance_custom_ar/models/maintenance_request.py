@@ -118,7 +118,6 @@ class MaintenanceRequest(models.Model):
 
             lines = []
             for l in rec.part_line_ids:
-                # تحديد حساب المصروف المناسب (من المنتج وإلا من فئة المنتج)
                 expense_account = (l.product_id.property_account_expense_id
                                    or l.product_id.categ_id.property_account_expense_categ_id)
                 if not expense_account:
@@ -136,6 +135,8 @@ class MaintenanceRequest(models.Model):
                 'move_type': 'in_invoice',
                 'partner_id': partner.id,
                 'invoice_origin': rec.name,
+                'invoice_date': rec.date,
+                'date': rec.date,
                 'invoice_line_ids': lines,
             })
 
