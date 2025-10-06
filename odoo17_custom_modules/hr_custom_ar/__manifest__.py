@@ -13,9 +13,6 @@
         "security/ir.model.access.csv",
         "data/sequences.xml",
 
-        "report/hr_report_templates.xml",
-        "report/hr_reports.xml",
-
         "views/hr_loan_views.xml",
         "views/hr_deduction_views.xml",
         "views/hr_overtime_views.xml",
@@ -23,8 +20,10 @@
         "views/hr_resumption_views.xml",
         "views/hr_resignation_views.xml",
         "views/hr_payroll_sheet_views.xml",
+        "views/menu.xml",
 
-        "views/menu.xml"
+        "report/hr_report_templates.xml",
+        "report/hr_reports.xml",
     ],
     "application": True,
     "installable": True,

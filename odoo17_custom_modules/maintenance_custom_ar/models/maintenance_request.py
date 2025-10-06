@@ -101,7 +101,7 @@ class MaintenanceRequest(models.Model):
                 mv.quantity_done = mv.product_uom_qty
 
             # إنهاء العملية
-            picking._action_done()
+            picking.button_validate()
 
             rec.picking_id = picking.id
             rec.state = 'done'

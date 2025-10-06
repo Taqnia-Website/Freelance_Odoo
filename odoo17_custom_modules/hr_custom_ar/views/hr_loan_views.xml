@@ -1,4 +1,5 @@
 <odoo>
+    <!-- Tree View -->
     <record id="view_hr_loan_tree" model="ir.ui.view">
         <field name="name">hr.loan.tree</field>
         <field name="model">hr.loan</field>
@@ -14,11 +15,23 @@
             </tree>
         </field>
     </record>
+
+    <!-- Form View -->
     <record id="view_hr_loan_form" model="ir.ui.view">
         <field name="name">hr.loan.form</field>
         <field name="model">hr.loan</field>
         <field name="arch" type="xml">
             <form string="سلفة">
+                <header>
+                    <button name="action_approve" type="object" string="اعتماد" 
+                            class="btn-primary" 
+                            invisible="state != 'draft'"/>
+                    <button name="action_post_account" type="object" string="قيد محاسبي" 
+                            class="btn-secondary" 
+                            invisible="state != 'approved'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,approved,paid"/>
+                </header>
+                
                 <sheet>
                     <group>
                         <field name="name" readonly="1"/>
@@ -30,21 +43,16 @@
                         <field name="reason"/>
                         <field name="journal_id"/>
                         <field name="move_id" readonly="1"/>
-                        <field name="state" readonly="1"/>
                     </group>
-                    <footer>
-                        <button name="action_approve" type="object" string="اعتماد" class="btn-primary" invisible="state != 'draft'"/>
-                        <button name="action_post_account" type="object" string="قيد محاسبي" class="btn-secondary" invisible="state != 'approved'"/>
-                        <button string="إغلاق" class="btn-secondary" special="cancel"/>
-                    </footer>
                 </sheet>
             </form>
         </field>
     </record>
+
+    <!-- Action -->
     <record id="action_hr_loan" model="ir.actions.act_window">
         <field name="name">السلف</field>
         <field name="res_model">hr.loan</field>
         <field name="view_mode">tree,form,pivot,graph</field>
-        <field name="context">{'search_default_group_by_employee_id':1}</field>
     </record>
 </odoo>

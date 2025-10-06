@@ -7,15 +7,16 @@
     "license": "LGPL-3",
     "category": "Operations/Inventory",
     "depends": ["base", "stock", "account"],
+
     "data": [
         "security/ir.model.access.csv",
         "data/sequences.xml",
 
+        "views/maintenance_request_views.xml",
+        "views/menu.xml",
+
         "report/maintenance_report_templates.xml",
         "report/maintenance_reports.xml",
-
-        "views/maintenance_request_views.xml",
-        "views/menu.xml"
     ],
     "application": True,
     "installable": True,
