@@ -13,27 +13,30 @@
             </tree>
         </field>
     </record>
+
     <record id="view_maintenance_req_form" model="ir.ui.view">
         <field name="name">maintenance.request.custom.form</field>
         <field name="model">maintenance.request.custom</field>
         <field name="arch" type="xml">
             <form string="طلب صيانة">
+                <header>
+                    <button name="action_confirm" type="object" string="تأكيد"
+                            class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_done" type="object" string="تنفيذ وخصم من المخزون"
+                            class="btn-primary"
+                            invisible="state != 'confirmed'"/>
+                    <button name="action_create_bill" type="object" string="تحويل لفاتورة مشتريات"
+                            class="btn-secondary"
+                            invisible="state not in ('confirmed','done')"/>
+                    <button type="object" name="action_print_pdf" string="PDF"
+                            class="btn-secondary"/>
+                    <button type="object" name="action_export_xlsx" string="Excel"
+                            class="btn-secondary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done"/>
+                </header>
+
                 <sheet>
-                    <header>
-                        <button name="action_confirm" type="object" string="تأكيد"
-                                invisible="state != 'draft'"/>
-                        <button name="action_done" type="object" string="تنفيذ وخصم من المخزون"
-                                invisible="state != 'confirmed'"/>
-                        <button name="action_create_bill" type="object" string="تحويل لفاتورة مشتريات"
-                                invisible="state not in ('confirmed','done')"/>
-
-                        <!-- اطبع PDF عبر ميثود بايثون -->
-                        <button type="object" name="action_print_pdf" string="PDF" class="btn-secondary"/>
-
-                        <!-- نزّل Excel عبر ميثود بايثون (act_url) -->
-                        <button type="object" name="action_export_xlsx" string="Excel" class="btn-secondary"/>
-                    </header>
-
                     <group>
                         <field name="name" readonly="1"/>
                         <field name="user_id"/>
@@ -41,7 +44,6 @@
                         <field name="vehicle_name"/>
                         <field name="vehicle_type"/>
                         <field name="driver_name"/>
-                        <field name="state" readonly="1"/>
                         <field name="picking_id" readonly="1"/>
                         <field name="bill_id" readonly="1"/>
                     </group>
@@ -61,16 +63,10 @@
             </form>
         </field>
     </record>
+
     <record id="action_maintenance_requests" model="ir.actions.act_window">
         <field name="name">طلبات الصيانة</field>
         <field name="res_model">maintenance.request.custom</field>
         <field name="view_mode">tree,form,pivot,graph</field>
-    </record>
-
-    <!-- URL Action for Excel -->
-    <record id="action_maintenance_req_xlsx_url" model="ir.actions.act_url">
-        <field name="name">Excel</field>
-        <field name="url">/maintenance_custom_ar/request/xlsx/%(id)d</field>
-        <field name="target">self</field>
     </record>
 </odoo>

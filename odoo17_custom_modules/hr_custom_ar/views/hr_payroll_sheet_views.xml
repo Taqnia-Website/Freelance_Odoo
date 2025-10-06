@@ -10,27 +10,30 @@
             </tree>
         </field>
     </record>
+
     <record id="view_hr_payroll_sheet_form" model="ir.ui.view">
         <field name="name">hr.payroll.sheet.form</field>
         <field name="model">hr.payroll.sheet</field>
         <field name="arch" type="xml">
             <form string="كشف الرواتب">
+                <header>
+                    <button name="action_compute" type="object" string="احتساب"
+                            class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_done" type="object" string="اعتماد"
+                            class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button type="object" name="action_print_pdf" string="PDF"
+                            class="btn-secondary"/>
+                    <button type="object" name="action_export_xlsx" string="Excel"
+                            class="btn-secondary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+
                 <sheet>
-                    <header>
-                        <button name="action_compute" type="object" string="احتساب" invisible="state != 'draft'"/>
-                        <button name="action_done" type="object" string="اعتماد" invisible="state != 'draft'"/>
-
-                        <!-- اطبع PDF عبر ميثود بايثون -->
-                        <button type="object" name="action_print_pdf" string="PDF" class="btn-secondary"/>
-
-                        <!-- صدّر Excel عبر ميثود بايثون ترجع act_url -->
-                        <button type="object" name="action_export_xlsx" string="Excel" class="btn-secondary"/>
-                    </header>
-
                     <group>
                         <field name="name" readonly="1"/>
                         <field name="date"/>
-                        <field name="state" readonly="1"/>
                     </group>
                     <notebook>
                         <page string="الأسطر">
@@ -50,16 +53,10 @@
             </form>
         </field>
     </record>
+
     <record id="action_hr_payroll_sheet" model="ir.actions.act_window">
         <field name="name">كشف الرواتب</field>
         <field name="res_model">hr.payroll.sheet</field>
         <field name="view_mode">tree,form</field>
-    </record>
-
-    <!-- URL Action for Excel -->
-    <record id="action_hr_payroll_sheet_xlsx_url" model="ir.actions.act_url">
-        <field name="name">Excel</field>
-        <field name="url">/hr_custom_ar/payroll_sheet/xlsx/%(id)d</field>
-        <field name="target">self</field>
     </record>
 </odoo>
