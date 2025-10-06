@@ -41,6 +41,31 @@
         </field>
     </record>
 
+    <!-- Pivot View -->
+    <record id="view_hr_deduction_pivot" model="ir.ui.view">
+        <field name="name">hr.deduction.pivot</field>
+        <field name="model">hr.deduction</field>
+        <field name="arch" type="xml">
+            <pivot string="تحليل الخصومات">
+                <field name="employee_id" type="row"/>
+                <field name="date" interval="month" type="col"/>
+                <field name="amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Graph View -->
+    <record id="view_hr_deduction_graph" model="ir.ui.view">
+        <field name="name">hr.deduction.graph</field>
+        <field name="model">hr.deduction</field>
+        <field name="arch" type="xml">
+            <graph string="رسم بياني للخصومات" type="line">
+                <field name="date" interval="month"/>
+                <field name="amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
     <record id="action_hr_deduction" model="ir.actions.act_window">
         <field name="name">الخصومات</field>
         <field name="res_model">hr.deduction</field>

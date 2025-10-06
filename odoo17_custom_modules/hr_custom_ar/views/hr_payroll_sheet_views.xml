@@ -6,6 +6,7 @@
             <tree string="كشف الرواتب" default_order="date desc">
                 <field name="name"/>
                 <field name="date"/>
+                <field name="total_net"/>
                 <field name="state"/>
             </tree>
         </field>
@@ -23,17 +24,31 @@
                     <button name="action_done" type="object" string="اعتماد"
                             class="btn-primary"
                             invisible="state != 'draft'"/>
+                    <button name="action_post_accounting" type="object" string="قيد محاسبي"
+                            class="btn-primary"
+                            invisible="state != 'done'"/>
                     <button type="object" name="action_print_pdf" string="PDF"
                             class="btn-secondary"/>
                     <button type="object" name="action_export_xlsx" string="Excel"
                             class="btn-secondary"/>
-                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done,posted"/>
                 </header>
 
                 <sheet>
                     <group>
-                        <field name="name" readonly="1"/>
-                        <field name="date"/>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <field name="date"/>
+                            <field name="journal_id" invisible="state == 'draft'"/>
+                        </group>
+                        <group>
+                            <field name="total_basic" readonly="1"/>
+                            <field name="total_loans" readonly="1"/>
+                            <field name="total_deductions" readonly="1"/>
+                            <field name="total_overtime" readonly="1"/>
+                            <field name="total_net" readonly="1" style="font-weight: bold;"/>
+                            <field name="move_id" readonly="1" invisible="state != 'posted'"/>
+                        </group>
                     </group>
                     <notebook>
                         <page string="الأسطر">

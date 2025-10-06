@@ -70,4 +70,28 @@
         <field name="res_model">maintenance.request.custom</field>
         <field name="view_mode">tree,form,pivot,graph</field>
     </record>
+
+    <!-- Pivot View -->
+    <record id="view_maintenance_req_pivot" model="ir.ui.view">
+        <field name="name">maintenance.request.custom.pivot</field>
+        <field name="model">maintenance.request.custom</field>
+        <field name="arch" type="xml">
+            <pivot string="تحليل طلبات الصيانة">
+                <field name="vehicle_type" type="row"/>
+                <field name="state" type="col"/>
+                <field name="id" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Graph View -->
+    <record id="view_maintenance_req_graph" model="ir.ui.view">
+        <field name="name">maintenance.request.custom.graph</field>
+        <field name="model">maintenance.request.custom</field>
+        <field name="arch" type="xml">
+            <graph string="رسم بياني للصيانة" type="pie">
+                <field name="state"/>
+            </graph>
+        </field>
+    </record>
 </odoo>
