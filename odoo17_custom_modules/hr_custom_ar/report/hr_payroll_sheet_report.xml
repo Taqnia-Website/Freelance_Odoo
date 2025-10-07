@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action: يعرّف تقرير QWeb PDF على موديل كشف الرواتب -->
+    <record id="action_hr_payroll_sheet_pdf" model="ir.actions.report">
+        <field name="name">Payroll Sheet</field>
+        <field name="model">hr.payroll.sheet</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_custom_ar.report_hr_payroll_sheet</field>
+        <field name="report_file">hr_custom_ar.report_hr_payroll_sheet</field>
+        <field name="print_report_name">'Payroll Sheet - %s' % (object.name)</field>
+    </record>
+
+    <!-- QWeb template -->
+    <template id="report_hr_payroll_sheet">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>كشف الرواتب</h2>
+                        <div>
+                            <strong>الاسم: </strong><t t-esc="doc.name"/>
+                            <span style="float:right">
+                                <strong>التاريخ: </strong><t t-esc="doc.date"/>
+                            </span>
+                        </div>
+
+                        <table class="table table-sm o_main_table" style="margin-top: 12px;">
+                            <thead>
+                                <tr>
+                                    <th>الموظف</th>
+                                    <th class="text-right">الراتب الأساسي</th>
+                                    <th class="text-right">السلف</th>
+                                    <th class="text-right">الخصومات</th>
+                                    <th class="text-right">الإضافي</th>
+                                    <th class="text-right">الصافي</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="doc.line_ids" t-as="l">
+                                    <tr>
+                                        <td><t t-esc="l.employee_id.name"/></td>
+                                        <td class="text-right"><t t-esc="l.basic_salary"/></td>
+                                        <td class="text-right"><t t-esc="l.loan_total"/></td>
+                                        <td class="text-right"><t t-esc="l.deduction_total"/></td>
+                                        <td class="text-right"><t t-esc="l.overtime_total"/></td>
+                                        <td class="text-right"><t t-esc="l.net_salary"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

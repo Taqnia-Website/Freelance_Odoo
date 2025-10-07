@@ -21,8 +21,9 @@
         <record id="seq_hr_leave" model="ir.sequence">
             <field name="name">إجازة</field>
             <field name="code">hr.leave.custom</field>
-            <field name="prefix">LV/%(y)s/</field>
+            <field name="prefix">LV/%(year)s/</field>
             <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
         </record>
         <record id="seq_hr_resumption" model="ir.sequence">
             <field name="name">مباشرة عمل</field>

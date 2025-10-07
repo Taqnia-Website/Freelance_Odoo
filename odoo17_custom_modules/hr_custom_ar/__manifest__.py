@@ -24,6 +24,7 @@
 
         "report/hr_report_templates.xml",
         "report/hr_reports.xml",
+        "report/hr_payroll_sheet_report.xml",
     ],
     "application": True,
     "installable": True,
