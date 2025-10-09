@@ -1,5 +1,5 @@
 <odoo>
-    <menuitem id="menu_hr_custom_root" name="الموارد البشرية (مخصص)"/>
+    <menuitem id="menu_hr_custom_root" name="الموارد البشرية"/>
     <menuitem id="menu_hr_custom_operations" name="العمليات" parent="menu_hr_custom_root"/>
     <menuitem id="menu_hr_custom_reports" name="التقارير" parent="menu_hr_custom_root"/>
     <menuitem id="menu_hr_custom_config" name="الإعدادات" parent="menu_hr_custom_root" sequence="99"/>

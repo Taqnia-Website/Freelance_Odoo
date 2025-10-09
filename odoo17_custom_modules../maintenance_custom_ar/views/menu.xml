@@ -1,6 +1,0 @@
-<odoo>
-    <menuitem id="menu_maintenance_custom_root" name="الصيانة (مخصص)"/>
-    <menuitem id="menu_maintenance_custom_operations" name="العمليات" parent="menu_maintenance_custom_root"/>
-    <menuitem id="menu_maintenance_custom_reports" name="التقارير" parent="menu_maintenance_custom_root"/>
-    <menuitem id="menu_maintenance_requests" name="طلبات الصيانة" parent="menu_maintenance_custom_operations" action="action_maintenance_requests"/>
-</odoo>

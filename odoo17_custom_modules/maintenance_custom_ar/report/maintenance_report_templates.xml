@@ -8,9 +8,9 @@
           <p><strong>المسؤول:</strong> <t t-esc="doc.user_id.name"/></p>
           <p><strong>مدة التنفيذ:</strong> <t t-esc="doc.execution_duration"/> يوم</p>
           <p><strong>تاريخ الطلب:</strong> <t t-esc="doc.date"/></p>
-          <p><strong>اسم المركبة:</strong> <t t-esc="doc.vehicle_name"/></p>
-          <p><strong>نوع السيارة:</strong> <t t-esc="doc.vehicle_type"/></p>
-          <p><strong>اسم السائق:</strong> <t t-esc="doc.driver_name"/></p>
+          <p><strong>اسم المركبة:</strong> <t t-esc="doc.vehicle_id.name if doc.vehicle_id else ''"/></p>
+          <p><strong>نوع السيارة:</strong> <t t-esc="doc.vehicle_type or ''"/></p>
+          <p><strong>اسم السائق:</strong> <t t-esc="doc.driver_id.name if doc.driver_id else ''"/></p>
 
           <h4>قطع الغيار المطلوبة</h4>
           <table class="table table-sm o_main_table">
@@ -38,3 +38,4 @@
     </t>
   </template>
 </odoo>
+

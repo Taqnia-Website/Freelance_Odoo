@@ -81,7 +81,7 @@
     </record>
 
     <!-- Menus (لو ما عندك جذر سابق) -->
-    <menuitem id="menu_hr_custom_root" name="الموارد البشرية (مخصص)" sequence="10"/>
+    <menuitem id="menu_hr_custom_root" name="الموارد البشرية" sequence="10"/>
     <menuitem id="menu_hr_leave_root" name="الإجازات" parent="menu_hr_custom_root" sequence="20" action="action_hr_leave"/>
 
 </odoo>

@@ -6,9 +6,9 @@
             <tree string="طلبات الصيانة" default_order="date desc">
                 <field name="name"/>
                 <field name="date"/>
-                <field name="vehicle_name"/>
+                <field name="vehicle_id"/>
                 <field name="vehicle_type"/>
-                <field name="driver_name"/>
+                <field name="driver_id"/>
                 <field name="state"/>
             </tree>
         </field>
@@ -42,9 +42,9 @@
                         <field name="user_id"/>
                         <field name="date"/>
                         <field name="execution_duration"/>
-                        <field name="vehicle_name"/>
+                        <field name="vehicle_id"/>
                         <field name="vehicle_type"/>
-                        <field name="driver_name"/>
+                        <field name="driver_id"/>
                         <field name="picking_id" readonly="1"/>
                         <field name="bill_id" readonly="1"/>
                     </group>
@@ -54,7 +54,7 @@
                                 <tree editable="bottom">
                                     <field name="product_id"/>
                                     <field name="quantity"/>
-                                    <field name="price_unit"/>
+                                    <field name="price_unit" readonly="1"/>
                                     <field name="price_subtotal" readonly="1"/>
                                 </tree>
                             </field>

@@ -5,7 +5,7 @@ from odoo.exceptions import UserError, ValidationError
 
 class MaintenanceRequest(models.Model):
     _name = 'maintenance.request.custom'
-    _description = 'طلب صيانة (مخصص)'
+    _description = 'طلب صيانة'
     _order = 'date desc, id desc'
 
     name = fields.Char(
@@ -25,9 +25,9 @@ class MaintenanceRequest(models.Model):
         required=True
     )
     execution_duration = fields.Integer(string='مدة التنفيذ (بالأيام)', default=1)
-    vehicle_name = fields.Char(string='اسم المركبة')
-    vehicle_type = fields.Char(string='نوع السيارة')
-    driver_name = fields.Char(string='اسم السائق')
+    vehicle_id = fields.Many2one('maintenance.vehicle', string='المركبة')
+    vehicle_type = fields.Char(string='نوع السيارة', related='vehicle_id.vehicle_type', store=True, readonly=True)
+    driver_id = fields.Many2one('maintenance.driver', string='السائق')
 
     part_line_ids = fields.One2many(
         'maintenance.request.line', 'request_id',
@@ -52,62 +52,71 @@ class MaintenanceRequest(models.Model):
                 raise UserError('لا توجد قطع غيار.')
             rec.state = 'confirmed'
 
-    def _get_internal_picking_type(self):
-        """يحاول إيجاد نوع عملية داخلية (internal). لو مش موجود، يجرّب outgoing."""
-        PickingType = self.env['stock.picking.type']
-        picking_type = PickingType.search([('code', '=', 'internal')], limit=1)
-        if not picking_type:
-            picking_type = PickingType.search([('code', '=', 'outgoing')], limit=1)
-        return picking_type
-
     def action_done(self):
+        """تنفيذ بسيط - خصم مباشر من المخزون مع جمع الكميات"""
         for rec in self:
             if not rec.part_line_ids:
                 raise UserError('لا توجد قطع غيار.')
 
-            picking_type = rec._get_internal_picking_type()
-            if not picking_type:
-                raise UserError('لم يتم العثور على نوع عملية مخزنية (internal/outgoing).')
+            # البحث عن warehouse
+            warehouse = self.env['stock.warehouse'].search([], limit=1)
+            if not warehouse:
+                raise UserError('يرجى إنشاء Warehouse.')
 
-            if not picking_type.default_location_src_id or not picking_type.default_location_dest_id:
-                raise UserError('يرجى ضبط المواقع الافتراضية لنوع العملية المختار.')
+            location = warehouse.lot_stock_id
 
-            # إنشاء تحريك مخزني واستهلاك الكميات
-            moves = []
-            for l in rec.part_line_ids:
-                if not l.product_id:
-                    raise ValidationError('يرجى اختيار المنتج لكل سطر.')
-                moves.append((0, 0, {
-                    'name': l.product_id.display_name,
-                    'product_id': l.product_id.id,
-                    'product_uom_qty': l.quantity or 0.0,
-                    'product_uom': l.product_id.uom_id.id,
-                    'location_id': picking_type.default_location_src_id.id,
-                    'location_dest_id': picking_type.default_location_dest_id.id,
-                }))
+            # جمع الكميات المطلوبة لكل منتج
+            product_quantities = {}
+            for line in rec.part_line_ids:
+                if not line.product_id:
+                    continue
 
-            picking = self.env['stock.picking'].create({
-                'picking_type_id': picking_type.id,
-                'origin': rec.name,
-                'move_ids_without_package': moves,
-            })
+                product_id = line.product_id.id
+                if product_id not in product_quantities:
+                    product_quantities[product_id] = {
+                        'product': line.product_id,
+                        'total_qty': 0.0
+                    }
+                product_quantities[product_id]['total_qty'] += line.quantity
 
-            # تأكيد وتعيين ثم تسجيل الكميات المُنفذة
-            picking.action_confirm()
-            picking.action_assign()
+            # التحقق من الكميات المتاحة لكل منتج
+            for product_id, data in product_quantities.items():
+                product = data['product']
+                required_qty = data['total_qty']
 
-            # أسهل وأضمن: أنجز التحريك مباشرة بدون نوافذ (Backorder Wizard)
-            # لو محتاجين تحديد كميات من خطوط التحريك:
-            for mv in picking.move_ids_without_package:
-                mv.quantity_done = mv.product_uom_qty
+                # البحث عن الكمية الموجودة
+                quants = self.env['stock.quant'].search([
+                    ('product_id', '=', product_id),
+                    ('location_id', '=', location.id)
+                ])
 
-            # إنهاء العملية
-            picking.button_validate()
+                available_qty = sum(quants.mapped('quantity'))
 
-            rec.picking_id = picking.id
+                if available_qty < required_qty:
+                    raise UserError(
+                        f'الكمية المتاحة غير كافية!\n\n'
+                        f'المنتج: {product.display_name}\n'
+                        f'المطلوب: {required_qty}\n'
+                        f'المتاح: {available_qty}'
+                    )
+
+                # تحديث الكمية (خصم)
+                remaining = required_qty
+                for quant in quants:
+                    if remaining <= 0:
+                        break
+
+                    if quant.quantity >= remaining:
+                        quant.quantity -= remaining
+                        remaining = 0
+                    else:
+                        remaining -= quant.quantity
+                        quant.quantity = 0
+
             rec.state = 'done'
 
     def action_create_bill(self):
+        """إنشاء فاتورة مشتريات من طلب الصيانة"""
         for rec in self:
             if not rec.part_line_ids:
                 raise UserError('لا توجد قطع غيار.')
@@ -123,11 +132,18 @@ class MaintenanceRequest(models.Model):
                 if not expense_account:
                     raise UserError('يرجى ضبط حساب المصروف للمنتج أو لفئة المنتج.')
 
+                # جلب السعر من المنتج إذا كان فارغاً أو صفر
+                price = l.price_unit
+                if not price or price == 0:
+                    # استخدام سعر البيع من المنتج
+                    price = l.product_id.list_price
+                    # أو استخدام التكلفة: price = l.product_id.standard_price
+
                 lines.append((0, 0, {
                     'product_id': l.product_id.id,
                     'name': l.product_id.display_name,
                     'quantity': l.quantity or 0.0,
-                    'price_unit': l.price_unit or 0.0,
+                    'price_unit': price,
                     'account_id': expense_account.id,
                 }))
 
@@ -154,9 +170,25 @@ class MaintenanceRequest(models.Model):
     # مخرجات PDF / Excel
     # =========================
     def action_print_pdf(self):
-        """يطبع تقرير PDF المعرّف بـ XML-ID: maintenance_custom_ar.action_maintenance_req_pdf"""
+        """يطبع تقرير PDF"""
         self.ensure_one()
-        return self.env.ref('maintenance_custom_ar.action_maintenance_req_pdf').report_action(self)
+        # البحث عن التقرير بالاسم بدلاً من XML ID
+        report = self.env['ir.actions.report'].search([
+            ('report_name', '=', 'maintenance_custom_ar.report_maintenance_req'),
+            ('model', '=', 'maintenance.request.custom')
+        ], limit=1)
+
+        if not report:
+            # إذا لم يوجد، أنشئه ديناميكياً
+            report = self.env['ir.actions.report'].create({
+                'name': 'بيان طلب الصيانة (PDF)',
+                'model': 'maintenance.request.custom',
+                'report_type': 'qweb-pdf',
+                'report_name': 'maintenance_custom_ar.report_maintenance_req',
+                'print_report_name': "'بيان_طلب_صيانة_' + (object.name or '')",
+            })
+
+        return report.report_action(self)
 
     def action_export_xlsx(self):
         """يفتح رابط الكونترولر لتصدير Excel للطلب الحالي"""
@@ -187,7 +219,25 @@ class MaintenanceRequestLine(models.Model):
     price_unit = fields.Float(string='السعر')
     price_subtotal = fields.Float(string='الإجمالي', compute='_compute_subtotal', store=True)
 
+    @api.onchange('product_id')
+    def _onchange_product_id(self):
+        """ملء السعر تلقائياً عند اختيار المنتج"""
+        if self.product_id:
+            # استخدام سعر البيع (Sales Price)
+            self.price_unit = self.product_id.list_price
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        """ملء السعر تلقائياً عند الإنشاء إذا كان فارغاً"""
+        for vals in vals_list:
+            if 'product_id' in vals and (not vals.get('price_unit') or vals.get('price_unit') == 0):
+                product = self.env['product.product'].browse(vals['product_id'])
+                if product:
+                    vals['price_unit'] = product.list_price
+        return super().create(vals_list)
+
     @api.depends('quantity', 'price_unit')
     def _compute_subtotal(self):
         for rec in self:
             rec.price_subtotal = (rec.quantity or 0.0) * (rec.price_unit or 0.0)
+

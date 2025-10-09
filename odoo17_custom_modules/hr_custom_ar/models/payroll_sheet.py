@@ -6,7 +6,7 @@ from odoo.exceptions import UserError
 
 class HrPayrollSheet(models.Model):
     _name = 'hr.payroll.sheet'
-    _description = 'كشف رواتب (مخصص)'
+    _description = 'كشف رواتب'
     _order = 'date desc, id desc'
 
     # بيانات عامة
@@ -133,10 +133,16 @@ class HrPayrollSheet(models.Model):
                 raise UserError('إجمالي الصافي صفر. لا يمكن إنشاء قيد.')
 
             # اختيار حسابات مدين/دائن
-            debit_acc = sheet.debit_account_id or sheet.journal_id.default_account_id
-            credit_acc = sheet.credit_account_id or sheet.journal_id.default_account_id
-            if not debit_acc or not credit_acc:
-                raise UserError('يرجى تحديد حسابات مدين/دائن أو ضبط حساب افتراضي لدفتر اليومية.')
+            # يجب تحديد الحسابات صراحة على مستوى كشف الرواتب
+            if not sheet.debit_account_id or not sheet.credit_account_id:
+                raise UserError(
+                    'يرجى تحديد حساب المدين (مصروف الرواتب) وحساب الدائن (البنك/الصندوق) '
+                    'في قسم الإعدادات المحاسبية أسفل النموذج.'
+                )
+
+            debit_acc = sheet.debit_account_id
+            credit_acc = sheet.credit_account_id
+
             if debit_acc.id == credit_acc.id:
                 raise UserError('حساب المدين والدائن متطابقان. يرجى اختيار حسابين مختلفين.')
 
@@ -166,7 +172,6 @@ class HrPayrollSheet(models.Model):
             sheet.move_id = move.id
             sheet.state = 'posted'
         return True
-
     # -------------------- Reports/Export --------------------
     def action_print_pdf(self):
         self.ensure_one()

@@ -12,7 +12,7 @@
         </field>
     </record>
 
-    <record id="view_hr_payroll_sheet_form" model="ir.ui.view">
+   <record id="view_hr_payroll_sheet_form" model="ir.ui.view">
         <field name="name">hr.payroll.sheet.form</field>
         <field name="model">hr.payroll.sheet</field>
         <field name="arch" type="xml">
@@ -39,7 +39,6 @@
                         <group>
                             <field name="name" readonly="1"/>
                             <field name="date"/>
-                            <field name="journal_id" invisible="state == 'draft'"/>
                         </group>
                         <group>
                             <field name="total_basic" readonly="1"/>
@@ -47,6 +46,23 @@
                             <field name="total_deductions" readonly="1"/>
                             <field name="total_overtime" readonly="1"/>
                             <field name="total_net" readonly="1" style="font-weight: bold;"/>
+                        </group>
+                    </group>
+
+                    <!-- قسم الإعدادات المحاسبية -->
+                    <group string="الإعدادات المحاسبية" invisible="state == 'draft'">
+                        <group>
+                            <field name="journal_id" required="state in ('done', 'posted')"/>
+                            <field name="debit_account_id"
+                                   placeholder="حساب مصروف الرواتب (630000)"
+                                   required="state in ('done', 'posted')"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                        <group>
+                            <field name="credit_account_id"
+                                   placeholder="حساب البنك (101401)"
+                                   required="state in ('done', 'posted')"
+                                   options="{'no_create': True, 'no_open': True}"/>
                             <field name="move_id" readonly="1" invisible="state != 'posted'"/>
                         </group>
                     </group>
@@ -67,7 +83,7 @@
                 </sheet>
             </form>
         </field>
-    </record>
+   </record>
 
     <record id="action_hr_payroll_sheet" model="ir.actions.act_window">
         <field name="name">كشف الرواتب</field>
