@@ -1,0 +1,51 @@
+<odoo>
+    <!-- Tree View -->
+    <record id="view_maintenance_vehicle_tree" model="ir.ui.view">
+        <field name="name">maintenance.vehicle.tree</field>
+        <field name="model">maintenance.vehicle</field>
+        <field name="arch" type="xml">
+            <tree string="المركبات">
+                <field name="name"/>
+                <field name="vehicle_type"/>
+                <field name="plate_number"/>
+                <field name="model"/>
+                <field name="year"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_maintenance_vehicle_form" model="ir.ui.view">
+        <field name="name">maintenance.vehicle.form</field>
+        <field name="model">maintenance.vehicle</field>
+        <field name="arch" type="xml">
+            <form string="مركبة">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="vehicle_type"/>
+                            <field name="plate_number"/>
+                        </group>
+                        <group>
+                            <field name="model"/>
+                            <field name="year"/>
+                            <field name="color"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="notes" placeholder="ملاحظات إضافية..."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_maintenance_vehicle" model="ir.actions.act_window">
+        <field name="name">المركبات</field>
+        <field name="res_model">maintenance.vehicle</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,120 @@
+<odoo>
+    <record id="view_hr_overtime_tree" model="ir.ui.view">
+        <field name="name">hr.overtime.tree</field>
+        <field name="model">hr.overtime</field>
+        <field name="arch" type="xml">
+            <tree string="الإضافي" default_order="date desc">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="hourly_rate"/>
+                <field name="hours"/>
+                <field name="total"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hr_overtime_form" model="ir.ui.view">
+        <field name="name">hr.overtime.form</field>
+        <field name="model">hr.overtime</field>
+        <field name="arch" type="xml">
+            <form string="إضافي">
+                <header>
+                    <button name="action_approve" type="object" string="اعتماد"
+                            class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,approved"/>
+                </header>
+
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" type="object"
+                                name="action_approve"
+                                icon="fa-calculator"
+                                invisible="state != 'draft'">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">احتساب</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <field name="date"/>
+                            <field name="employee_id"/>
+                            <field name="department_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="hours"/>
+                            <field name="hourly_rate" readonly="1"
+                                   help="سعر الساعة = (الراتب الأساسي ÷ 30 ÷ 8)"/>
+                            <field name="total" readonly="1"
+                                   help="الإجمالي = (عدد الساعات × 1.5 × سعر الساعة)"/>
+                        </group>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_overtime" model="ir.actions.act_window">
+        <field name="name">الإضافي</field>
+        <field name="res_model">hr.overtime</field>
+        <field name="view_mode">tree,form,pivot,graph</field>
+    </record>
+</odoo>
+<!--<odoo>-->
+<!--    <record id="view_hr_overtime_tree" model="ir.ui.view">-->
+<!--        <field name="name">hr.overtime.tree</field>-->
+<!--        <field name="model">hr.overtime</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <tree string="الإضافي" default_order="date desc">-->
+<!--                <field name="name"/>-->
+<!--                <field name="date"/>-->
+<!--                <field name="employee_id"/>-->
+<!--                <field name="department_id"/>-->
+<!--                <field name="amount"/>-->
+<!--                <field name="hours"/>-->
+<!--                <field name="total"/>-->
+<!--                <field name="state"/>-->
+<!--            </tree>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record id="view_hr_overtime_form" model="ir.ui.view">-->
+<!--        <field name="name">hr.overtime.form</field>-->
+<!--        <field name="model">hr.overtime</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <form string="إضافي">-->
+<!--                <header>-->
+<!--                    <button name="action_approve" type="object" string="اعتماد"-->
+<!--                            class="btn-primary"-->
+<!--                            invisible="state != 'draft'"/>-->
+<!--                    <field name="state" widget="statusbar" statusbar_visible="draft,approved"/>-->
+<!--                </header>-->
+
+<!--                <sheet>-->
+<!--                    <group>-->
+<!--                        <field name="name" readonly="1"/>-->
+<!--                        <field name="date"/>-->
+<!--                        <field name="employee_id"/>-->
+<!--                        <field name="department_id" readonly="1"/>-->
+<!--                        <field name="amount"/>-->
+<!--                        <field name="hours"/>-->
+<!--                        <field name="total" readonly="1"/>-->
+<!--                    </group>-->
+<!--                </sheet>-->
+<!--            </form>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record id="action_hr_overtime" model="ir.actions.act_window">-->
+<!--        <field name="name">الإضافي</field>-->
+<!--        <field name="res_model">hr.overtime</field>-->
+<!--        <field name="view_mode">tree,form,pivot,graph</field>-->
+<!--    </record>-->
+<!--</odoo>-->

@@ -1,0 +1,8 @@
+<odoo>
+    <record id="board_hr_custom" model="board.board">
+        <field name="name">لوحة تحكم HR</field>
+        <field name="board_id" eval="False"/>
+        <field name="company_id" eval="False"/>
+        <field name="action_id" ref="action_hr_payroll_sheet"/>
+    </record>
+</odoo>

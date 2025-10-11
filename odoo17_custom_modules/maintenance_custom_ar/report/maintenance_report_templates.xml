@@ -1,0 +1,41 @@
+<odoo>
+  <template id="report_maintenance_req">
+    <t t-call="web.html_container">
+      <t t-foreach="docs" t-as="doc">
+        <div class="page">
+          <h2 style="text-align:center">بيان طلب الصيانة</h2>
+          <p><strong>بيان الطلب:</strong> <t t-esc="doc.name"/></p>
+          <p><strong>المسؤول:</strong> <t t-esc="doc.user_id.name"/></p>
+          <p><strong>مدة التنفيذ:</strong> <t t-esc="doc.execution_duration"/> يوم</p>
+          <p><strong>تاريخ الطلب:</strong> <t t-esc="doc.date"/></p>
+          <p><strong>اسم المركبة:</strong> <t t-esc="doc.vehicle_id.name if doc.vehicle_id else ''"/></p>
+          <p><strong>نوع السيارة:</strong> <t t-esc="doc.vehicle_type or ''"/></p>
+          <p><strong>اسم السائق:</strong> <t t-esc="doc.driver_id.name if doc.driver_id else ''"/></p>
+
+          <h4>قطع الغيار المطلوبة</h4>
+          <table class="table table-sm o_main_table">
+            <thead>
+              <tr>
+                <th>القطعة</th>
+                <th>الكمية</th>
+                <th>السعر</th>
+                <th>الإجمالي</th>
+              </tr>
+            </thead>
+            <tbody>
+              <t t-foreach="doc.part_line_ids" t-as="l">
+                <tr>
+                  <td><t t-esc="l.product_id.display_name"/></td>
+                  <td class="text-right"><t t-esc="l.quantity"/></td>
+                  <td class="text-right"><t t-esc="l.price_unit"/></td>
+                  <td class="text-right"><t t-esc="l.price_subtotal"/></td>
+                </tr>
+              </t>
+            </tbody>
+          </table>
+        </div>
+      </t>
+    </t>
+  </template>
+</odoo>
+

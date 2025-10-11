@@ -1,0 +1,122 @@
+<odoo>
+    <!-- Tree View -->
+    <record id="view_hr_loan_tree" model="ir.ui.view">
+        <field name="name">hr.loan.tree</field>
+        <field name="model">hr.loan</field>
+        <field name="arch" type="xml">
+            <tree string="السلف" default_order="date desc">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="amount"/>
+                <field name="months"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_hr_loan_form" model="ir.ui.view">
+        <field name="name">hr.loan.form</field>
+        <field name="model">hr.loan</field>
+        <field name="arch" type="xml">
+            <form string="سلفة">
+                <header>
+                    <button name="action_approve" type="object" string="اعتماد"
+                            class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_post_account" type="object" string="تسجيل محاسبياً"
+                            class="btn-secondary"
+                            invisible="state != 'approved'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,approved,paid,cancel"/>
+                </header>
+
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="date"/>
+                        <field name="employee_id" required="1"/>
+                        <field name="department_id" readonly="1"/>
+                        <field name="amount" required="1"/>
+                        <field name="months"/>
+                        <field name="reason"/>
+                        <field name="journal_id" options="{'no_open': True}"/>
+                    </group>
+
+                    <!-- الحقول الاختيارية للحسابات -->
+                    <group string="الحسابات (اختياري)">
+                        <field name="debit_account_id" placeholder="حساب مدين (ذمم/سلف موظفين)"
+                               options="{'no_open': True}"/>
+                        <field name="credit_account_id" placeholder="حساب دائن (صندوق/بنك/التزامات)"
+                               options="{'no_open': True}"/>
+                    </group>
+
+                    <group>
+                        <field name="move_id" readonly="1"/>
+                        <field name="company_id" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Pivot View -->
+    <record id="view_hr_loan_pivot" model="ir.ui.view">
+        <field name="name">hr.loan.pivot</field>
+        <field name="model">hr.loan</field>
+        <field name="arch" type="xml">
+            <pivot string="تحليل السلف">
+                <field name="employee_id" type="row"/>
+                <field name="department_id" type="col"/>
+                <field name="amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Graph View -->
+    <record id="view_hr_loan_graph" model="ir.ui.view">
+        <field name="name">hr.loan.graph</field>
+        <field name="model">hr.loan</field>
+        <field name="arch" type="xml">
+            <graph string="رسم بياني للسلف" type="bar">
+                <field name="department_id"/>
+                <field name="amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_hr_loan_search" model="ir.ui.view">
+        <field name="name">hr.loan.search</field>
+        <field name="model">hr.loan</field>
+        <field name="arch" type="xml">
+            <search string="بحث السلف">
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="date"/>
+                <filter string="مسودة" name="draft" domain="[('state','=','draft')]"/>
+                <filter string="معتمد" name="approved" domain="[('state','=','approved')]"/>
+                <filter string="مسجل محاسبياً" name="paid" domain="[('state','=','paid')]"/>
+                <separator/>
+                <filter string="هذا الشهر" name="this_month"
+                        domain="[('date','&gt;=',(context_today()-relativedelta(day=1)).strftime('%Y-%m-%d')),
+                                ('date','&lt;=',(context_today()+relativedelta(day=31)).strftime('%Y-%m-%d'))]"/>
+                <group expand="0" string="تجميع حسب">
+                    <filter string="الموظف" name="group_by_employee_id" context="{'group_by':'employee_id'}"/>
+                    <filter string="القسم" name="group_by_department_id" context="{'group_by':'department_id'}"/>
+                    <filter string="الشهر" name="group_by_month" context="{'group_by':'date:month'}"/>
+                    <filter string="الحالة" name="group_by_state" context="{'group_by':'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_hr_loan" model="ir.actions.act_window">
+        <field name="name">السلف</field>
+        <field name="res_model">hr.loan</field>
+        <field name="view_mode">tree,form,pivot,graph</field>
+        <field name="context">{'search_default_this_month': 1}</field>
+    </record>
+</odoo>

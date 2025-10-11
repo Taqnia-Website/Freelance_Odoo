@@ -1,0 +1,14 @@
+<odoo>
+    <menuitem id="menu_hr_custom_root" name="الموارد البشرية"/>
+    <menuitem id="menu_hr_custom_operations" name="العمليات" parent="menu_hr_custom_root"/>
+    <menuitem id="menu_hr_custom_reports" name="التقارير" parent="menu_hr_custom_root"/>
+    <menuitem id="menu_hr_custom_config" name="الإعدادات" parent="menu_hr_custom_root" sequence="99"/>
+
+    <menuitem id="menu_hr_loan" name="السلف" parent="menu_hr_custom_operations" action="action_hr_loan"/>
+    <menuitem id="menu_hr_deduction" name="الخصومات" parent="menu_hr_custom_operations" action="action_hr_deduction"/>
+    <menuitem id="menu_hr_overtime" name="الإضافي" parent="menu_hr_custom_operations" action="action_hr_overtime"/>
+    <menuitem id="menu_hr_leave" name="الإجازات" parent="menu_hr_custom_operations" action="action_hr_leave"/>
+    <menuitem id="menu_hr_resumption" name="مباشرة العمل" parent="menu_hr_custom_operations" action="action_hr_resumption"/>
+    <menuitem id="menu_hr_resignation" name="استقالة موظف" parent="menu_hr_custom_operations" action="action_hr_resignation"/>
+    <menuitem id="menu_hr_payroll_sheet" name="كشف الرواتب" parent="menu_hr_custom_reports" action="action_hr_payroll_sheet"/>
+</odoo>

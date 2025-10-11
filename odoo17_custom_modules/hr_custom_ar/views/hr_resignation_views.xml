@@ -1,0 +1,47 @@
+<odoo>
+    <record id="view_hr_resignation_tree" model="ir.ui.view">
+        <field name="name">hr.resignation.tree</field>
+        <field name="model">hr.resignation</field>
+        <field name="arch" type="xml">
+            <tree string="استقالة موظف" default_order="date desc">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="reason"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hr_resignation_form" model="ir.ui.view">
+        <field name="name">hr.resignation.form</field>
+        <field name="model">hr.resignation</field>
+        <field name="arch" type="xml">
+            <form string="استقالة موظف">
+                <header>
+                    <button name="action_accept" type="object" string="قبول الاستقالة"
+                            class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,accepted"/>
+                </header>
+
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="date"/>
+                        <field name="employee_id"/>
+                        <field name="department_id" readonly="1"/>
+                        <field name="reason"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_resignation" model="ir.actions.act_window">
+        <field name="name">استقالة موظف</field>
+        <field name="res_model">hr.resignation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

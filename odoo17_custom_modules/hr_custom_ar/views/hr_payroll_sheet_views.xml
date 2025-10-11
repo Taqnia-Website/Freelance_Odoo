@@ -1,0 +1,93 @@
+<odoo>
+    <record id="view_hr_payroll_sheet_tree" model="ir.ui.view">
+        <field name="name">hr.payroll.sheet.tree</field>
+        <field name="model">hr.payroll.sheet</field>
+        <field name="arch" type="xml">
+            <tree string="كشف الرواتب" default_order="date desc">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="total_net"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+   <record id="view_hr_payroll_sheet_form" model="ir.ui.view">
+        <field name="name">hr.payroll.sheet.form</field>
+        <field name="model">hr.payroll.sheet</field>
+        <field name="arch" type="xml">
+            <form string="كشف الرواتب">
+                <header>
+                    <button name="action_compute" type="object" string="احتساب"
+                            class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_done" type="object" string="اعتماد"
+                            class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_post_accounting" type="object" string="قيد محاسبي"
+                            class="btn-primary"
+                            invisible="state != 'done'"/>
+                    <button type="object" name="action_print_pdf" string="PDF"
+                            class="btn-secondary"/>
+                    <button type="object" name="action_export_xlsx" string="Excel"
+                            class="btn-secondary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done,posted"/>
+                </header>
+
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="total_basic" readonly="1"/>
+                            <field name="total_loans" readonly="1"/>
+                            <field name="total_deductions" readonly="1"/>
+                            <field name="total_overtime" readonly="1"/>
+                            <field name="total_net" readonly="1" style="font-weight: bold;"/>
+                        </group>
+                    </group>
+
+                    <!-- قسم الإعدادات المحاسبية -->
+                    <group string="الإعدادات المحاسبية" invisible="state == 'draft'">
+                        <group>
+                            <field name="journal_id" required="state in ('done', 'posted')"/>
+                            <field name="debit_account_id"
+                                   placeholder="حساب مصروف الرواتب (630000)"
+                                   required="state in ('done', 'posted')"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                        <group>
+                            <field name="credit_account_id"
+                                   placeholder="حساب البنك (101401)"
+                                   required="state in ('done', 'posted')"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                            <field name="move_id" readonly="1" invisible="state != 'posted'"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="الأسطر">
+                            <field name="line_ids">
+                                <tree editable="bottom">
+                                    <field name="employee_id"/>
+                                    <field name="basic_salary"/>
+                                    <field name="loan_total"/>
+                                    <field name="deduction_total"/>
+                                    <field name="overtime_total"/>
+                                    <field name="net_salary" readonly="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+   </record>
+
+    <record id="action_hr_payroll_sheet" model="ir.actions.act_window">
+        <field name="name">كشف الرواتب</field>
+        <field name="res_model">hr.payroll.sheet</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

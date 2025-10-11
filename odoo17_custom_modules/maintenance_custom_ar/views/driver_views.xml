@@ -1,0 +1,48 @@
+<odoo>
+    <!-- Tree View -->
+    <record id="view_maintenance_driver_tree" model="ir.ui.view">
+        <field name="name">maintenance.driver.tree</field>
+        <field name="model">maintenance.driver</field>
+        <field name="arch" type="xml">
+            <tree string="السائقين">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="license_number"/>
+                <field name="license_expiry"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_maintenance_driver_form" model="ir.ui.view">
+        <field name="name">maintenance.driver.form</field>
+        <field name="model">maintenance.driver</field>
+        <field name="arch" type="xml">
+            <form string="سائق">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="phone"/>
+                        </group>
+                        <group>
+                            <field name="license_number"/>
+                            <field name="license_expiry"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="notes" placeholder="ملاحظات إضافية..."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_maintenance_driver" model="ir.actions.act_window">
+        <field name="name">السائقين</field>
+        <field name="res_model">maintenance.driver</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

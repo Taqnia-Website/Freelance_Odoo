@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_maintenance_request,access_maintenance_request,model_maintenance_request_custom,,1,1,1,1
+access_maintenance_request_line,access_maintenance_request_line,model_maintenance_request_line,,1,1,1,1
+access_maintenance_vehicle,access_maintenance_vehicle,model_maintenance_vehicle,,1,1,1,1
+access_maintenance_driver,access_maintenance_driver,model_maintenance_driver,,1,1,1,1

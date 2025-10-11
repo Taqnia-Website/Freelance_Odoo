@@ -1,0 +1,6 @@
+<odoo>
+    <record id="board_maintenance_custom" model="board.board">
+        <field name="name">لوحة تحكم الصيانة</field>
+        <field name="action_id" ref="action_maintenance_requests"/>
+    </record>
+</odoo>

@@ -1,0 +1,9 @@
+<odoo>
+    <menuitem id="menu_maintenance_custom_root" name="الصيانة"/>
+    <menuitem id="menu_maintenance_custom_operations" name="العمليات" parent="menu_maintenance_custom_root"/>
+    <menuitem id="menu_maintenance_custom_reports" name="التقارير" parent="menu_maintenance_custom_root"/>
+    <menuitem id="menu_maintenance_requests" name="طلبات الصيانة" parent="menu_maintenance_custom_operations" action="action_maintenance_requests"/>
+    <menuitem id="menu_maintenance_vehicles" name="المركبات" parent="menu_maintenance_custom_root" action="action_maintenance_vehicle" sequence="10"/>
+    <menuitem id="menu_maintenance_drivers" name="السائقين" parent="menu_maintenance_custom_root" action="action_maintenance_driver" sequence="11"/>
+
+</odoo>

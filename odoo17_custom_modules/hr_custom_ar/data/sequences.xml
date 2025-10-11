@@ -1,0 +1,47 @@
+<odoo>
+    <data noupdate="1">
+        <record id="seq_hr_loan" model="ir.sequence">
+            <field name="name">سلفة</field>
+            <field name="code">hr.loan</field>
+            <field name="prefix">LN/%(y)s/</field>
+            <field name="padding">4</field>
+        </record>
+        <record id="seq_hr_deduction" model="ir.sequence">
+            <field name="name">خصم</field>
+            <field name="code">hr.deduction</field>
+            <field name="prefix">DED/%(y)s/</field>
+            <field name="padding">4</field>
+        </record>
+        <record id="seq_hr_overtime" model="ir.sequence">
+            <field name="name">إضافي</field>
+            <field name="code">hr.overtime</field>
+            <field name="prefix">OT/%(y)s/</field>
+            <field name="padding">4</field>
+        </record>
+        <record id="seq_hr_leave" model="ir.sequence">
+            <field name="name">إجازة</field>
+            <field name="code">hr.leave.custom</field>
+            <field name="prefix">LV/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_hr_resumption" model="ir.sequence">
+            <field name="name">مباشرة عمل</field>
+            <field name="code">hr.resumption</field>
+            <field name="prefix">RS/%(y)s/</field>
+            <field name="padding">4</field>
+        </record>
+        <record id="seq_hr_resignation" model="ir.sequence">
+            <field name="name">استقالة</field>
+            <field name="code">hr.resignation</field>
+            <field name="prefix">RG/%(y)s/</field>
+            <field name="padding">4</field>
+        </record>
+        <record id="seq_hr_payroll_sheet" model="ir.sequence">
+            <field name="name">كشف رواتب</field>
+            <field name="code">hr.payroll.sheet</field>
+            <field name="prefix">PAY/%(y)s/</field>
+            <field name="padding">4</field>
+        </record>
+    </data>
+</odoo>
